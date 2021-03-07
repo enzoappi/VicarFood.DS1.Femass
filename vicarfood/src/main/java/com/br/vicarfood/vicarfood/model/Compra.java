@@ -1,11 +1,13 @@
 package com.br.vicarfood.vicarfood.model;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -17,9 +19,11 @@ public class Compra {
     private Date  dataCompra;
     private double valorCompra;
     private int quantidadeProdutos;
-
-    @OneToOne
+        
     private FormaPagamento formaPagamento;
+
+    @OneToMany
+    private List<ItemCompra> itensCompra;
 
     public int getIdCompra() {
         return idCompra;
@@ -80,4 +84,14 @@ public class Compra {
     public void setFormaPagamento(FormaPagamento formaPagamento) {
         this.formaPagamento = formaPagamento;
     }
+
+    public List<ItemCompra> getItensCompra() {
+        return itensCompra;
+    }
+
+    public void setItensCompra(List<ItemCompra> itensCompra) {
+        this.itensCompra = itensCompra;
+    }
+
+    
 }
