@@ -1,0 +1,42 @@
+GET http://localhost:8080/cliente/ HTTP/1.1
+
+###
+
+POST http://localhost:8080/cliente/ HTTP/1.1
+content-type: application/json
+
+{
+    "telefone": "981444897",
+    "nome": "Enzo Tiriba Appi",
+}
+
+###
+GET http://localhost:8080/endereco/ HTTP/1.1
+
+###
+
+POST http://localhost:8080/endereco/ HTTP/1.1
+content-type: application/json
+
+{
+    "logradouro": "Avenida Jose Passos de Souza Junior",
+    "numero": "3752",
+    "bairro": {
+        "id": 1,
+        "nome": "Praia do Pecado",
+        "valor": 7.5
+    }
+}
+
+###
+GET http://localhost:8080/bairro/ HTTP/1.1
+
+###
+
+POST http://localhost:8080/bairro/ HTTP/1.1
+content-type: application/json
+
+{
+    "nome": "Praia do Pecado",
+    "valor": "7.50"
+}

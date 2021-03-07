@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -70,7 +71,7 @@ public class Endereco {
         } else if (!id.equals(other.id))
             return false;
         return true;
-    }
+    }  
 
     public Bairro getBairro() {
         return bairro;

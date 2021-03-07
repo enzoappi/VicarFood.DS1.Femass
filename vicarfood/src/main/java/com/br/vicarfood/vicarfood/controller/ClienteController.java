@@ -25,7 +25,7 @@ public class ClienteController {
         return clienteRepository.findAll(); 
     }
 
-    @PostMapping
+    @PostMapping("/")
     public void gravar(@RequestBody Cliente cliente) {
         clienteRepository.save(cliente);
     }

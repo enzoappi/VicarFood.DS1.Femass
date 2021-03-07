@@ -1,10 +1,14 @@
 package com.br.vicarfood.vicarfood.model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Cliente {
@@ -15,8 +19,8 @@ public class Cliente {
     private String telefone;
     private String nome;
 
-    @ManyToOne
-    private Endereco endereco;
+    @OneToMany
+    private List<Endereco> enderecos;
 
     public Long getId() {
         return id;
@@ -72,11 +76,11 @@ public class Cliente {
         return true;
     }
 
-    public Endereco getEndereco() {
-        return endereco;
+    public List<Endereco> getEnderecos() {
+        return enderecos;
     }
 
-    public void setEndereco(Endereco endereco) {
-        this.endereco = endereco;
+    public void setEnderecos(Endereco endereco) {
+        this.enderecos.add(endereco);
     }
 }
