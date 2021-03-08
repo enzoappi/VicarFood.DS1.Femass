@@ -2091,9 +2091,9 @@
 											"font": "Arial;13;1",
 											"left": 269,
 											"top": 175,
-											"width": 118.88525390625,
+											"width": 128.30517578125,
 											"height": 13,
-											"text": "Tipo"
+											"text": "TipoProdutoEstoque"
 										},
 										{
 											"_type": "LabelView",
@@ -2126,7 +2126,7 @@
 									"font": "Arial;13;0",
 									"left": 264,
 									"top": 168,
-									"width": 128.88525390625,
+									"width": 138.30517578125,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAF36oqtElfc3i8="
@@ -2217,7 +2217,7 @@
 											"font": "Arial;13;0",
 											"left": 269,
 											"top": 200,
-											"width": 118.88525390625,
+											"width": 128.30517578125,
 											"height": 13,
 											"text": "+nome: String",
 											"horizontalAlignment": 0
@@ -2226,7 +2226,7 @@
 									"font": "Arial;13;0",
 									"left": 264,
 									"top": 193,
-									"width": 128.88525390625,
+									"width": 138.30517578125,
 									"height": 25
 								},
 								{
@@ -2241,7 +2241,7 @@
 									"font": "Arial;13;0",
 									"left": 264,
 									"top": 218,
-									"width": 128.88525390625,
+									"width": 138.30517578125,
 									"height": 10
 								},
 								{
@@ -2281,7 +2281,7 @@
 							"containerChangeable": true,
 							"left": 264,
 							"top": 168,
-							"width": 128.88525390625,
+							"width": 138.30517578125,
 							"height": 65,
 							"nameCompartment": {
 								"$ref": "AAAAAAF36oqtElfblI8="
@@ -3287,7 +3287,7 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 312,
+									"left": 315,
 									"top": 289,
 									"height": 13,
 									"alpha": 1.5707963267948966,
@@ -3308,7 +3308,7 @@
 									},
 									"visible": null,
 									"font": "Arial;13;0",
-									"left": 297,
+									"left": 300,
 									"top": 289,
 									"height": 13,
 									"alpha": 1.5707963267948966,
@@ -3329,7 +3329,7 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 341,
+									"left": 344,
 									"top": 290,
 									"height": 13,
 									"alpha": -1.5707963267948966,
@@ -3350,8 +3350,8 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 312,
-									"top": 327,
+									"left": 314,
+									"top": 326,
 									"height": 13,
 									"alpha": 0.5235987755982988,
 									"distance": 30,
@@ -3371,7 +3371,7 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 299,
+									"left": 301,
 									"top": 324,
 									"height": 13,
 									"alpha": 0.7853981633974483,
@@ -3391,7 +3391,7 @@
 										"$ref": "AAAAAAF36pa0eG/tlrg="
 									},
 									"font": "Arial;13;0",
-									"left": 304,
+									"left": 305,
 									"top": 330,
 									"width": 19.5126953125,
 									"height": 13,
@@ -3414,8 +3414,8 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 312,
-									"top": 253,
+									"left": 315,
+									"top": 252,
 									"height": 13,
 									"alpha": -0.5235987755982988,
 									"distance": 30,
@@ -3434,8 +3434,8 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 298,
-									"top": 255,
+									"left": 302,
+									"top": 254,
 									"height": 13,
 									"alpha": -0.7853981633974483,
 									"distance": 40,
@@ -3453,7 +3453,7 @@
 										"$ref": "AAAAAAF36pa0eG/u9yk="
 									},
 									"font": "Arial;13;0",
-									"left": 336,
+									"left": 340,
 									"top": 248,
 									"width": 7.22998046875,
 									"height": 13,
@@ -3505,7 +3505,7 @@
 								"$ref": "AAAAAAF36pNzEmqE84k="
 							},
 							"lineStyle": 1,
-							"points": "328:359;327:233",
+							"points": "329:359;331:233",
 							"showVisibility": true,
 							"nameLabel": {
 								"$ref": "AAAAAAF36pa0eG/xRC0="
@@ -6438,7 +6438,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "Tipo",
+					"name": "TipoProdutoEstoque",
 					"ownedElements": [
 						{
 							"_type": "UMLGeneralization",
