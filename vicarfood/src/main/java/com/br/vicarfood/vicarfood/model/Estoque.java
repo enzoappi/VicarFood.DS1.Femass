@@ -34,11 +34,6 @@ public class Estoque {
     }
 
     @Override
-    public String toString() {
-        return quantidadeEstoque;
-    }
-
-    @Override
     public int hashCode() {
         final int prime = 31;
         int result = 1;
@@ -69,5 +64,10 @@ public class Estoque {
 
     public void setTipoProdutoEstoque(TipoProdutoEstoque tipoProdutoEstoque) {
         this.tipoProdutoEstoque = tipoProdutoEstoque;
+    }
+
+    @Override
+    public String toString() {
+        return "Estoque:" + quantidadeEstoque;
     }    
 }

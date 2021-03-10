@@ -4,7 +4,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
@@ -13,15 +12,12 @@ public class ItemCompra {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private int quantidadeProduto;
-
-    @ManyToOne
-    private Compra compra;
+    private Integer quantidadeProduto;
 
     @ManyToOne
     private Produto produto;
 
-    public void setQuantidadeProduto(int quantidadeProduto) {
+    public void setQuantidadeProduto(Integer quantidadeProduto) {
         this.quantidadeProduto = quantidadeProduto;
     }
 
@@ -33,7 +29,7 @@ public class ItemCompra {
         this.id = id;
     }
 
-    public int getQuantidadeProduto() {
+    public Integer getQuantidadeProduto() {
         return quantidadeProduto;
     }
     
@@ -59,14 +55,6 @@ public class ItemCompra {
         return true;
     }
     
-    public Compra getCompra() {
-        return compra;
-    }
-
-    public void setCompra(Compra compra) {
-        this.compra = compra;
-    }
-
     public Produto getProduto() {
         return produto;
     }

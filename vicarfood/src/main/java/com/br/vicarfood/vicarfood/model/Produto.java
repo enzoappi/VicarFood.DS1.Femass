@@ -3,12 +3,17 @@ package com.br.vicarfood.vicarfood.model;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+@Inheritance(strategy = InheritanceType.JOINED)
 @Entity
 public class Produto {
 
@@ -18,13 +23,12 @@ public class Produto {
     private String nome;
     private Double preco;
     private String descricao;
+
+    @Enumerated(EnumType.STRING)
     private Situacao situacao;
 
     @ManyToOne
     private Imagem imagem;
-
-    @OneToMany
-    private List<ItemCompra> itensCompra;
 
     @OneToMany
     private List<Estoque> produtosEstoque;
@@ -106,14 +110,6 @@ public class Produto {
     public void setImagem(Imagem imagem) {
         this.imagem = imagem;
     } 
-
-    public List<ItemCompra> getItensCompra() {
-        return itensCompra;
-    }
-
-    public void setItensCompra(ItemCompra itemCompra) {
-        this.itensCompra.add(itemCompra);
-    }
 
     public List<Estoque> getProdutosEstoque() { //Arrumar esse metodo depois, para pegar so a quantidade existente no estoque
         return produtosEstoque;
