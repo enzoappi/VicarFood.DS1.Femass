@@ -1,3 +1,5 @@
+import java.util.List;
+
 import javax.persistence.OneToMany;
 
 public class Combo extends Produto {
