@@ -1,3 +1,5 @@
+package com.br.vicarfood.vicarfood.model;
+
 import java.util.List;
 
 import javax.persistence.OneToMany;
