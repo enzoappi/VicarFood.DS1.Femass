@@ -12,6 +12,7 @@ public class Cliente {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private String id;
     private String telefone;
     private String nome;
 
@@ -71,6 +72,9 @@ public class Cliente {
 
     public void setEndereco(Endereco endereco) {
         this.endereco = endereco;
+    }
+
+    public void setEndereco(String endereco2) {
     }
     
 }
