@@ -1,0 +1,33 @@
+GET http://localhost:8080/produto/ HTTP/1.1
+
+
+###
+
+POST http://localhost:8080/produto/incluir HTTP/1.1
+content-type: application/json
+
+{
+    "nome":"Batata",
+    "preco": "40.00",
+    "descricao":"Batata Rosti de Calabresa",
+    "situacao":"disponivel",
+    "imagem":"123"
+}
+
+###
+
+GET http://localhost:8080/turma/ HTTP/1.1
+
+
+###
+
+POST http://localhost:8080/turma/ HTTP/1.1
+content-type: application/json
+
+{
+    "disciplina":"Matematica"
+}
+
+###
+
+GET http://localhost:8080/aluno/2 HTTP/1.1
