@@ -1,7 +1,7 @@
 package com.br.vicarfood.vicarfood.controller;
 
 import java.util.List;
-
+import com.br.vicarfood.vicarfood.controller.request.ClienteRequest;
 import com.br.vicarfood.vicarfood.model.Cliente;
 import com.br.vicarfood.vicarfood.repository.ClienteRepository;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/cliente")
+@RequestMapping("/Cliente")
 public class ClienteController {
     private final ClienteRepository clienteRepository;
 
@@ -26,28 +26,31 @@ public class ClienteController {
     }
 
     @PostMapping("/incluirCliente")
-    public void gravar(@RequestBody Cliente cliente){
+    public void incluirCliente(@RequestBody ClienteRequest clienteRequest){
+        Cliente cliente = new Cliente();
+        cliente.setNome(clienteRequest.getNome());
+        cliente.setTelefone(clienteRequest.getTelefone());
+        cliente.setEndereco(clienteRequest.getEndereco());
+
         clienteRepository.save(cliente);
     }
 
-    @GetMapping("/{telefone}")
-    public List<Cliente> getClientePorTelefone(@PathVariable("telefone") String telefone){
-        var c = clienteRepository.findAll();
+    @GetMapping("/telefone/{id}")
+    public void remover (@PathVariable("id") Long id) throws Exception{
+        var c = clienteRepository.findById(id);
 
-        if(c.isPresent()){
+        if (c.isPresent()){
             Cliente cliente = c.get();
-            clienteRepository;
+            clienteRepository.delete(cliente);
         }else{
-           throw new Exception("Telefone não encontrado"); 
+            throw new Exception("Id não encontrado");
         }
 
     }
+
     @PostMapping("/alterarCliente")
-    public void alterar(@RequestBody Cliente cliente){
-        clienteRepository.save(cliente);
+    public void alterar(@RequestBody ClienteRequest clienteRequest){
+               
     }
-
-
-
 
 }
