@@ -1,31 +1,38 @@
 package com.br.vicarfood.vicarfood.model;
 
 import java.util.Date;
-
+import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
+
+
 
 @Entity
 public class Compra {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idCompra;
+    private Integer idCompra;
     private Date  dataCompra;
-    private double valorCompra;
-    private int quantidadeProdutos;
-
-    @OneToOne
+    private Double valorCompra;
+    private Integer quantidadeProdutos;
+    
+    @Enumerated(EnumType.STRING)
     private FormaPagamento formaPagamento;
 
-    public int getIdCompra() {
+    @OneToMany
+    private List<ItemCompra> itensCompra;
+
+    public Integer getIdCompra() {
         return idCompra;
     }
 
-    public void setIdCompra(int idCompra) {
+    public void setIdCompra(Integer idCompra) {
         this.idCompra = idCompra;
     }
     
@@ -37,7 +44,7 @@ public class Compra {
         this.dataCompra = dataCompra;
     }
 
-    public double getValorCompra() {
+    public Double getValorCompra() {
         return valorCompra;
     }
 
@@ -45,11 +52,11 @@ public class Compra {
         this.valorCompra = valorCompra;
     }
 
-    public int getQuantidadeProdutos() {
+    public Integer getQuantidadeProdutos() {
         return quantidadeProdutos;
     }
         
-    public void setQuantidadeProdutos(int quantidadeProdutos) {
+    public void setQuantidadeProdutos(Integer quantidadeProdutos) {
         this.quantidadeProdutos = quantidadeProdutos;
     }
     
@@ -80,4 +87,14 @@ public class Compra {
     public void setFormaPagamento(FormaPagamento formaPagamento) {
         this.formaPagamento = formaPagamento;
     }
+
+    public List<ItemCompra> getItensCompra() {
+        return itensCompra;
+    }
+
+    public void setItensCompra(List<ItemCompra> itensCompra) {
+        this.itensCompra = itensCompra;
+    }
+
+    
 }
