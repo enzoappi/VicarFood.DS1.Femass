@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.br.vicarfood.vicarfood.controller.request.ProdutoRs;
+import com.br.vicarfood.vicarfood.model.Imagem;
 import com.br.vicarfood.vicarfood.model.Produto;
+import com.br.vicarfood.vicarfood.repository.ImagemRepository;
 import com.br.vicarfood.vicarfood.repository.ProdutoRepository;
 
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,13 +17,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping
+@RequestMapping("/produto")
 public class ProdutoController {
     private final ProdutoRepository produtoRepository;
+    private final ImagemRepository imagemRepository;
 
-    public ProdutoController(ProdutoRepository produtoRepository) {
+    public ProdutoController(ProdutoRepository produtoRepository, ImagemRepository imagemRepository) {
         this.produtoRepository = produtoRepository;
-    }
+        this.imagemRepository = imagemRepository;
+    }    
 
     @GetMapping("/")
     public List<ProdutoRs> getProdutos(){
@@ -31,8 +35,9 @@ public class ProdutoController {
 
         for(Produto produto : produtos){
             ProdutoRs p1 = new ProdutoRs();
+            p1.setId(produto.getId());
             p1.setDescricao(produto.getDescricao());
-            p1.setImagem(produto.getImagem());
+            p1.setImagem(produto.getImagem().getFoto());
             p1.setNome(produto.getNome());
             p1.setPreco(produto.getPreco());
             p1.setSituacao(produto.getSituacao());
@@ -46,10 +51,26 @@ public class ProdutoController {
     public void incluir(@RequestBody ProdutoRs produtoRs){
         Produto produto = new Produto();
         produto.setDescricao(produtoRs.getDescricao());
-        produto.setImagem(produtoRs.getImagem());
         produto.setNome(produtoRs.getNome());
         produto.setPreco(produtoRs.getPreco());
         produto.setSituacao(produtoRs.getSituacao());
+
+        List <Imagem> imagens = imagemRepository.findAll();
+
+        Imagem imagem = null;
+        for(Imagem i : imagens){
+            if(i.getFoto().equals(produtoRs.getImagem()));
+                imagem = i;
+        }
+
+        if(imagem==null){
+            imagem = new Imagem();
+            imagem.setFoto(produtoRs.getImagem());
+            imagemRepository.save(imagem);
+            
+        }
+
+        produto.setImagem(imagem);
 
         produtoRepository.save(produto);
     }
@@ -72,4 +93,5 @@ public class ProdutoController {
     public void alterar(@RequestBody ProdutoRs produtoRs){
 
     }
+
 }
