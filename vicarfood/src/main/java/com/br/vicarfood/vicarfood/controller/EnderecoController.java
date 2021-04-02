@@ -32,7 +32,7 @@ public class EnderecoController {
     }
 
     @PostMapping("/incluir")
-    public void incluir(@RequestBody EnderecoRs enderecoRs){
+    public void incluir(@RequestBody EnderecoRs enderecoRs) throws Exception{
         Endereco endereco = new Endereco();
         endereco.setLogradouro(enderecoRs.getLogradouro());
         endereco.setNumero(enderecoRs.getNumero());
@@ -41,16 +41,12 @@ public class EnderecoController {
 
         Bairro bairro = null;
         for(Bairro b : bairros){
-            if(b.getNome().equals(enderecoRs.getNome()));
+            if(b.getId().equals(enderecoRs.getBairro().getId()));
                 bairro = b;
         }
 
         if(bairro == null){
-            bairro = new Bairro();
-            bairro.setNome(enderecoRs.getNome());
-            bairro.setValor(enderecoRs.getValor());
-            bairroRepository.save(bairro);
-            
+            throw new Exception("Bairro não cadastrado");            
         }
 
         endereco.setBairro(bairro);

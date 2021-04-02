@@ -1,11 +1,12 @@
 package com.br.vicarfood.vicarfood.controller.request;
 
+import com.br.vicarfood.vicarfood.model.Bairro;
+
 public class EnderecoRs {
     private Long id;
     private String logradouro;
     private String numero;
-    private String nome;
-    private Double valor;
+    private Bairro bairro;
 
     public Long getId() {
         return id;
@@ -31,19 +32,11 @@ public class EnderecoRs {
         this.numero = numero;
     }
 
-    public String getNome() {
-        return nome;
+    public Bairro getBairro() {
+        return bairro;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setBairro(Bairro bairro) {
+        this.bairro = bairro;
     }
-
-    public Double getValor() {
-        return valor;
-    }
-
-    public void setValor(Double valor) {
-        this.valor = valor;
-    }        
 }
