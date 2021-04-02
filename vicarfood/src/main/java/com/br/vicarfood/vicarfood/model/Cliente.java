@@ -12,21 +12,14 @@ public class Cliente {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private String id;
     private String telefone;
     private String nome;
 
     @OneToOne
     private Endereco endereco;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
+    
     public String getTelefone() {
         return telefone;
     }
@@ -79,6 +72,9 @@ public class Cliente {
 
     public void setEndereco(Endereco endereco) {
         this.endereco = endereco;
+    }
+
+    public void setEndereco(String endereco2) {
     }
     
 }
