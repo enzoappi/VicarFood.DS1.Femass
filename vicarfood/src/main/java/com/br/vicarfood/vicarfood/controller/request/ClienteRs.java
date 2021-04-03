@@ -3,33 +3,51 @@ package com.br.vicarfood.vicarfood.controller.request;
 import com.br.vicarfood.vicarfood.model.Endereco;
 
 public class ClienteRs {
-    private Long id;
+
     private String nome;
     private String telefone;
-    private Endereco endereco;
+    private String logradouro;
+    private String numero;
+    private String nomeBairro;
 
-    public Long getId() {
-        return id;
-    }
-    public void setId(Long id) {
-        this.id = id;
-    }
+    
     public String getNome() {
         return nome;
     }
+
     public void setNome(String nome) {
         this.nome = nome;
     }
+
     public String getTelefone() {
         return telefone;
     }
+
     public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
-    public Endereco getEndereco() {
-        return endereco;
+
+    public String getLogradouro() {
+        return logradouro;
     }
-    public void setEndereco(Endereco endereco) {
-        this.endereco = endereco;
+
+    public void setLogradouro(String logradouro) {
+        this.logradouro = logradouro;
+    }
+
+    public String getNumero() {
+        return numero;
+    }
+
+    public void setNumero(String numero) {
+        this.numero = numero;
+    }
+
+    public String getNomeBairro() {
+        return nomeBairro;
+    }
+
+    public void setNomeBairro(String nomeBairro) {
+        this.nomeBairro = nomeBairro;
     }
 }

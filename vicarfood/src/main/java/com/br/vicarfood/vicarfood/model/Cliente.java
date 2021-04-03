@@ -2,8 +2,6 @@ package com.br.vicarfood.vicarfood.model;
 
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
@@ -11,15 +9,13 @@ import javax.persistence.OneToOne;
 public class Cliente {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String id;
     private String telefone;
     private String nome;
 
     @OneToOne
     private Endereco endereco;
 
-    
+
     public String getTelefone() {
         return telefone;
     }
@@ -45,7 +41,7 @@ public class Cliente {
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = prime * result + ((id == null) ? 0 : id.hashCode());
+        result = prime * result + ((telefone == null) ? 0 : telefone.hashCode());
         return result;
     }
 
@@ -58,13 +54,13 @@ public class Cliente {
         if (getClass() != obj.getClass())
             return false;
         Cliente other = (Cliente) obj;
-        if (id == null) {
-            if (other.id != null)
+        if (telefone == null) {
+            if (other.telefone != null)
                 return false;
-        } else if (!id.equals(other.id))
+        } else if (!telefone.equals(other.telefone))
             return false;
         return true;
-    }
+    } 
 
     public Endereco getEndereco() {
         return endereco;
@@ -76,5 +72,5 @@ public class Cliente {
 
     public void setEndereco(String endereco2) {
     }
-    
+
 }

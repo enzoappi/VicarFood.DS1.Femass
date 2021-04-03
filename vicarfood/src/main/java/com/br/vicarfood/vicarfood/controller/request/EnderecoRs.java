@@ -6,7 +6,7 @@ public class EnderecoRs {
     private Long id;
     private String logradouro;
     private String numero;
-    private Bairro bairro;
+    private String nomeBairro;
 
     public Long getId() {
         return id;
@@ -32,11 +32,12 @@ public class EnderecoRs {
         this.numero = numero;
     }
 
-    public Bairro getBairro() {
-        return bairro;
+    public String getNomeBairro() {
+        return nomeBairro;
     }
 
-    public void setBairro(Bairro bairro) {
-        this.bairro = bairro;
+    public void setNomeBairro(String nomeBairro) {
+        this.nomeBairro = nomeBairro;
     }
+
 }

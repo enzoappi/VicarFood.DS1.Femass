@@ -1,5 +1,6 @@
 package com.br.vicarfood.vicarfood.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 import com.br.vicarfood.vicarfood.controller.request.ClienteRs;
 import com.br.vicarfood.vicarfood.model.Cliente;
@@ -15,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/Cliente")
+@RequestMapping("/cliente")
 public class ClienteController {
     private final ClienteRepository clienteRepository;
     private final EnderecoRepository enderecoRepository;
@@ -26,32 +27,45 @@ public class ClienteController {
     }
 
     @GetMapping("/")
-    public List<Cliente> getCliente(){
-        return clienteRepository.findAll();
+    public List<ClienteRs> getCliente(){
+        List<Cliente> clientes = clienteRepository.findAll();
+
+        List<ClienteRs> clirs = new ArrayList<ClienteRs>();
+        for(Cliente cliente : clientes) {
+            ClienteRs c = new ClienteRs();
+            c.setNome(cliente.getNome());
+            c.setTelefone(cliente.getTelefone());
+            c.setLogradouro(cliente.getEndereco().getLogradouro());
+            c.setNumero(cliente.getEndereco().getNumero());
+            c.setNomeBairro(cliente.getEndereco().getBairro().getNome());
+            clirs.add(c);
+        }
+
+        return clirs;
     }
 
-    @PostMapping("/incluirCliente")
-    public void incluirCliente(@RequestBody ClienteRs ClienteRs){
+    @PostMapping("/incluir")
+    public void incluir(@RequestBody ClienteRs clienteRs) throws Exception{
         Cliente cliente = new Cliente();
-        cliente.setNome(ClienteRs.getNome());
-        cliente.setTelefone(ClienteRs.getTelefone());
-        cliente.setEndereco(ClienteRs.getEndereco());
+        cliente.setNome(clienteRs.getNome());
+        cliente.setTelefone(clienteRs.getTelefone());
 
         List<Endereco> enderecos = enderecoRepository.findAll();
         
         Endereco endereco = null;
         for(Endereco e : enderecos){
-            if(e.getId().equals(ClienteRs.getEndereco().getId()));
+            if(e.getLogradouro().equals(clienteRs.getLogradouro()));
                 endereco = e;
         }
 
         if(endereco==null){
-            endereco = new Endereco();
-            endereco.setLogradouro(ClienteRs.getEndereco().getLogradouro());
-            endereco.setNumero(ClienteRs.getEndereco().getNumero());
-            endereco.setBairro(ClienteRs.getEndereco().getBairro());
-            enderecoRepository.save(endereco);
+            /*endereco = new Endereco();
+            endereco.setLogradouro(clienteRs.getLogradouro());
+            endereco.setNumero(clienteRs.getNumero());
+            enderecoRepository.save(endereco);*/
+            throw new Exception("Endereco nao cadastrado"); 
         }
+        
         cliente.setEndereco(endereco);
 
         clienteRepository.save(cliente);
@@ -70,7 +84,7 @@ public class ClienteController {
 
     }
 
-    @PostMapping("/alterarCliente")
+    @PostMapping("/alterar")
     public void alterar(@RequestBody ClienteRs ClienteRs){
                
     }

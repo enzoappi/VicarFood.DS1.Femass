@@ -1,5 +1,6 @@
 package com.br.vicarfood.vicarfood.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.br.vicarfood.vicarfood.controller.request.EnderecoRs;
@@ -27,8 +28,20 @@ public class EnderecoController {
     }
     
     @GetMapping("/")
-    public List<Endereco> getEnderecos() {
-        return enderecoRepository.findAll();
+    public List<EnderecoRs> getEnderecos() {
+        List<Endereco> enderecos = enderecoRepository.findAll();
+
+        List<EnderecoRs> endrs = new ArrayList<EnderecoRs>();
+        for(Endereco endereco : enderecos) {
+            EnderecoRs e = new EnderecoRs();
+            e.setId(endereco.getId());
+            e.setLogradouro(endereco.getLogradouro());
+            e.setNumero(endereco.getNumero());
+            e.setNomeBairro(endereco.getBairro().getNome());
+            endrs.add(e);
+        }
+
+        return endrs;
     }
 
     @PostMapping("/incluir")
@@ -41,7 +54,7 @@ public class EnderecoController {
 
         Bairro bairro = null;
         for(Bairro b : bairros){
-            if(b.getId().equals(enderecoRs.getBairro().getId()));
+            if(b.getNome().equals(enderecoRs.getNomeBairro()));
                 bairro = b;
         }
 
