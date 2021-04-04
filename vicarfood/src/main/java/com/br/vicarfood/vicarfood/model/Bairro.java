@@ -11,7 +11,7 @@ public class Bairro {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String nome;
+    private String nomeBairro;
     private Double valor;
 
     public Long getId() {
@@ -22,12 +22,12 @@ public class Bairro {
         this.id = id;
     }
 
-    public String getNome() {
-        return nome;
+    public String getNomeBairro() {
+        return nomeBairro;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setNomeBairro(String nomeBairro) {
+        this.nomeBairro = nomeBairro;
     }
 
     public Double getValor() {
@@ -40,7 +40,7 @@ public class Bairro {
 
     @Override
     public String toString() {
-        return nome + ", R$" + valor;
+        return nomeBairro + ", R$" + valor;
     }
 
     @Override
@@ -48,6 +48,7 @@ public class Bairro {
         final int prime = 31;
         int result = 1;
         result = prime * result + ((id == null) ? 0 : id.hashCode());
+        result = prime * result + ((nomeBairro == null) ? 0 : nomeBairro.hashCode());
         return result;
     }
 
@@ -65,7 +66,11 @@ public class Bairro {
                 return false;
         } else if (!id.equals(other.id))
             return false;
+        if (nomeBairro == null) {
+            if (other.nomeBairro != null)
+                return false;
+        } else if (!nomeBairro.equals(other.nomeBairro))
+            return false;
         return true;
-    }    
-    
+    }
 }

@@ -37,7 +37,7 @@ public class EnderecoController {
             e.setId(endereco.getId());
             e.setLogradouro(endereco.getLogradouro());
             e.setNumero(endereco.getNumero());
-            e.setNomeBairro(endereco.getBairro().getNome());
+            e.setNomeBairro(endereco.getBairro().getNomeBairro());
             endrs.add(e);
         }
 
@@ -54,14 +54,14 @@ public class EnderecoController {
 
         Bairro bairro = null;
         for(Bairro b : bairros){
-            if(b.getNome().equals(enderecoRs.getNomeBairro()));
+            if(b.getNomeBairro().equals(enderecoRs.getNomeBairro())){
                 bairro = b;
+            }
         }
 
         if(bairro == null){
             throw new Exception("Bairro não cadastrado");            
         }
-
         endereco.setBairro(bairro);
 
         enderecoRepository.save(endereco);
