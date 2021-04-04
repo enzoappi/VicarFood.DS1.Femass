@@ -37,7 +37,7 @@ public class ClienteController {
             c.setTelefone(cliente.getTelefone());
             c.setLogradouro(cliente.getEndereco().getLogradouro());
             c.setNumero(cliente.getEndereco().getNumero());
-            c.setNomeBairro(cliente.getEndereco().getBairro().getNome());
+            c.setNomeBairro(cliente.getEndereco().getBairro().getNomeBairro());
             clirs.add(c);
         }
 
@@ -54,15 +54,12 @@ public class ClienteController {
         
         Endereco endereco = null;
         for(Endereco e : enderecos){
-            if(e.getLogradouro().equals(clienteRs.getLogradouro()));
+            if(e.getLogradouro().equals(clienteRs.getLogradouro()) && e.getNumero().equals(clienteRs.getNumero())) {
                 endereco = e;
+            }
         }
 
         if(endereco==null){
-            /*endereco = new Endereco();
-            endereco.setLogradouro(clienteRs.getLogradouro());
-            endereco.setNumero(clienteRs.getNumero());
-            enderecoRepository.save(endereco);*/
             throw new Exception("Endereco nao cadastrado"); 
         }
         

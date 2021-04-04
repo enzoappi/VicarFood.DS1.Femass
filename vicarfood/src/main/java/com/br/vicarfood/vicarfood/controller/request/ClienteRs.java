@@ -1,6 +1,5 @@
 package com.br.vicarfood.vicarfood.controller.request;
 
-import com.br.vicarfood.vicarfood.model.Endereco;
 
 public class ClienteRs {
 

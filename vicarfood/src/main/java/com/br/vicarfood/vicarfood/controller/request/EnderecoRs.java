@@ -39,5 +39,4 @@ public class EnderecoRs {
     public void setNomeBairro(String nomeBairro) {
         this.nomeBairro = nomeBairro;
     }
-
 }
