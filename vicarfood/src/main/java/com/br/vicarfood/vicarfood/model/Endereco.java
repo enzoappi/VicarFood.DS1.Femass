@@ -45,6 +45,14 @@ public class Endereco {
     @Override
     public String toString() {
         return logradouro + ", " + numero;
+    } 
+
+    public Bairro getBairro() {
+        return bairro;
+    }
+
+    public void setBairro(Bairro bairro) {
+        this.bairro = bairro;
     }
 
     @Override
@@ -52,6 +60,7 @@ public class Endereco {
         final int prime = 31;
         int result = 1;
         result = prime * result + ((id == null) ? 0 : id.hashCode());
+        result = prime * result + ((logradouro == null) ? 0 : logradouro.hashCode());
         return result;
     }
 
@@ -69,14 +78,11 @@ public class Endereco {
                 return false;
         } else if (!id.equals(other.id))
             return false;
+        if (logradouro == null) {
+            if (other.logradouro != null)
+                return false;
+        } else if (!logradouro.equals(other.logradouro))
+            return false;
         return true;
-    }  
-
-    public Bairro getBairro() {
-        return bairro;
-    }
-
-    public void setBairro(Bairro bairro) {
-        this.bairro = bairro;
     }    
 }

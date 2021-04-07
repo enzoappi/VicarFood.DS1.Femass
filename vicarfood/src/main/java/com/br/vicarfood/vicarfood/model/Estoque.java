@@ -4,43 +4,33 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
-public class Bairro {
+public class Estoque {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String nomeBairro;
-    private Double valor;
+    private Integer quantidadeEstoque;
+
+    @ManyToOne
+    private TipoProdutoEstoque tipoProdutoEstoque;
 
     public Long getId() {
         return id;
     }
-    
+
     public void setId(Long id) {
         this.id = id;
     }
 
-    public String getNomeBairro() {
-        return nomeBairro;
+    public Integer getQuantidadeEstoque() {
+        return quantidadeEstoque;
     }
 
-    public void setNomeBairro(String nomeBairro) {
-        this.nomeBairro = nomeBairro;
-    }
-
-    public Double getValor() {
-        return valor;
-    }
-
-    public void setValor(Double valor) {
-        this.valor = valor;
-    }
-
-    @Override
-    public String toString() {
-        return nomeBairro + ", R$" + valor;
+    public void setQuantidadeEstoque(Integer quantidadeEstoque) {
+        this.quantidadeEstoque = quantidadeEstoque;
     }
 
     @Override
@@ -48,7 +38,6 @@ public class Bairro {
         final int prime = 31;
         int result = 1;
         result = prime * result + ((id == null) ? 0 : id.hashCode());
-        result = prime * result + ((nomeBairro == null) ? 0 : nomeBairro.hashCode());
         return result;
     }
 
@@ -60,17 +49,25 @@ public class Bairro {
             return false;
         if (getClass() != obj.getClass())
             return false;
-        Bairro other = (Bairro) obj;
+        Estoque other = (Estoque) obj;
         if (id == null) {
             if (other.id != null)
                 return false;
         } else if (!id.equals(other.id))
             return false;
-        if (nomeBairro == null) {
-            if (other.nomeBairro != null)
-                return false;
-        } else if (!nomeBairro.equals(other.nomeBairro))
-            return false;
         return true;
     }
+
+    public TipoProdutoEstoque getTipoProdutoEstoque() {
+        return tipoProdutoEstoque;
+    }
+
+    public void setTipoProdutoEstoque(TipoProdutoEstoque tipoProdutoEstoque) {
+        this.tipoProdutoEstoque = tipoProdutoEstoque;
+    }
+
+    @Override
+    public String toString() {
+        return "Estoque:" + quantidadeEstoque;
+    }    
 }
