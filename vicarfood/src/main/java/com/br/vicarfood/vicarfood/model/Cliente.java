@@ -12,7 +12,7 @@ public class Cliente {
     private String telefone;
     private String nome;
 
-    @OneToOne
+    @OneToOne 
     private Endereco endereco;
 
 

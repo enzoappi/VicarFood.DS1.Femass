@@ -3,7 +3,7 @@ package com.br.vicarfood.vicarfood.controller;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.br.vicarfood.vicarfood.controller.request.EnderecoRs;
+import com.br.vicarfood.vicarfood.controller.request.EnderecoRequest;
 import com.br.vicarfood.vicarfood.model.Bairro;
 import com.br.vicarfood.vicarfood.model.Endereco;
 import com.br.vicarfood.vicarfood.repository.BairroRepository;
@@ -28,12 +28,12 @@ public class EnderecoController {
     }
     
     @GetMapping("/")
-    public List<EnderecoRs> getEnderecos() {
+    public List<EnderecoRequest> getEnderecos() {
         List<Endereco> enderecos = enderecoRepository.findAll();
 
-        List<EnderecoRs> endrs = new ArrayList<EnderecoRs>();
+        List<EnderecoRequest> endrs = new ArrayList<EnderecoRequest>();
         for(Endereco endereco : enderecos) {
-            EnderecoRs e = new EnderecoRs();
+            EnderecoRequest e = new EnderecoRequest();
             e.setId(endereco.getId());
             e.setLogradouro(endereco.getLogradouro());
             e.setNumero(endereco.getNumero());
@@ -45,16 +45,16 @@ public class EnderecoController {
     }
 
     @PostMapping("/incluir")
-    public void incluir(@RequestBody EnderecoRs enderecoRs) throws Exception{
+    public void incluir(@RequestBody EnderecoRequest enderecoRequest) throws Exception{
         Endereco endereco = new Endereco();
-        endereco.setLogradouro(enderecoRs.getLogradouro());
-        endereco.setNumero(enderecoRs.getNumero());
+        endereco.setLogradouro(enderecoRequest.getLogradouro());
+        endereco.setNumero(enderecoRequest.getNumero());
 
         List <Bairro> bairros = bairroRepository.findAll();
 
         Bairro bairro = null;
         for(Bairro b : bairros){
-            if(b.getNomeBairro().equals(enderecoRs.getNomeBairro())){
+            if(b.getNomeBairro().equals(enderecoRequest.getNomeBairro())){
                 bairro = b;
             }
         }
@@ -80,7 +80,7 @@ public class EnderecoController {
     }
 
     @PostMapping("/alterar")
-    public void alterarEndereco(@RequestBody EnderecoRs enderecoRs){
+    public void alterarEndereco(@RequestBody EnderecoRequest enderecoRequest){
 
     }
 

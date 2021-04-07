@@ -2,7 +2,7 @@ package com.br.vicarfood.vicarfood.controller;
 
 import java.util.ArrayList;
 import java.util.List;
-import com.br.vicarfood.vicarfood.controller.request.ClienteRs;
+import com.br.vicarfood.vicarfood.controller.request.ClienteRequest;
 import com.br.vicarfood.vicarfood.model.Cliente;
 import com.br.vicarfood.vicarfood.model.Endereco;
 import com.br.vicarfood.vicarfood.repository.ClienteRepository;
@@ -27,12 +27,12 @@ public class ClienteController {
     }
 
     @GetMapping("/")
-    public List<ClienteRs> getCliente(){
+    public List<ClienteRequest> getCliente(){
         List<Cliente> clientes = clienteRepository.findAll();
 
-        List<ClienteRs> clirs = new ArrayList<ClienteRs>();
+        List<ClienteRequest> clirs = new ArrayList<ClienteRequest>();
         for(Cliente cliente : clientes) {
-            ClienteRs c = new ClienteRs();
+            ClienteRequest c = new ClienteRequest();
             c.setNome(cliente.getNome());
             c.setTelefone(cliente.getTelefone());
             c.setLogradouro(cliente.getEndereco().getLogradouro());
@@ -44,17 +44,17 @@ public class ClienteController {
         return clirs;
     }
 
-    @PostMapping("/incluir")
-    public void incluir(@RequestBody ClienteRs clienteRs) throws Exception{
+    @PostMapping("/incluir") 
+    public void incluir(@RequestBody ClienteRequest clienteRequest) throws Exception{
         Cliente cliente = new Cliente();
-        cliente.setNome(clienteRs.getNome());
-        cliente.setTelefone(clienteRs.getTelefone());
+        cliente.setNome(clienteRequest.getNome());
+        cliente.setTelefone(clienteRequest.getTelefone());
 
         List<Endereco> enderecos = enderecoRepository.findAll();
         
         Endereco endereco = null;
         for(Endereco e : enderecos){
-            if(e.getLogradouro().equals(clienteRs.getLogradouro()) && e.getNumero().equals(clienteRs.getNumero())) {
+            if(e.getLogradouro().equals(clienteRequest.getLogradouro()) && e.getNumero().equals(clienteRequest.getNumero())) {
                 endereco = e;
             }
         }
@@ -82,7 +82,7 @@ public class ClienteController {
     }
 
     @PostMapping("/alterar")
-    public void alterar(@RequestBody ClienteRs ClienteRs){
+    public void alterar(@RequestBody ClienteRequest clienteRequest){
                
     }
     
