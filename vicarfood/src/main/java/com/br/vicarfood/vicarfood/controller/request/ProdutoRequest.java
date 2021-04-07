@@ -2,7 +2,7 @@ package com.br.vicarfood.vicarfood.controller.request;
 
 import com.br.vicarfood.vicarfood.model.Situacao;
 
-public class ProdutoRs {
+public class ProdutoRequest {
     private Long id;
     private String nome;
     private Double preco;

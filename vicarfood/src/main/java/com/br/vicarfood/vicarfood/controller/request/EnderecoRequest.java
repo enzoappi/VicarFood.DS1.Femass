@@ -1,8 +1,6 @@
 package com.br.vicarfood.vicarfood.controller.request;
 
-import com.br.vicarfood.vicarfood.model.Bairro;
-
-public class EnderecoRs {
+public class EnderecoRequest {
     private Long id;
     private String logradouro;
     private String numero;

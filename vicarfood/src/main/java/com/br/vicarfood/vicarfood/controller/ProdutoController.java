@@ -3,7 +3,7 @@ package com.br.vicarfood.vicarfood.controller;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.br.vicarfood.vicarfood.controller.request.ProdutoRs;
+import com.br.vicarfood.vicarfood.controller.request.ProdutoRequest;
 import com.br.vicarfood.vicarfood.model.Imagem;
 import com.br.vicarfood.vicarfood.model.Produto;
 import com.br.vicarfood.vicarfood.repository.ImagemRepository;
@@ -28,13 +28,13 @@ public class ProdutoController {
     }    
 
     @GetMapping("/")
-    public List<ProdutoRs> getProdutos(){
+    public List<ProdutoRequest> getProdutos(){
         List<Produto> produtos = produtoRepository.findAll();
 
-        List<ProdutoRs> pdrs = new ArrayList<ProdutoRs>();
+        List<ProdutoRequest> pdrs = new ArrayList<ProdutoRequest>();
 
         for(Produto produto : produtos){
-            ProdutoRs p1 = new ProdutoRs();
+            ProdutoRequest p1 = new ProdutoRequest();
             p1.setId(produto.getId());
             p1.setDescricao(produto.getDescricao());
             p1.setImagem(produto.getImagem().getFoto());
@@ -48,24 +48,24 @@ public class ProdutoController {
     }
 
     @PostMapping("/incluir")
-    public void incluir(@RequestBody ProdutoRs produtoRs){
+    public void incluir(@RequestBody ProdutoRequest produtoRequest){
         Produto produto = new Produto();
-        produto.setDescricao(produtoRs.getDescricao());
-        produto.setNome(produtoRs.getNome());
-        produto.setPreco(produtoRs.getPreco());
-        produto.setSituacao(produtoRs.getSituacao());
+        produto.setDescricao(produtoRequest.getDescricao());
+        produto.setNome(produtoRequest.getNome());
+        produto.setPreco(produtoRequest.getPreco());
+        produto.setSituacao(produtoRequest.getSituacao());
 
         List <Imagem> imagens = imagemRepository.findAll();
 
         Imagem imagem = null;
         for(Imagem i : imagens){
-            if(i.getFoto().equals(produtoRs.getImagem()));
+            if(i.getFoto().equals(produtoRequest.getImagem()));
                 imagem = i;
         }
 
         if(imagem==null){
             imagem = new Imagem();
-            imagem.setFoto(produtoRs.getImagem());
+            imagem.setFoto(produtoRequest.getImagem());
             imagemRepository.save(imagem);
             
         }
@@ -90,7 +90,7 @@ public class ProdutoController {
     }
 
     @PostMapping("/alterar")
-    public void alterar(@RequestBody ProdutoRs produtoRs){
+    public void alterar(@RequestBody ProdutoRequest produtoRequest){
 
     }
 
