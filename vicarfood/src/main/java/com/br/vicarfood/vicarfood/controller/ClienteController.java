@@ -68,15 +68,15 @@ public class ClienteController {
         clienteRepository.save(cliente);
     }
 
-    @GetMapping("{id}")
-    public void remover (@PathVariable("id") Long id) throws Exception{
-        var c = clienteRepository.findById(id);
+    @GetMapping("/excluir{telefone}")
+    public void excluirCliente (@PathVariable ("telefone") String telefone) throws Exception{
+        Cliente c = clienteRepository.findByTelefone(telefone);
 
-        if (c.isPresent()){
-            Cliente cliente = c.get();
+        if (c != null){
+            Cliente cliente = c;
             clienteRepository.delete(cliente);
         }else{
-            throw new Exception("Id não encontrado");
+            throw new Exception("Cliente não encontrado");
         }
 
     }
@@ -84,6 +84,5 @@ public class ClienteController {
     @PostMapping("/alterar")
     public void alterar(@RequestBody ClienteRequest clienteRequest){
                
-    }
-    
+    }    
 }
