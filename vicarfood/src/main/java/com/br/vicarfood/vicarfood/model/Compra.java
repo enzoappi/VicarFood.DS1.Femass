@@ -1,6 +1,6 @@
 package com.br.vicarfood.vicarfood.model;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -8,6 +8,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 
@@ -18,10 +19,13 @@ public class Compra {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer idCompra;
-    private Date  dataCompra;
+    private Long idCompra;
+    private LocalDate  dataCompra;
     private Double valorCompra;
     private Integer quantidadeProdutos;
+
+    @Enumerated
+    private SituacaoCompra situacaoCompra;
     
     @Enumerated(EnumType.STRING)
     private FormaPagamento formaPagamento;
@@ -29,19 +33,22 @@ public class Compra {
     @OneToMany
     private List<ItemCompra> itensCompra;
 
-    public Integer getIdCompra() {
+    @ManyToOne
+    private Cliente cliente;
+
+    public Long getIdCompra() {
         return idCompra;
     }
 
-    public void setIdCompra(Integer idCompra) {
+    public void setIdCompra(Long idCompra) {
         this.idCompra = idCompra;
     }
     
-    public Date getDataCompra() {
+    public LocalDate getDataCompra() {
         return dataCompra;
     }
 
-    public void setDataCompra(Date dataCompra) {
+    public void setDataCompra(LocalDate dataCompra) {
         this.dataCompra = dataCompra;
     }
 
@@ -65,9 +72,10 @@ public class Compra {
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = prime * result + idCompra;
+        result = prime * result + ((idCompra == null) ? 0 : idCompra.hashCode());
         return result;
     }
+
     @Override
     public boolean equals(Object obj) {
         if (this == obj)
@@ -77,10 +85,13 @@ public class Compra {
         if (getClass() != obj.getClass())
             return false;
         Compra other = (Compra) obj;
-        if (idCompra != other.idCompra)
+        if (idCompra == null) {
+            if (other.idCompra != null)
+                return false;
+        } else if (!idCompra.equals(other.idCompra))
             return false;
         return true;
-    }
+    }  
 
     public FormaPagamento getFormaPagamento() {
         return formaPagamento;
@@ -97,5 +108,19 @@ public class Compra {
         this.itensCompra = itensCompra;
     }
 
-    
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
+    public SituacaoCompra getSituacaoCompra() {
+        return situacaoCompra;
+    }
+
+    public void setSituacaoCompra(SituacaoCompra situacaoCompra) {
+        this.situacaoCompra = situacaoCompra;
+    }
 }
