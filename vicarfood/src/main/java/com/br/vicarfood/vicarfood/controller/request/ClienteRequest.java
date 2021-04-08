@@ -2,13 +2,22 @@ package com.br.vicarfood.vicarfood.controller.request;
 
 
 public class ClienteRequest {
+    private String cpf;
     private String nome;
     private String telefone;
     private String logradouro;
     private String numero;
     private String nomeBairro;
 
-    
+ 
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
     public String getNome() {
         return nome;
     }

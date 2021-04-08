@@ -9,12 +9,20 @@ import javax.persistence.OneToOne;
 public class Cliente {
 
     @Id
+    private String cpf;
     private String telefone;
     private String nome;
 
     @OneToOne 
     private Endereco endereco;
 
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
 
     public String getTelefone() {
         return telefone;
@@ -35,13 +43,13 @@ public class Cliente {
     @Override
     public String toString() {
         return nome;
-    }
+    }  
 
     @Override
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = prime * result + ((telefone == null) ? 0 : telefone.hashCode());
+        result = prime * result + ((cpf == null) ? 0 : cpf.hashCode());
         return result;
     }
 
@@ -54,13 +62,13 @@ public class Cliente {
         if (getClass() != obj.getClass())
             return false;
         Cliente other = (Cliente) obj;
-        if (telefone == null) {
-            if (other.telefone != null)
+        if (cpf == null) {
+            if (other.cpf != null)
                 return false;
-        } else if (!telefone.equals(other.telefone))
+        } else if (!cpf.equals(other.cpf))
             return false;
         return true;
-    } 
+    }
 
     public Endereco getEndereco() {
         return endereco;
@@ -72,5 +80,4 @@ public class Cliente {
 
     public void setEndereco(String endereco2) {
     }
-
 }
