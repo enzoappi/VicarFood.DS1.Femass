@@ -67,7 +67,7 @@ public class EnderecoController {
         enderecoRepository.save(endereco);
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/excluir{id}")
     public void excluirEndereco(@PathVariable("id") Long id) throws Exception{
         var e = enderecoRepository.findById(id);
 

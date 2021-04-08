@@ -1,0 +1,76 @@
+GET http://localhost:8080/produto/ HTTP/1.1
+
+
+###
+
+POST http://localhost:8080/produto/incluir HTTP/1.1
+content-type: application/json
+
+{
+    "nome":"Batata",
+    "preco": "40.00",
+    "descricao":"Batata Rosti de Calabresa",
+    "situacao":"disponivel",
+    "imagem":"123"
+}
+
+### CLIENTE
+
+GET http://localhost:8080/cliente/ HTTP/1.1
+
+
+###
+
+POST http://localhost:8080/cliente/incluir HTTP/1.1
+content-type: application/json
+
+{
+    "nome": "Juarez",
+    "telefone": "22994555777",
+    "logradouro":"Rua R",
+    "numero": "5",
+    "nomeBairro": "Riviera"
+}
+
+###
+
+GET http://localhost:8080/cliente/excluir22999999999 HTTP/1.1
+
+### ENDERECO
+
+GET http://localhost:8080/endereco/ HTTP/1.1
+
+
+###
+
+POST http://localhost:8080/endereco/incluir HTTP/1.1
+content-type: application/json
+
+{
+    "logradouro":"Rua R",
+    "numero": "5",
+    "nomeBairro": "Riviera"
+}
+
+###
+
+GET http://localhost:8080/endereco/excluir2 HTTP/1.1
+
+### BAIRRO
+
+GET http://localhost:8080/bairro/ HTTP/1.1
+
+
+###
+
+POST http://localhost:8080/bairro/incluir HTTP/1.1
+content-type: application/json
+
+{
+    "nomeBairro": "Riviera",
+    "valor": "5.25"
+}
+
+###
+
+GET http://localhost:8080/bairro/excluir1 HTTP/1.1

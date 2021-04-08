@@ -40,7 +40,7 @@ public class BairroController {
     }
 
     @GetMapping("/excluir{id}")
-    public void excluir (@PathVariable ("id") Long id) throws Exception{
+    public void excluirBairro (@PathVariable ("id") Long id) throws Exception{
         var b = bairroRepository.findById(id);
 
         if(b.isPresent()){

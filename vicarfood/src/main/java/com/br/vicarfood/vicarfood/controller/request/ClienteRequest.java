@@ -2,7 +2,6 @@ package com.br.vicarfood.vicarfood.controller.request;
 
 
 public class ClienteRequest {
-    private Long id;
     private String nome;
     private String telefone;
     private String logradouro;
@@ -48,13 +47,5 @@ public class ClienteRequest {
 
     public void setNomeBairro(String nomeBairro) {
         this.nomeBairro = nomeBairro;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 }
