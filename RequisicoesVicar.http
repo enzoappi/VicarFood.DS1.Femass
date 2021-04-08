@@ -1,3 +1,6 @@
+###
+##### PRODUTO #####
+###
 GET http://localhost:8080/produto/ HTTP/1.1
 
 
@@ -14,8 +17,9 @@ content-type: application/json
     "imagem":"123"
 }
 
-### CLIENTE
-
+###
+##### CLIENTE #####
+###
 GET http://localhost:8080/cliente/ HTTP/1.1
 
 
@@ -25,18 +29,31 @@ POST http://localhost:8080/cliente/incluir HTTP/1.1
 content-type: application/json
 
 {
-    "nome": "Juarez",
-    "telefone": "22994555777",
-    "logradouro":"Rua R",
-    "numero": "5",
-    "nomeBairro": "Riviera"
+    "nome": "Godofredo",
+    "cpf": "158467984-03",
+    "telefone": "2298231-4021",
+    "logradouro":"Rua PdP",
+    "numero": "4",
+    "nomeBairro": "Praia do Pecado"
 }
 
 ###
 
-GET http://localhost:8080/cliente/excluir22999999999 HTTP/1.1
+GET http://localhost:8080/cliente/alterar145864324-26 HTTP/1.1
+content-type: application/json
 
-### ENDERECO
+{
+    "nome": "Lucia",
+    "telefone": "22982448974"
+}
+
+###
+
+GET http://localhost:8080/cliente/excluir145864324-26 HTTP/1.1
+
+###
+##### ENDERECO #####
+###
 
 GET http://localhost:8080/endereco/ HTTP/1.1
 
@@ -47,17 +64,28 @@ POST http://localhost:8080/endereco/incluir HTTP/1.1
 content-type: application/json
 
 {
-    "logradouro":"Rua R",
-    "numero": "5",
-    "nomeBairro": "Riviera"
+    "logradouro":"Rua M",
+    "numero": "100",
+    "nomeBairro": "Mirante"
+}
+
+###
+
+GET http://localhost:8080/endereco/alterar13 HTTP/1.1
+content-type: application/json
+
+{
+    "logradouro":"Rua M",
+    "numero": "1"
 }
 
 ###
 
 GET http://localhost:8080/endereco/excluir2 HTTP/1.1
 
-### BAIRRO
-
+###
+##### BAIRRO #####
+###
 GET http://localhost:8080/bairro/ HTTP/1.1
 
 
@@ -67,8 +95,18 @@ POST http://localhost:8080/bairro/incluir HTTP/1.1
 content-type: application/json
 
 {
-    "nomeBairro": "Riviera",
-    "valor": "5.25"
+    "nomeBairro": "Mirante",
+    "valor": "0"
+}
+
+###
+
+GET http://localhost:8080/bairro/alterar4 HTTP/1.1
+content-type: application/json
+
+{
+    "nomeBairro": "Mirante",
+    "valor": "0"
 }
 
 ###

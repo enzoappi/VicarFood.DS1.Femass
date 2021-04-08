@@ -60,12 +60,19 @@ public class BairroController {
         bairroRepository.save(bairro);
     }
 
-    @PostMapping("/alterar")
-    public void alterar(@RequestBody BairroRequest bairroRequest){
+    @GetMapping("/alterar{id}")
+    public void alterarEndereco(@PathVariable ("id") Long id, @RequestBody BairroRequest bairroRequest) throws Exception {
+        var b = bairroRepository.findById(id);
+        
+        if(b.isPresent()) {
+            Bairro bairro = b.get();
+            bairro.setNomeBairro(bairroRequest.getNomeBairro());
+            bairro.setValor(bairroRequest.getValor());
+            bairroRepository.save(bairro);
+        } else{
+            throw new Exception("Bairro não encontrado");
+        }       
 
     }
-
-
-
 }
 

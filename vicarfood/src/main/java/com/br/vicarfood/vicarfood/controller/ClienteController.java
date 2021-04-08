@@ -34,6 +34,7 @@ public class ClienteController {
         for(Cliente cliente : clientes) {
             ClienteRequest c = new ClienteRequest();
             c.setNome(cliente.getNome());
+            c.setCpf(cliente.getCpf());
             c.setTelefone(cliente.getTelefone());
             c.setLogradouro(cliente.getEndereco().getLogradouro());
             c.setNumero(cliente.getEndereco().getNumero());
@@ -45,17 +46,21 @@ public class ClienteController {
     }
 
     @PostMapping("/incluir") 
-    public void incluir(@RequestBody ClienteRequest clienteRequest) throws Exception{
+    public void incluirCliente(@RequestBody ClienteRequest clienteRequest) throws Exception{
         Cliente cliente = new Cliente();
         cliente.setNome(clienteRequest.getNome());
+        cliente.setCpf(clienteRequest.getCpf());
         cliente.setTelefone(clienteRequest.getTelefone());
 
         List<Endereco> enderecos = enderecoRepository.findAll();
         
         Endereco endereco = null;
         for(Endereco e : enderecos){
-            if(e.getLogradouro().equals(clienteRequest.getLogradouro()) && e.getNumero().equals(clienteRequest.getNumero())) {
-                endereco = e;
+            /*if(e.getLogradouro().equals(clienteRequest.getLogradouro()) && e.getNumero().equals(clienteRequest.getNumero())) {*/
+            if(e.getBairro().getNomeBairro().equals(clienteRequest.getNomeBairro())) {
+                if(e.getLogradouro().equals(clienteRequest.getLogradouro()) && e.getNumero().equals(clienteRequest.getNumero())) {
+                    endereco = e;
+                }
             }
         }
 
@@ -68,9 +73,9 @@ public class ClienteController {
         clienteRepository.save(cliente);
     }
 
-    @GetMapping("/excluir{telefone}")
-    public void excluirCliente (@PathVariable ("telefone") String telefone) throws Exception{
-        Cliente c = clienteRepository.findByTelefone(telefone);
+    @GetMapping("/excluir{cpf}")
+    public void excluirCliente (@PathVariable ("cpf") String cpf) throws Exception{
+        Cliente c = clienteRepository.findByCpf(cpf);
 
         if (c != null){
             Cliente cliente = c;
@@ -80,9 +85,14 @@ public class ClienteController {
         }
 
     }
+    
+    @GetMapping("/alterar{cpf}")
+    public void alterarCliente(@PathVariable ("cpf") String cpf, @RequestBody ClienteRequest clienteRequest) throws Exception {
+        Cliente c = clienteRepository.findByCpf(cpf);
+        c.setNome(clienteRequest.getNome());
+        c.setTelefone(clienteRequest.getTelefone());
 
-    @PostMapping("/alterar")
-    public void alterar(@RequestBody ClienteRequest clienteRequest){
-               
-    }    
+        clienteRepository.save(c);
+
+    }
 }

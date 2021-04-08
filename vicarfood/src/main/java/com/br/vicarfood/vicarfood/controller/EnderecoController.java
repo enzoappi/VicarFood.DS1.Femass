@@ -79,8 +79,18 @@ public class EnderecoController {
         }
     }
 
-    @PostMapping("/alterar")
-    public void alterarEndereco(@RequestBody EnderecoRequest enderecoRequest){
+    @GetMapping("/alterar{id}")
+    public void alterarEndereco(@PathVariable ("id") Long id, @RequestBody EnderecoRequest enderecoRequest) throws Exception {
+        var e = enderecoRepository.findById(id);
+        
+        if(e.isPresent()) {
+            Endereco endereco = e.get();
+            endereco.setLogradouro(enderecoRequest.getLogradouro());
+            endereco.setNumero(enderecoRequest.getNumero());
+            enderecoRepository.save(endereco);
+        } else{
+            throw new Exception("Endereço não encontrado");
+        }       
 
     }
 
