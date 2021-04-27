@@ -1,3 +1,7 @@
+#Dependencies and files
+/VicarFood.DS1.Femass/RequisicoesVicar.http
+/VicarFood.DS1.Femass/vicarfood/src/main/resources/application.properties
+
 # Compiled class file
 *.class
 
