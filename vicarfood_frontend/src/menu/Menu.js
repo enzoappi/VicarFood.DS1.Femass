@@ -6,15 +6,13 @@ export default class Menu extends Component {
     render() {
         return (
             <nav className="navbar navbar-expand-lg navbar-dark bg-light fixed-top pl-5">
-                <div className="col-11 bg-dark text-white p-2">
-                    <Link className="navbar-brand" to="/"><img src={img1} alt="logo" width="5%" /></Link>
+                <div className="col-12 bg-dark text-white p-1">
+                    <Link className="navbar-brand" to="/"><img src={img1} alt="logo" width="3%" /></Link>
                     <Link className="navbar-brand" to="/pedido">Pedido</Link>
                     <Link className="navbar-brand" to="/cardapio">Cardápio</Link>
+                    <Link className="navbar-brand" to="/cliente">Cadastro de Cliente</Link>
+                    <Link className="navbar-brand " to="/adicionar"><i class="bi bi-cart-plus text-white "></i></Link>
                 </div>
-                <div className="col-1 bg-dark text-white p-3" Style="font-size: 20px;">
-                <Link className="col-1" to="/adicionar"><i class="bi bi-cart-plus text-white "></i></Link>
-                </div>
-                
             </nav>
         )
     }
