@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-
+@CrossOrigin
 @RestController
 @RequestMapping("/cliente")
 public class ClienteController {
@@ -78,38 +78,27 @@ public class ClienteController {
     }
 
     @CrossOrigin
-    @GetMapping("/alterar")
-    public void alterarCliente(@RequestBody ClienteRequest clienteRequest) throws Exception {
-        var objeto = clienteRepository.findById(clienteRequest.getCpf());
-
-        if(objeto.isPresent()){
-            Cliente c = objeto.get();
-            c.setNome(clienteRequest.getNome());
-            //c.setCpf(c.getCpf());
-            c.setTelefone(clienteRequest.getTelefone());
-            clienteRepository.save(c);
-        } else {
-            throw new Exception("Não foi possível alterar o cliente");
-        }
-
-    }
-
-    @CrossOrigin
     @GetMapping("/excluir{cpf}")
-    public void excluirCliente (@PathVariable("cpf") String cpf) throws Exception{
-        try {
-            clienteRepository.deleteById(cpf);
-            } catch (Exception e) {
-                throw new Exception("Não foi possível realizar a exclusão");
-            }
-        /*Cliente c = clienteRepository.findByCpf(cpf);
+    public void excluirCliente (@PathVariable ("cpf") String cpf) throws Exception{
+        Cliente c = clienteRepository.findByCpf(cpf);
 
         if (c != null){
             Cliente cliente = c;
             clienteRepository.delete(cliente);
         }else{
             throw new Exception("Cliente não encontrado");
-        }*/
+        }
+
+    }
+    
+    @CrossOrigin
+    @GetMapping("/alterar{cpf}")
+    public void alterarCliente(@PathVariable ("cpf") String cpf, @RequestBody ClienteRequest clienteRequest) throws Exception {
+        Cliente c = clienteRepository.findByCpf(cpf);
+        c.setNome(clienteRequest.getNome());
+        c.setTelefone(clienteRequest.getTelefone());
+
+        clienteRepository.save(c);
 
     }
 }
