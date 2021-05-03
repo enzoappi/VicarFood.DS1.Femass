@@ -7,6 +7,7 @@ import com.br.vicarfood.vicarfood.controller.request.BairroRequest;
 import com.br.vicarfood.vicarfood.model.Bairro;
 import com.br.vicarfood.vicarfood.repository.BairroRepository;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,6 +24,7 @@ public class BairroController {
         this.bairroRepository = bairroRepository;
     }
     
+    @CrossOrigin
     @GetMapping("/")
     public List<BairroRequest> getBairro(){
         List<Bairro> bairros = bairroRepository.findAll();
@@ -39,6 +41,7 @@ public class BairroController {
         
     }
 
+    @CrossOrigin
     @GetMapping("/excluir{id}")
     public void excluirBairro (@PathVariable ("id") Long id) throws Exception{
         var b = bairroRepository.findById(id);
@@ -51,6 +54,7 @@ public class BairroController {
         }
     }
 
+    @CrossOrigin
     @PostMapping("/incluir")
     public void incluir(@RequestBody BairroRequest bairroRequest) throws Exception{
         Bairro bairro = new Bairro();
@@ -60,6 +64,7 @@ public class BairroController {
         bairroRepository.save(bairro);
     }
 
+    @CrossOrigin
     @GetMapping("/alterar{id}")
     public void alterarEndereco(@PathVariable ("id") Long id, @RequestBody BairroRequest bairroRequest) throws Exception {
         var b = bairroRepository.findById(id);
