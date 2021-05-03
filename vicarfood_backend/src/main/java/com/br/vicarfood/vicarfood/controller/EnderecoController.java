@@ -9,6 +9,7 @@ import com.br.vicarfood.vicarfood.model.Endereco;
 import com.br.vicarfood.vicarfood.repository.BairroRepository;
 import com.br.vicarfood.vicarfood.repository.EnderecoRepository;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/endereco")
 public class EnderecoController {
@@ -27,6 +29,7 @@ public class EnderecoController {
         this.bairroRepository = bairroRepository;
     }
     
+    @CrossOrigin
     @GetMapping("/")
     public List<EnderecoRequest> getEnderecos() {
         List<Endereco> enderecos = enderecoRepository.findAll();
@@ -44,6 +47,7 @@ public class EnderecoController {
         return endrs;
     }
 
+    @CrossOrigin
     @PostMapping("/incluir")
     public void incluir(@RequestBody EnderecoRequest enderecoRequest) throws Exception{
         Endereco endereco = new Endereco();
@@ -67,6 +71,7 @@ public class EnderecoController {
         enderecoRepository.save(endereco);
     }
 
+    @CrossOrigin
     @GetMapping("/excluir{id}")
     public void excluirEndereco(@PathVariable("id") Long id) throws Exception{
         var e = enderecoRepository.findById(id);
@@ -79,6 +84,7 @@ public class EnderecoController {
         }
     }
 
+    @CrossOrigin
     @GetMapping("/alterar{id}")
     public void alterarEndereco(@PathVariable ("id") Long id, @RequestBody EnderecoRequest enderecoRequest) throws Exception {
         var e = enderecoRepository.findById(id);

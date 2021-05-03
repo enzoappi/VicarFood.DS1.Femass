@@ -9,6 +9,7 @@ import com.br.vicarfood.vicarfood.model.Produto;
 import com.br.vicarfood.vicarfood.repository.ImagemRepository;
 import com.br.vicarfood.vicarfood.repository.ProdutoRepository;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/produto")
 public class ProdutoController {
@@ -27,6 +29,7 @@ public class ProdutoController {
         this.imagemRepository = imagemRepository;
     }    
 
+    @CrossOrigin
     @GetMapping("/")
     public List<ProdutoRequest> getProdutos(){
         List<Produto> produtos = produtoRepository.findAll();
@@ -47,6 +50,7 @@ public class ProdutoController {
         return pdrs;
     }
 
+    @CrossOrigin
     @PostMapping("/incluir")
     public void incluir(@RequestBody ProdutoRequest produtoRequest){
         Produto produto = new Produto();
@@ -75,6 +79,7 @@ public class ProdutoController {
         produtoRepository.save(produto);
     }
 
+    @CrossOrigin
     @GetMapping("/{id}")
     public void remover(@PathVariable("id")Long id) throws Exception{
         var p = produtoRepository.findById(id);
@@ -89,6 +94,7 @@ public class ProdutoController {
         }
     }
 
+    @CrossOrigin
     @PostMapping("/alterar")
     public void alterar(@RequestBody ProdutoRequest produtoRequest){
 

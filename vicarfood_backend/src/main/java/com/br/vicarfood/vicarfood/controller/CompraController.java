@@ -10,6 +10,7 @@ import com.br.vicarfood.vicarfood.model.SituacaoCompra;
 import com.br.vicarfood.vicarfood.repository.ClienteRepository;
 import com.br.vicarfood.vicarfood.repository.CompraRepository;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/compra")
 public class CompraController {
@@ -28,6 +30,7 @@ public class CompraController {
         this.clienteRepository = clienteRepository;
     }
 
+    @CrossOrigin
     @GetMapping("/")
     public List<CompraRequest> getCompra(){
         List<Compra> compras = compraRepository.findAll();
@@ -48,6 +51,7 @@ public class CompraController {
         return comprs;
     }
     
+    @CrossOrigin
     @PostMapping("/incluir")
     public void incluirCompra(@RequestBody CompraRequest compraRequest) throws Exception{
         Compra compra = new Compra();
@@ -74,6 +78,7 @@ public class CompraController {
         compraRepository.save(compra);
     }
 
+    @CrossOrigin
     @GetMapping("/estornar{idCompra}")
     public void estornarCompra(@PathVariable("idCompra") Long idCompra) throws Exception{
         var c = compraRepository.findById(idCompra);
