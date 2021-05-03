@@ -24,9 +24,9 @@ export default class Cliente extends Component {
             "nome": this.state.nome,
             "cpf": this.state.cpf,
             "telefone": this.state.telefone,
-            "logradouro":"Rua PdP",
-            "numero": "444",
-            "nomeBairro": "Praia do Pecado"
+            "logradouro":"Rua M",
+            "numero": "1",
+            "nomeBairro": "Mirante"
         }
 
         const requestOptions = {
@@ -34,6 +34,7 @@ export default class Cliente extends Component {
             headers: {
                 'Content-Type': 'application/json'
             },
+            
             body: JSON.stringify(dados)
         };
 
@@ -57,24 +58,24 @@ export default class Cliente extends Component {
                     <div className="col-8 text-warning bg-dark mt-1 pt-1"><text>Dados Pessoais</text></div>
                     <div className="col-2"></div>
                     <form>
-                        <div class="form-group row">
+                        <div className="form-group row">
                             <div className="col-2"></div>
-                            <label class="col-1 text-center text-white bg-dark">Nome</label>
-                            <div class="col-6">
+                            <label className="col-1 text-center text-white bg-dark">Nome</label>
+                            <div className="col-6">
                                 <input value={this.state.nome} onChange={this.txtNome_change} className="form-control name-pull-image text-white bg-dark" type="text"></input>
                             </div>
                         </div>
-                        <div class="form-group row">
+                        <div className="form-group row">
                             <div className="col-2"></div>
-                            <label class="col-1 text-center text-white bg-dark">CPF</label>
-                            <div class="col-6">
+                            <label className="col-1 text-center text-white bg-dark">CPF</label>
+                            <div className="col-6">
                                 <input value={this.state.cpf} onChange={this.txtCpf_change} className="form-control name-pull-image text-white bg-dark" type="text"></input>
                             </div>
                         </div>
-                        <div class="form-group row">
+                        <div className="form-group row">
                             <div className="col-2"></div>
-                            <label class="col-1 text-center text-white bg-dark">Telefone</label>
-                            <div class="col-6">
+                            <label className="col-1 text-center text-white bg-dark">Telefone</label>
+                            <div className="col-6">
                                 <input value={this.state.telefone} onChange={this.txtTelefone_change} className="form-control name-pull-image text-white bg-dark" type="text"></input>
                             </div>
                         </div>
