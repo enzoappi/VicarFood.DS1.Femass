@@ -4,10 +4,7 @@ export default class Cliente extends Component {
     state = {
         nome: "",
         cpf: "",
-        telefone: "",
-        cliente: [],
-        incluindo: false,
-        alterando: false,
+        telefone: ""
     }
     
     txtNome_change = (event) => {
@@ -22,6 +19,8 @@ export default class Cliente extends Component {
         this.setState({telefone: event.target.value})
     }
 
+<<<<<<< HEAD
+<<<<<<< HEAD
     preencherCliente = () => {
         const url = window.servidor + '/cliente/listar'
         fetch(url)
@@ -42,6 +41,11 @@ export default class Cliente extends Component {
     }
 
     gravarNovoCliente = () => {
+=======
+=======
+>>>>>>> 413d81e7ddbe897cd25034274d83fc46adcdf926
+    gravarNovo = () => {
+>>>>>>> Revert "Criacao da tela de edicao e request de edicao e gravacao"
         const dados = {
             "nome": this.state.nome,
             "cpf": this.state.cpf,
@@ -59,6 +63,8 @@ export default class Cliente extends Component {
             body: JSON.stringify(dados)
         };
 
+<<<<<<< HEAD
+<<<<<<< HEAD
         const url = window.servidor + '/cliente/incluir'
 
         fetch(url, requestOptions)
@@ -119,8 +125,24 @@ export default class Cliente extends Component {
     voltar = () => {
         this.setState({incluindo: false, alterando: false})
     }
+=======
+        const url = "http://localhost:8080/cliente/incluir"
+
+        fetch(url, requestOptions)
+            .then(console.log('Gravado'))
+            .catch(erro => console.log(erro));
+    }
+>>>>>>> Revert "Criacao da tela de edicao e request de edicao e gravacao"
+=======
+        const url = "http://localhost:8080/cliente/incluir"
+
+        fetch(url, requestOptions)
+            .then(console.log('Gravado'))
+            .catch(erro => console.log(erro));
+    }
+>>>>>>> 413d81e7ddbe897cd25034274d83fc46adcdf926
     
-    renderIncluirNovoCliente = () => {
+    render() {
         return (
             <div>
                 <div className="row mt-5 pt-2">
@@ -159,15 +181,25 @@ export default class Cliente extends Component {
                 <div className="row mt-2">
                     <div className="col-2"></div>
                     <div className="col-1">
+<<<<<<< HEAD
+<<<<<<< HEAD
                         <button className="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" title="Gravar" onClick = {() => this.gravarNovoCliente()}><i className="bi bi-cloud-check-fill"></i></button>
                     </div>
                     <div className="col-1">
                         <button className="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" title="Voltar" onClick = {() => this.voltar()}><i className="bi bi-arrow-return-left"></i></button>
+=======
+                        <button className="btn btn-primary" onClick = {() => this.gravarNovo()}>Gravar</button>
+>>>>>>> Revert "Criacao da tela de edicao e request de edicao e gravacao"
+=======
+                        <button className="btn btn-primary" onClick = {() => this.gravarNovo()}>Gravar</button>
+>>>>>>> 413d81e7ddbe897cd25034274d83fc46adcdf926
                     </div>
                 </div>
             </div>
         )
     }
+<<<<<<< HEAD
+<<<<<<< HEAD
 
     renderAlterarCliente = () => {
         return (
@@ -271,4 +303,8 @@ export default class Cliente extends Component {
         }
         return pagina
     }
+=======
+>>>>>>> Revert "Criacao da tela de edicao e request de edicao e gravacao"
+=======
+>>>>>>> 413d81e7ddbe897cd25034274d83fc46adcdf926
 }
