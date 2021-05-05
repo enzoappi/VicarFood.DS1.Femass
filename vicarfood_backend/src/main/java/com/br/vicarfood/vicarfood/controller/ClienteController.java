@@ -29,7 +29,7 @@ public class ClienteController {
     }
 
     @CrossOrigin
-    @GetMapping("/")
+    @GetMapping("/listar")
     public List<ClienteRequest> getCliente(){
         List<Cliente> clientes = clienteRepository.findAll();
 
@@ -78,14 +78,13 @@ public class ClienteController {
     }
 
     @CrossOrigin
-    @GetMapping("/alterar")
+    @PostMapping("/alterar")
     public void alterarCliente(@RequestBody ClienteRequest clienteRequest) throws Exception {
         var objeto = clienteRepository.findById(clienteRequest.getCpf());
 
         if(objeto.isPresent()){
             Cliente c = objeto.get();
             c.setNome(clienteRequest.getNome());
-            //c.setCpf(c.getCpf());
             c.setTelefone(clienteRequest.getTelefone());
             clienteRepository.save(c);
         } else {
@@ -95,21 +94,12 @@ public class ClienteController {
     }
 
     @CrossOrigin
-    @GetMapping("/excluir{cpf}")
+    @PostMapping("/excluir/{cpf}")
     public void excluirCliente (@PathVariable("cpf") String cpf) throws Exception{
         try {
             clienteRepository.deleteById(cpf);
             } catch (Exception e) {
                 throw new Exception("Não foi possível realizar a exclusão");
             }
-        /*Cliente c = clienteRepository.findByCpf(cpf);
-
-        if (c != null){
-            Cliente cliente = c;
-            clienteRepository.delete(cliente);
-        }else{
-            throw new Exception("Cliente não encontrado");
-        }*/
-
     }
 }

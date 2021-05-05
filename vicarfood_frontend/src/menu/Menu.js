@@ -11,7 +11,7 @@ export default class Menu extends Component {
                     <Link className="navbar-brand" to="/pedido">Pedido</Link>
                     <Link className="navbar-brand" to="/cardapio">Cardápio</Link>
                     <Link className="navbar-brand" to="/cliente">Cadastro de Cliente</Link>
-                    <Link className="navbar-brand " to="/adicionar"><i class="bi bi-cart-plus text-white "></i></Link>
+                    <Link className="navbar-brand " to="/adicionar"><i className="bi bi-cart-plus text-white "></i></Link>
                 </div>
             </nav>
         )
