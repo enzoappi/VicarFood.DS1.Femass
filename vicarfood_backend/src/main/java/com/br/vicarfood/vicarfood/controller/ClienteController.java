@@ -79,6 +79,7 @@ public class ClienteController {
 
     @CrossOrigin
 <<<<<<< HEAD
+<<<<<<< HEAD
     @PostMapping("/alterar")
     public void alterarCliente(@RequestBody ClienteRequest clienteRequest) throws Exception {
         var objeto = clienteRepository.findById(clienteRequest.getCpf());
@@ -103,6 +104,8 @@ public class ClienteController {
                 throw new Exception("Não foi possível realizar a exclusão");
             }
 =======
+=======
+>>>>>>> 413d81e7ddbe897cd25034274d83fc46adcdf926
     @GetMapping("/excluir{cpf}")
     public void excluirCliente (@PathVariable ("cpf") String cpf) throws Exception{
         Cliente c = clienteRepository.findByCpf(cpf);

@@ -20,6 +20,7 @@ export default class Cliente extends Component {
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     preencherCliente = () => {
         const url = window.servidor + '/cliente/listar'
         fetch(url)
@@ -41,6 +42,8 @@ export default class Cliente extends Component {
 
     gravarNovoCliente = () => {
 =======
+=======
+>>>>>>> 413d81e7ddbe897cd25034274d83fc46adcdf926
     gravarNovo = () => {
 >>>>>>> Revert "Criacao da tela de edicao e request de edicao e gravacao"
         const dados = {
@@ -60,6 +63,7 @@ export default class Cliente extends Component {
             body: JSON.stringify(dados)
         };
 
+<<<<<<< HEAD
 <<<<<<< HEAD
         const url = window.servidor + '/cliente/incluir'
 
@@ -129,6 +133,14 @@ export default class Cliente extends Component {
             .catch(erro => console.log(erro));
     }
 >>>>>>> Revert "Criacao da tela de edicao e request de edicao e gravacao"
+=======
+        const url = "http://localhost:8080/cliente/incluir"
+
+        fetch(url, requestOptions)
+            .then(console.log('Gravado'))
+            .catch(erro => console.log(erro));
+    }
+>>>>>>> 413d81e7ddbe897cd25034274d83fc46adcdf926
     
     render() {
         return (
@@ -170,6 +182,7 @@ export default class Cliente extends Component {
                     <div className="col-2"></div>
                     <div className="col-1">
 <<<<<<< HEAD
+<<<<<<< HEAD
                         <button className="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" title="Gravar" onClick = {() => this.gravarNovoCliente()}><i className="bi bi-cloud-check-fill"></i></button>
                     </div>
                     <div className="col-1">
@@ -177,11 +190,15 @@ export default class Cliente extends Component {
 =======
                         <button className="btn btn-primary" onClick = {() => this.gravarNovo()}>Gravar</button>
 >>>>>>> Revert "Criacao da tela de edicao e request de edicao e gravacao"
+=======
+                        <button className="btn btn-primary" onClick = {() => this.gravarNovo()}>Gravar</button>
+>>>>>>> 413d81e7ddbe897cd25034274d83fc46adcdf926
                     </div>
                 </div>
             </div>
         )
     }
+<<<<<<< HEAD
 <<<<<<< HEAD
 
     renderAlterarCliente = () => {
@@ -288,4 +305,6 @@ export default class Cliente extends Component {
     }
 =======
 >>>>>>> Revert "Criacao da tela de edicao e request de edicao e gravacao"
+=======
+>>>>>>> 413d81e7ddbe897cd25034274d83fc46adcdf926
 }
