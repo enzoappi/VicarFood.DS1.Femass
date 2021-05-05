@@ -30,7 +30,7 @@ public class ProdutoController {
     }    
 
     @CrossOrigin
-    @GetMapping("/")
+    @GetMapping("/listar")
     public List<ProdutoRequest> getProdutos(){
         List<Produto> produtos = produtoRepository.findAll();
 

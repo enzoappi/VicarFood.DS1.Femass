@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@CrossOrigin
 @RestController
 @RequestMapping("/endereco")
 public class EnderecoController {
@@ -30,7 +29,7 @@ public class EnderecoController {
     }
     
     @CrossOrigin
-    @GetMapping("/")
+    @GetMapping("/listar")
     public List<EnderecoRequest> getEnderecos() {
         List<Endereco> enderecos = enderecoRepository.findAll();
 
@@ -72,33 +71,37 @@ public class EnderecoController {
     }
 
     @CrossOrigin
-    @GetMapping("/excluir{id}")
+    @PostMapping("/alterar")
+    public void alterarEndereco(@RequestBody EnderecoRequest enderecoRequest) throws Exception {
+        var objeto = enderecoRepository.findById(enderecoRequest.getId());
+        
+        if(objeto.isPresent()) {
+            Endereco endereco = objeto.get();
+            endereco.setLogradouro(enderecoRequest.getLogradouro());
+            endereco.setNumero(enderecoRequest.getNumero());
+            enderecoRepository.save(endereco);
+        } else{
+            throw new Exception("Endereço não encontrado!");
+        }       
+
+    }
+
+    @CrossOrigin
+    @PostMapping("/excluir/{id}")
     public void excluirEndereco(@PathVariable("id") Long id) throws Exception{
-        var e = enderecoRepository.findById(id);
+        try {
+            enderecoRepository.deleteById(id);
+        } catch(Exception e) {
+            throw new Exception("Endereco nao encontrado!");
+        }
+        
+        /*var e = enderecoRepository.findById(id);
 
         if(e.isPresent()) {
             Endereco endereco = e.get();
             enderecoRepository.delete(endereco);
         } else {
             throw new Exception("Endereco nao encontrado");
-        }
+        }*/
     }
-
-    @CrossOrigin
-    @GetMapping("/alterar{id}")
-    public void alterarEndereco(@PathVariable ("id") Long id, @RequestBody EnderecoRequest enderecoRequest) throws Exception {
-        var e = enderecoRepository.findById(id);
-        
-        if(e.isPresent()) {
-            Endereco endereco = e.get();
-            endereco.setLogradouro(enderecoRequest.getLogradouro());
-            endereco.setNumero(enderecoRequest.getNumero());
-            enderecoRepository.save(endereco);
-        } else{
-            throw new Exception("Endereço não encontrado");
-        }       
-
-    }
-
-
 }
