@@ -23,7 +23,7 @@ export default class Cliente extends Component {
     }
 
     preencherCliente = () => {
-        const url = window.servidor + "/cliente/"
+        const url = window.servidor + '/cliente/listar'
         fetch(url)
             .then(response => response.json())
             .then(data => this.setState({cliente: data}));
@@ -41,7 +41,7 @@ export default class Cliente extends Component {
         this.setState({alterando: true, nome: cliente.nome, cpf: cliente.cpf, telefone: cliente.telefone})
     }
 
-    gravarNovo = () => {
+    gravarNovoCliente = () => {
         const dados = {
             "nome": this.state.nome,
             "cpf": this.state.cpf,
@@ -56,15 +56,17 @@ export default class Cliente extends Component {
             headers: {
                 'Content-Type': 'application/json'
             },
-            
             body: JSON.stringify(dados)
         };
 
-        const url = window.servidor + "/cliente/incluir"
+        const url = window.servidor + '/cliente/incluir'
 
         fetch(url, requestOptions)
-            .then(this.setState({incluindo: false}))
-            .catch(erro => console.log(erro));
+        .then(fim => {
+            this.setState({incluindo: false})
+            this.preencherCliente()
+        })
+        .catch(erro => console.log(erro));
     }
 
     gravarAlterar = () => {
@@ -86,11 +88,31 @@ export default class Cliente extends Component {
             body: JSON.stringify(dados)
         };
 
-        const url = window.servidor + "/cliente/alterar"
+        const url = window.servidor + '/cliente/alterar'
 
         fetch(url, requestOptions)
-            .then(this.setState({alterando: false}))
-            .then(this.preencherCliente())
+            .then(fim => {
+                this.setState({alterando: false})
+                this.preencherCliente()
+            })
+            .catch(erro => console.log(erro));
+    }
+
+    excluir = (cliente) => {
+
+        const requestOptions = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        };
+
+        const url = window.servidor + '/cliente/excluir/' + cliente.cpf
+
+        fetch(url, requestOptions)
+            .then(fim => {
+                this.preencherCliente()
+            })
             .catch(erro => console.log(erro));
     }
 
@@ -137,10 +159,10 @@ export default class Cliente extends Component {
                 <div className="row mt-2">
                     <div className="col-2"></div>
                     <div className="col-1">
-                        <button className="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" title="Gravar" onClick = {() => this.gravarNovo()}><i class="bi bi-cloud-check-fill"></i></button>
+                        <button className="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" title="Gravar" onClick = {() => this.gravarNovoCliente()}><i className="bi bi-cloud-check-fill"></i></button>
                     </div>
                     <div className="col-1">
-                        <button className="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" title="Voltar" onClick = {() => this.voltar()}><i class="bi bi-arrow-return-left"></i></button>
+                        <button className="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" title="Voltar" onClick = {() => this.voltar()}><i className="bi bi-arrow-return-left"></i></button>
                     </div>
                 </div>
             </div>
@@ -186,10 +208,10 @@ export default class Cliente extends Component {
                 <div className="row mt-2">
                     <div className="col-2"></div>
                     <div className="col-1">
-                        <button className="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" title="Gravar Alteração" onClick = {() => this.gravarAlterar()}><i class="bi bi-cloud-check-fill"></i></button>
+                        <button className="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" title="Gravar Alteração" onClick = {() => this.gravarAlterar()}><i className="bi bi-cloud-check-fill"></i></button>
                     </div>
                     <div className="col-1">
-                        <button className="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" title="Voltar" onClick = {() => this.voltar()}><i class="bi bi-arrow-return-left"></i></button>
+                        <button className="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" title="Voltar" onClick = {() => this.voltar()}><i className="bi bi-arrow-return-left"></i></button>
                     </div>
                 </div>
             </div>
@@ -211,11 +233,12 @@ export default class Cliente extends Component {
                             <th scope="col">Numero</th>
                             <th scope="col">Bairro</th>
                             <th scope="col"></th>
+                            <th scope="col"></th>
                         </tr>
                     </thead>
                     <tbody>
                         {this.state.cliente && this.state.cliente.map(cliente => {
-                            if (cliente.cpf === "123987456-17") {
+                            if (cliente.cpf === "172839465-00") { //cpf de comparacao setado hardcoded no lado direito
                                 return <tr key={cliente.cpf}>
                                     <th scope="row">{cliente.cpf}</th>
                                     <td>{cliente.nome}</td>
@@ -223,7 +246,8 @@ export default class Cliente extends Component {
                                     <td>{cliente.logradouro}</td>
                                     <td>{cliente.numero}</td>
                                     <td>{cliente.nomeBairro}</td>
-                                    <td><button onClick={() => this.iniciarAlterar(cliente)} type="button" className="btn btn-light" data-bs-toggle="tooltip" data-bs-placement="top" title="Editar cliente"><i class="bi bi-pencil-fill"></i></button></td>
+                                    <td><button onClick={() => this.iniciarAlterar(cliente)} type="button" className="btn btn-light" data-bs-toggle="tooltip" data-bs-placement="top" title="Editar cliente"><i className="bi bi-pencil-fill"></i></button></td>
+                                    <td><button onClick={() => this.excluir(cliente)} type="button" className="btn btn-light" data-bs-toggle="tooltip" data-bs-placement="top" title="Excluir cliente"><i className="bi bi-trash-fill"></i></button></td>
                                 </tr>
                             }
                             return<tr></tr>
