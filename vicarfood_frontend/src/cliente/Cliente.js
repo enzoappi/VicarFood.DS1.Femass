@@ -6,6 +6,11 @@ export default class Cliente extends Component {
         cpf: "",
         telefone: "",
         cliente: [],
+        idEndereco: "",
+        logradouro: "",
+        numero: "",
+        nomeBairro: "",
+        endereco: [],
         incluindo: false,
         alterando: false
     }
@@ -30,41 +35,87 @@ export default class Cliente extends Component {
             .then(data => this.setState({cliente: data}));
     }
 
+    txtLogradouro_change = (event) => {
+        this.setState({logradouro: event.target.value})
+    }
+
+    txtNumero_change = (event) => {
+        this.setState({numero: event.target.value})
+    }
+
+    txtNomeBairro_change = (event) => {
+        this.setState({nomeBairro: event.target.value})
+    }
+
+    preencherEndereco = () => {
+        console.log('preenchendo a lista')
+        const url = window.servidor + '/endereco/listar'
+        fetch(url)
+            .then(response => response.json())
+            .then(data => this.setState({endereco: data}));
+    }
+
     componentDidMount() {
         this.preencherCliente()
+        this.preencherEndereco()
     }
 
     iniciarNovo = () => {
-        this.setState({incluindo: true, nome: '', cpf: '', telefone: ''})
+        //this.setState({incluindo: true, nome: '', cpf: '', telefone: ''})
+        this.setState({incluindo: true, nome: '', cpf: '', telefone: '', logradouro: '', numero: '', nomeBairro: ''})
     }
 
-    iniciarAlterar = (cliente) => {
+    /*iniciarAlterar = (cliente) => {
         this.setState({alterando: true, nome: cliente.nome, cpf: cliente.cpf, telefone: cliente.telefone})
+    }*/
+
+    iniciarAlterar = (cliente, endereco) => {
+        this.setState({alterando: true, nome: cliente.nome, cpf: cliente.cpf, telefone: cliente.telefone, logradouro: endereco.logradouro, numero: endereco.numero, nomeBairro: endereco.nomeBairro})
     }
 
     gravarNovoCliente = () => {
-        const dados = {
+        
+        const dadosEndereco = {
+            "logradouro": this.state.logradouro,
+            "numero": this.state.numero,
+            "nomeBairro": this.state.nomeBairro
+        }
+        
+        const dadosCliente = {
             "nome": this.state.nome,
             "cpf": this.state.cpf,
             "telefone": this.state.telefone,
-            "logradouro":"Rua M",
-            "numero": "1",
-            "nomeBairro": "Mirante"
+            "logradouro": this.state.logradouro,
+            "numero": this.state.numero,
+            "nomeBairro": this.state.nomeBairro
         }
 
-        const requestOptions = {
+        let requestOptions = {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(dados)
+            body: JSON.stringify(dadosEndereco)
         };
 
-        const url = window.servidor + '/cliente/incluir'
+        let url = window.servidor + '/endereco/incluir'
+
+        fetch(url, requestOptions)
+
+        requestOptions = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(dadosCliente)
+        };
+
+        url = window.servidor + '/cliente/incluir'
 
         fetch(url, requestOptions)
             .then(fim => {
                 this.setState({incluindo: false})
+                this.preencherEndereco()
                 this.preencherCliente()
             })
         .catch(erro => console.log(erro));
@@ -157,6 +208,40 @@ export default class Cliente extends Component {
                         </div>
                     </form>
                 </div>
+
+
+
+                <div className="row mt-4 pt-2">
+                    <div className="col-2"></div>
+                    <div className="col-8 text-warning bg-dark mt-1 pt-1"><text>Dados de Endereco</text></div>
+                    <div className="col-2"></div>
+                    <form>
+                        <div className="form-group row">
+                            <div className="col-2"></div>
+                            <label className="col-1 text-center text-white bg-dark">Logradouro</label>
+                            <div className="col-6">
+                                <input value={this.state.logradouro} onChange={this.txtLogradouro_change} className="form-control name-pull-image text-white bg-dark" type="text"></input>
+                            </div>
+                        </div>
+                        <div className="form-group row">
+                            <div className="col-2"></div>
+                            <label className="col-1 text-center text-white bg-dark">Número</label>
+                            <div className="col-6">
+                                <input value={this.state.numero} onChange={this.txtNumero_change} className="form-control name-pull-image text-white bg-dark" type="text"></input>
+                            </div>
+                        </div>
+                        <div className="form-group row">
+                            <div className="col-2"></div>
+                            <label className="col-1 text-center text-white bg-dark">Bairro</label>
+                            <div className="col-6">
+                                <input value={this.state.nomeBairro} onChange={this.txtNomeBairro_change} className="form-control name-pull-image text-white bg-dark" type="text"></input>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+
+
                 <div className="row mt-2">
                     <div className="col-2"></div>
                     <div className="col-1">
