@@ -1,0 +1,28 @@
+.app-menu__list {
+    display: flex;
+    justify-content: space-evenly;
+    padding-left: 0px;
+}
+
+.app-menu__item {
+    list-style: none;
+    display: inline-flex;
+    align-items: center;
+}
+
+.app-menu__link {
+    color: #E0CCB3;
+    font-family: sans-serif;
+    margin-right: 1rem;
+    text-decoration: none;
+}
+
+.app-menu__link:hover {
+    text-decoration: none;
+    color:#E0CCB3;
+}
+.app-menu__logo{
+    height: 90px;
+    width: 90px;
+    margin: 20px;  
+}
