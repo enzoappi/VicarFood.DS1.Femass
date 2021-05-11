@@ -1,0 +1,10 @@
+.app-container {
+    font-family: sans-serif;
+    height: calc(100vh - 34px - 50px - 64px);
+}
+h1{
+    text-align: center;
+    margin: 20px;
+    background-color: #AD2610;
+    border-radius: 5px;
+}
