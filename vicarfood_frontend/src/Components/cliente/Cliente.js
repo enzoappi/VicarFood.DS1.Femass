@@ -5,6 +5,7 @@ import './Cliente.css'
 import { MdSave, MdModeEdit } from "react-icons/md";
 
 
+
 export default class Cliente extends Component {
     state = {
         nome: "",
@@ -17,8 +18,11 @@ export default class Cliente extends Component {
         nomeBairro: "",
         endereco: [],
         incluindo: false,
-        alterando: false
+        alterando: false,
     }
+
+    
+
     
     txtNome_change = (event) => {
         this.setState({nome: event.target.value})
@@ -184,48 +188,45 @@ export default class Cliente extends Component {
                 <div>
                     <h3>Dados Pessoais</h3>
                     <form className="box">
-                        <div> <label>Nome:  </label>
-                            <input placeholder="Seu Nome" value={this.state.nome} onChange={this.txtNome_change} type="text"></input>
-                        </div>
-                        <div>
-                            <label>CPF:  </label>
-                            <input placeholder="Seu CPF" classeName="text" value={this.state.cpf} onChange={this.txtCpf_change}  type="text"></input>
-                        </div>
-                        <div>
-                            <label>Telefone:  </label>
-                            <input placeholder="Telefone" value={this.state.telefone} onChange={this.txtTelefone_change} type="text"></input>
-                        </div>
-                        <div className="button">
-                        <button className="button" onClick = {() => this.gravarNovo()}> <MdSave className="save"/> </button>
-                        <button className="button" onClick = {() => this.editarNovo()}> <MdModeEdit className="edit"/> </button>
+                        <input name="nome" placeholder="Nome Completo" value={this.state.nome} onChange={this.txtNome_change} type="text"></input>
+                        <input name="CPF" placeholder="CPF" value={this.state.cpf} onChange={this.txtCpf_change}  type="text"></input>
+                        <input name="telefone" placeholder="Telefone" value={this.state.telefone} onChange={this.txtTelefone_change} type="text"></input>
+                       
+                        <div className="btnSaveEdit">
+                        <button className="btnSave" onClick = {() => this.gravarNovo()}> <MdSave className="save"/> </button>
+                        <button className="btnEdit" onClick = {() => this.editarNovo()}> <MdModeEdit className="edit"/> </button>
                         </div>
                     </form>
                 </div>
                 <div>
                     <h3>Endereço</h3>
                     <form className="box">
-                        <div> <label>Bairro:  </label>
-                            <select placeholder="Selecione" id="bairro" value={this.state.selectedOption} onChange={this.txtNome_change} type="text"></select>
-                        </div>
-                        <div>
-                            <label>Número:  </label>
-                            <input placeholder="Número" classeName="text" value={this.state.numero} onChange={this.txtNumero_change}  type="text"></input>
-                        </div>
-                        <div>
-                            <label>Complemento:  </label>
-                            <input placeholder="Complemento" value={this.state.complemento} onChange={this.txtComplemento_change} type="text"></input>
-                        </div>
-                        <div>
-                            <label>Ponto de Referencia:  </label>
-                            <input placeholder="Referencia" value={this.state.referencia} onChange={this.txtReferencia_change} type="text"></input>
-                        </div>
-                        <div className="button">
-                        <button className="button" onClick = {() => this.gravarNovo()}> <MdSave className="save"/> </button>
-                        <button className="button" onClick = {() => this.editarNovo()}> <MdModeEdit className="edit"/> </button>
+                        <select name="bairro" placeholder="Bairro" id="bairro" value={this.state.selectedOption} onChange={this.txtNome_change} type="text"></select>
+                        <input name="numero" placeholder="Número" classeName="text" value={this.state.numero} onChange={this.txtNumero_change}  type="text"></input>
+                        <input name="complemento" placeholder="Complemento" value={this.state.complemento} onChange={this.txtComplemento_change} type="text"></input>
+                        <input name="referencia" placeholder="Referência" value={this.state.referencia} onChange={this.txtReferencia_change} type="text"></input>
+                        
+                        <div className="btnSaveEdit">
+                        <button className="btnSave" onClick = {() => this.gravarNovo()}> <MdSave className="save"/> </button>
+                        <button className="btnEdit" onClick = {() => this.editarNovo()}> <MdModeEdit className="edit"/> </button>
                         </div>
                         
                     </form>
                 </div>
+                <div>
+                    <h3>Modo de Entrega</h3>   
+                    
+                </div>
+                <div>
+                    <h3>Modo de Pagamento</h3>   
+                    
+                </div>
+                <div>
+                    <h3>Total</h3>   
+                    
+                </div>
+                <button className="finalizar" onClick = {() => this.gravarNovo()}> Finalizar </button>
+
             </Container>
         )
     }
@@ -316,20 +317,15 @@ export default class Cliente extends Component {
                 </table>
             </div>
         );
-    }
+    }*/
 
     render() {
         let pagina = ''
-        if(this.state.incluindo) {
+        
             pagina = this.renderIncluirNovoCliente()
-        } else {
-            if(this.state.alterando) {
-                pagina = this.renderAlterarCliente()
-            } else {
-                pagina = this.renderExibirCliente()
-            }
-        }
+    
+        
         return pagina
-    } */
+    }
 
 } 

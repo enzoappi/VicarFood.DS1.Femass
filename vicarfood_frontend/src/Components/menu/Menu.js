@@ -6,6 +6,8 @@ import styled from 'styled-components';
 
 import './Menu.css'
 
+import { MdAddShoppingCart } from "react-icons/md";
+
 
 const Logo = styled.img`
   height: 90px;
@@ -39,7 +41,7 @@ const Menu = () => (
             </li>
             <li className="app-menu__item">
                 <Link className="app-menu__link" to="/carrinho">
-                    <i className="bi-cart-plus"/>
+                    <MdAddShoppingCart />
                 </Link>
             </li>
         </ul>

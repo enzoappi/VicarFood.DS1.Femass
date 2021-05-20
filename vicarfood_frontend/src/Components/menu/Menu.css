@@ -19,10 +19,13 @@
 
 .app-menu__link:hover {
     text-decoration: none;
-    color:#E0CCB3;
+    color:#FDC029;
 }
 .app-menu__logo{
     height: 90px;
     width: 90px;
     margin: 20px;  
+}
+div.img, svg{
+    font-size: 30px!important;
 }

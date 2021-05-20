@@ -2,9 +2,9 @@
     background: #181820;
     padding: .5rem 2rem;
     text-align: right;
-    bottom: 0px;
-    position: absolute;
+    bottom: 0px;    
     width: 100%;
+    position: fixed;
 }
 
 .app-footer__message {

@@ -1,8 +1,21 @@
+.container{
+    max-width: 600px;
+    margin: 50px auto;
+}
 h3{
     text-align: initial;
     margin: 20px;
-    padding-left: 30px;
+    padding-left: 3%;
     margin-bottom: 0px;
+}
+input, select{
+    background: rgba(0, 0, 0, 0.1);
+    border: 0;
+    border-radius: 4px;
+    height: 44px;
+    padding: 15px;
+    color: #E0CCB3;
+    margin: 0 0 10px;
 }
 .box{
     background-color: #2D2D32;
@@ -10,39 +23,33 @@ h3{
     width: 95%;
     margin: 0 auto;
     border-radius: 1em;
-}
-form div + div {
-    margin-top: 0.5em;
-}
-label{
-    font-size: 25px;
-    display: contents;
-    text-align: center;
-}
-input, textarea, select {
-    font: 20px sans-serif;
-    width: 80%;
-    margin: 0 auto;
-    box-sizing: border-box;
-    border: 1px solid #999;
-    border-radius: 0.25em;
+    display:flex;
+    flex-direction: column;
+    
 }
 .save, .edit {
     font-size: 30px;
     text-decoration: none;
     color:#E0CCB3;
 }
-
-button{
-
+button {
    background-color: #2D2D32;
    border: none;
-   text-decoration: none;
-   display: inline-block;
-
+   text-decoration: none;  
 }
-div.button{
+div.btnSaveEdit {
     display: inline-block;
     width: 100%;
     text-align: end;
+}
+.finalizar{
+    text-align: center;
+    margin: 5%;
+    background-color: #AD2610;
+    border-radius: 5px;
+    font-size: 30px;
+    padding: 0 50px;
+    color: #E0CCB3;
+    width: 90%;
+
 }
