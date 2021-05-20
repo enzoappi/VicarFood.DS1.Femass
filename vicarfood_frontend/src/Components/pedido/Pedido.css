@@ -1,0 +1,30 @@
+
+.app-menu_item {
+    text-align: center;
+    background-color: #FDC029;
+    border-radius: 5px;
+    width: 80%;
+    margin: 2% 10%;
+    font-size: 25px;
+    color: #181820;
+
+}
+.a{
+    text-decoration: none;
+    color:#181820;    
+}
+.app-menu_link:hover {
+    text-decoration: none;
+    color:#AD2610;
+}
+
+.app-menu_link{
+    text-decoration: none;
+    color:#181820;
+    font-family: sans-serif;
+    display:block;
+}
+
+.app-menu_list{
+    padding: 0px;
+}
