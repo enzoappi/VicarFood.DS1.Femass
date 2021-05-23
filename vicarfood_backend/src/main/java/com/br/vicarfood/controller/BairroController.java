@@ -32,7 +32,7 @@ public class BairroController {
         List<BairroRequest> bairroRequests = new ArrayList<BairroRequest>();
             for(Bairro bairro : bairros){
                 BairroRequest b = new BairroRequest();
-                b.setId(bairro.getId());
+                b.setIdBairro(bairro.getIdBairro());
                 b.setNomeBairro(bairro.getNomeBairro());
                 b.setValor(bairro.getValor());
                 bairroRequests.add(b);
@@ -54,7 +54,7 @@ public class BairroController {
     @CrossOrigin
     @PostMapping("/alterar")
     public void alterarEndereco(@RequestBody BairroRequest bairroRequest) throws Exception {
-        var b = bairroRepository.findById(bairroRequest.getId());
+        var b = bairroRepository.findById(bairroRequest.getIdBairro());
         
         if(b.isPresent()) {
             Bairro bairro = b.get();

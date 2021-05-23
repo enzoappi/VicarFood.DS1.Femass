@@ -1,58 +1,41 @@
-package com.br.vicarfood.request;
+package com.br.vicarfood.controller.dto;
 
-public class EnderecoRequest {
-    private Long idEndereco;
+public class EnderecoDto {
+
     private String logradouro;
     private String numero;
     private String complemento;
-    private String pontoDeReferencia;    
-    private String nomeBairro;
-
-    public Long getIdEndereco() {
-        return idEndereco;
-    }
-
-    public void setIdEndereco(Long idEndereco) {
-        this.idEndereco = idEndereco;
-    }
+    private String pontoDeReferencia;
+    private Long idBairro;
 
     public String getLogradouro() {
         return logradouro;
     }
-
     public void setLogradouro(String logradouro) {
         this.logradouro = logradouro;
     }
-
     public String getNumero() {
         return numero;
     }
-
     public void setNumero(String numero) {
         this.numero = numero;
     }
-
     public String getComplemento() {
         return complemento;
     }
-
     public void setComplemento(String complemento) {
         this.complemento = complemento;
     }
-
     public String getPontoDeReferencia() {
         return pontoDeReferencia;
     }
-
     public void setPontoDeReferencia(String pontoDeReferencia) {
         this.pontoDeReferencia = pontoDeReferencia;
     }
-
-    public String getNomeBairro() {
-        return nomeBairro;
+    public Long getIdBairro() {
+        return idBairro;
     }
-
-    public void setNomeBairro(String nomeBairro) {
-        this.nomeBairro = nomeBairro;
-    }
+    public void setIdBairro(Long idBairro) {
+        this.idBairro = idBairro;
+    }   
 }

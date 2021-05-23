@@ -10,8 +10,8 @@ public class Cliente {
 
     @Id
     private String cpf;
+    private String nomeCliente;
     private String telefone;
-    private String nome;
 
     @OneToOne 
     private Endereco endereco;
@@ -32,17 +32,17 @@ public class Cliente {
         this.telefone = telefone;
     }
 
-    public String getNome() {
-        return nome;
+    public String getNomeCliente() {
+        return this.nomeCliente;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setNomeCliente(String nomeCliente) {
+        this.nomeCliente = nomeCliente;
     }
 
     @Override
     public String toString() {
-        return nome;
+        return nomeCliente;
     }  
 
     @Override

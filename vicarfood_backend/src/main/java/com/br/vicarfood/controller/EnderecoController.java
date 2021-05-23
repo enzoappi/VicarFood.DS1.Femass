@@ -36,9 +36,11 @@ public class EnderecoController {
         List<EnderecoRequest> endrs = new ArrayList<EnderecoRequest>();
         for(Endereco endereco : enderecos) {
             EnderecoRequest e = new EnderecoRequest();
-            e.setId(endereco.getId());
+            e.setIdEndereco(endereco.getIdEndereco());
             e.setLogradouro(endereco.getLogradouro());
             e.setNumero(endereco.getNumero());
+            e.setComplemento(endereco.getComplemento());
+            e.setPontoDeReferencia(endereco.getPontoDeReferencia());
             e.setNomeBairro(endereco.getBairro().getNomeBairro());
             endrs.add(e);
         }
@@ -52,6 +54,8 @@ public class EnderecoController {
         Endereco endereco = new Endereco();
         endereco.setLogradouro(enderecoRequest.getLogradouro());
         endereco.setNumero(enderecoRequest.getNumero());
+        endereco.setComplemento(enderecoRequest.getComplemento());
+        endereco.setPontoDeReferencia(enderecoRequest.getPontoDeReferencia());
 
         List <Bairro> bairros = bairroRepository.findAll();
 
@@ -73,12 +77,14 @@ public class EnderecoController {
     @CrossOrigin
     @PostMapping("/alterar")
     public void alterarEndereco(@RequestBody EnderecoRequest enderecoRequest) throws Exception {
-        var objeto = enderecoRepository.findById(enderecoRequest.getId());
+        var objeto = enderecoRepository.findById(enderecoRequest.getIdEndereco());
         
         if(objeto.isPresent()) {
             Endereco endereco = objeto.get();
             endereco.setLogradouro(enderecoRequest.getLogradouro());
             endereco.setNumero(enderecoRequest.getNumero());
+            endereco.setComplemento(enderecoRequest.getComplemento());
+            endereco.setPontoDeReferencia(enderecoRequest.getPontoDeReferencia());
             enderecoRepository.save(endereco);
         } else{
             throw new Exception("Endereço não encontrado!");
