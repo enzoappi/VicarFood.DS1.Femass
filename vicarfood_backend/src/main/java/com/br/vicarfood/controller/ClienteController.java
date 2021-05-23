@@ -36,11 +36,13 @@ public class ClienteController {
         List<ClienteRequest> clirs = new ArrayList<ClienteRequest>();
         for(Cliente cliente : clientes) {
             ClienteRequest c = new ClienteRequest();
-            c.setNome(cliente.getNome());
+            c.setNomeCliente(cliente.getNomeCliente());
             c.setCpf(cliente.getCpf());
             c.setTelefone(cliente.getTelefone());
             c.setLogradouro(cliente.getEndereco().getLogradouro());
             c.setNumero(cliente.getEndereco().getNumero());
+            c.setComplemento(cliente.getEndereco().getComplemento());
+            c.setPontoDeReferencia(cliente.getEndereco().getPontoDeReferencia());
             c.setNomeBairro(cliente.getEndereco().getBairro().getNomeBairro());
             clirs.add(c);
         }
@@ -52,7 +54,7 @@ public class ClienteController {
     @PostMapping("/incluir") 
     public void incluirCliente(@RequestBody ClienteRequest clienteRequest) throws Exception{
         Cliente cliente = new Cliente();
-        cliente.setNome(clienteRequest.getNome());
+        cliente.setNomeCliente(clienteRequest.getNomeCliente());
         cliente.setCpf(clienteRequest.getCpf());
         cliente.setTelefone(clienteRequest.getTelefone());
 
@@ -84,7 +86,7 @@ public class ClienteController {
 
         if(objeto.isPresent()){
             Cliente c = objeto.get();
-            c.setNome(clienteRequest.getNome());
+            c.setNomeCliente(clienteRequest.getNomeCliente());
             c.setTelefone(clienteRequest.getTelefone());
             clienteRepository.save(c);
         } else {

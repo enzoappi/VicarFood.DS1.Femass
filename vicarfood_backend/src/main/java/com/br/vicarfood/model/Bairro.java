@@ -7,19 +7,18 @@ import javax.persistence.Id;
 
 @Entity
 public class Bairro {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long idBairro;
     private String nomeBairro;
     private Double valor;
 
-    public Long getId() {
-        return id;
+    public Long getIdBairro() {
+        return idBairro;
     }
     
-    public void setId(Long id) {
-        this.id = id;
+    public void setIdBairro(Long idBairro) {
+        this.idBairro = idBairro;
     }
 
     public String getNomeBairro() {
@@ -47,7 +46,7 @@ public class Bairro {
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = prime * result + ((id == null) ? 0 : id.hashCode());
+        result = prime * result + ((idBairro == null) ? 0 : idBairro.hashCode());
         result = prime * result + ((nomeBairro == null) ? 0 : nomeBairro.hashCode());
         return result;
     }
@@ -61,10 +60,10 @@ public class Bairro {
         if (getClass() != obj.getClass())
             return false;
         Bairro other = (Bairro) obj;
-        if (id == null) {
-            if (other.id != null)
+        if (idBairro == null) {
+            if (other.idBairro != null)
                 return false;
-        } else if (!id.equals(other.id))
+        } else if (!idBairro.equals(other.idBairro))
             return false;
         if (nomeBairro == null) {
             if (other.nomeBairro != null)

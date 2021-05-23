@@ -3,13 +3,15 @@ package com.br.vicarfood.request;
 
 public class ClienteRequest {
     private String cpf;
-    private String nome;
+    private String nomeCliente;
     private String telefone;
     private String logradouro;
     private String numero;
+    private String complemento;
+    private String pontoDeReferencia;
     private String nomeBairro;
 
- 
+
     public String getCpf() {
         return cpf;
     }
@@ -18,12 +20,12 @@ public class ClienteRequest {
         this.cpf = cpf;
     }
 
-    public String getNome() {
-        return nome;
+    public String getNomeCliente() {
+        return nomeCliente;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setNomeCliente(String nomeCliente) {
+        this.nomeCliente = nomeCliente;
     }
 
     public String getTelefone() {
@@ -56,5 +58,21 @@ public class ClienteRequest {
 
     public void setNomeBairro(String nomeBairro) {
         this.nomeBairro = nomeBairro;
+    }
+
+    public String getComplemento() {
+        return complemento;
+    }
+
+    public void setComplemento(String complemento) {
+        this.complemento = complemento;
+    }
+
+    public String getPontoDeReferencia() {
+        return pontoDeReferencia;
+    }
+
+    public void setPontoDeReferencia(String pontoDeReferencia) {
+        this.pontoDeReferencia = pontoDeReferencia;
     }
 }

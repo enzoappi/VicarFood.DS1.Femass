@@ -4,26 +4,28 @@ import Container from '../Container'
 import './Cliente.css'
 import { MdSave, MdModeEdit } from "react-icons/md";
 
-
+var cpfProvisorio = '158467984-03'
 
 export default class Cliente extends Component {
     state = {
-        nome: "",
         cpf: "",
+        nomeCliente: "",
         telefone: "",
-        cliente: [],
-        idEndereco: "",
+        cliente: {},
         logradouro: "",
         numero: "",
+        complemento: "",
+        pontoDeReferencia: "",
+        endereco: {},
         nomeBairro: "",
-        endereco: [],
+        bairros: [],
         incluindo: false,
-        alterando: false,
+        alterando: false
     }
 
     
 
-    
+    //EDICAO DOS DADOS DE CLIENTE
     txtNome_change = (event) => {
         this.setState({nome: event.target.value})
     }
@@ -36,14 +38,7 @@ export default class Cliente extends Component {
         this.setState({telefone: event.target.value})
     }
     
-    preencherCliente = () => {
-        console.log('preenchendo a lista')
-        const url = window.servidor + '/cliente/listar'
-        fetch(url)
-            .then(response => response.json())
-            .then(data => this.setState({cliente: data}));
-    }
-
+    //EDICAO DOS DADOS DE ENDERECO
     txtLogradouro_change = (event) => {
         this.setState({logradouro: event.target.value})
     }
@@ -52,36 +47,69 @@ export default class Cliente extends Component {
         this.setState({numero: event.target.value})
     }
 
+    txtComplemento_change = (event) => {
+        this.setState({complemento: event.target.value})
+    }
+
+    txtPontoDeReferencia_change = (event) => {
+        this.setState({pontoDeReferencia: event.target.value})
+    }
+
+    //EDICAO DOS DADOS DE BAIRRO
     txtNomeBairro_change = (event) => {
         this.setState({nomeBairro: event.target.value})
     }
 
+    //PREENCHIMENTO DOS DADOS DO CLIENTE NO STATE
+    preencherCliente = () => {
+        //console.log('preenchendo os dados do cliente')
+        const url = window.servidor + '/clienteDto/listarClientesPorCpf/' + cpfProvisorio
+        fetch(url)
+            .then(response => response.json())
+            .then(data => this.setState({cliente: data}));
+    }
+
+    //PREENCHIMENTO DOS DADOS DO ENDERECO NO STATE
     preencherEndereco = () => {
-        console.log('preenchendo a lista')
-        const url = window.servidor + '/endereco/listar'
+        //console.log('preenchendo os dados do endereco')
+        const url = window.servidor + '/clienteDto/listarEnderecoPeloId/' + cpfProvisorio
         fetch(url)
             .then(response => response.json())
             .then(data => this.setState({endereco: data}));
     }
 
+    //PREENCHIMENTO DA LISTA DE BAIRROS NO STATE
+    preencherBairros = () => {
+        //console.log('preenchendo a lista de bairros')
+        const url = window.servidor + '/clienteDto/listarBairros'
+        fetch(url)
+            .then(response => response.json())
+            .then(data => this.setState({bairros: data}));
+    }
+
     componentDidMount() {
         this.preencherCliente()
         this.preencherEndereco()
+        this.preencherBairros()
     }
 
+    /*
     iniciarNovo = () => {
-        //this.setState({incluindo: true, nome: '', cpf: '', telefone: ''})
         this.setState({incluindo: true, nome: '', cpf: '', telefone: '', logradouro: '', numero: '', nomeBairro: ''})
     }
+    */
 
-    /*iniciarAlterar = (cliente) => {
-        this.setState({alterando: true, nome: cliente.nome, cpf: cliente.cpf, telefone: cliente.telefone})
-    }*/
-
+/*
     iniciarAlterar = (cliente, endereco) => {
         this.setState({alterando: true, nome: cliente.nome, cpf: cliente.cpf, telefone: cliente.telefone, logradouro: endereco.logradouro, numero: endereco.numero, nomeBairro: endereco.nomeBairro})
     }
+*/
+
+    iniciarAlterar = () => {
+        this.setState({incluindo: true, cpf: '', nome: '', telefone: '', logradouro: '', numero: '', complemento: '', pontoDeReferencia: '', nomeBairro: ''})
+    }
     
+    /*
     gravarNovoCliente = () => {
         
         const dadosEndereco = {
@@ -124,7 +152,7 @@ export default class Cliente extends Component {
         fetch(url, requestOptions)
             .then(fim => {
                 this.setState({incluindo: false})
-                this.preencherEndereco()
+                //this.preencherEndereco()
                 this.preencherCliente()
             })
         .catch(erro => console.log(erro));
@@ -180,18 +208,19 @@ export default class Cliente extends Component {
     voltar = () => {
         this.setState({incluindo: false, alterando: false})
     }
+    */
     
     renderIncluirNovoCliente = () => {
         return (            
             <Container>
-                <h1>Identificação</h1>
+                <h1>Identificação - NOVO CLIENTE</h1>
                 <div>
                     <h3>Dados Pessoais</h3>
                     <form className="box">
                         <input name="nome" placeholder="Nome Completo" value={this.state.nome} onChange={this.txtNome_change} type="text"></input>
                         <input name="CPF" placeholder="CPF" value={this.state.cpf} onChange={this.txtCpf_change}  type="text"></input>
                         <input name="telefone" placeholder="Telefone" value={this.state.telefone} onChange={this.txtTelefone_change} type="text"></input>
-                       
+
                         <div className="btnSaveEdit">
                         <button className="btnSave" onClick = {() => this.gravarNovo()}> <MdSave className="save"/> </button>
                         <button className="btnEdit" onClick = {() => this.editarNovo()}> <MdModeEdit className="edit"/> </button>
@@ -202,9 +231,9 @@ export default class Cliente extends Component {
                     <h3>Endereço</h3>
                     <form className="box">
                         <select name="bairro" placeholder="Bairro" id="bairro" value={this.state.selectedOption} onChange={this.txtNome_change} type="text"></select>
-                        <input name="numero" placeholder="Número" classeName="text" value={this.state.numero} onChange={this.txtNumero_change}  type="text"></input>
+                        <input name="numero" placeholder="Número" value={this.state.numero} onChange={this.txtNumero_change}  type="text"></input>
                         <input name="complemento" placeholder="Complemento" value={this.state.complemento} onChange={this.txtComplemento_change} type="text"></input>
-                        <input name="referencia" placeholder="Referência" value={this.state.referencia} onChange={this.txtReferencia_change} type="text"></input>
+                        <input name="referencia" placeholder="Referência" value={this.state.referencia} onChange={this.txtPontoDeReferencia_change} type="text"></input>
                         
                         <div className="btnSaveEdit">
                         <button className="btnSave" onClick = {() => this.gravarNovo()}> <MdSave className="save"/> </button>
@@ -228,103 +257,74 @@ export default class Cliente extends Component {
                 <button className="finalizar" onClick = {() => this.gravarNovo()}> Finalizar </button>
 
             </Container>
-        )
+        );
     }
 /*renderAlterarCliente = () => {
-        return (
-            <div>
-                <div className="row mt-5 pt-2">
-                    <div className="col-2"></div>
-                    <div className="col-8 text-white bg-danger text-center mt-5 pt-2"><h3>Identificação</h3></div>
-                    <div className="col-2"></div>
-                </div>
-                <div className="row mt-4 pt-2">
-                    <div className="col-2"></div>
-                    <div className="col-8 text-warning bg-dark mt-1 pt-1"><text>Dados Pessoais</text></div>
-                    <div className="col-2"></div>
-                    <form>
-                        <div className="form-group row">
-                            <div className="col-2"></div>
-                            <label className="col-1 text-center text-white bg-dark">Nome</label>
-                            <div className="col-6">
-                                <input value={this.state.nome} onChange={this.txtNome_change} className="form-control name-pull-image text-white bg-dark" type="text"></input>
-                            </div>
-                        </div>
-                        <div className="form-group row">
-                            <div className="col-2"></div>
-                            <label className="col-1 text-center text-white bg-dark">CPF</label>
-                            <div className="col-6">
-                                <input value={this.state.cpf} readOnly className="form-control name-pull-image text-white bg-dark" type="text"></input>
-                            </div>
-                        </div>
-                        <div className="form-group row">
-                            <div className="col-2"></div>
-                            <label className="col-1 text-center text-white bg-dark">Telefone</label>
-                            <div className="col-6">
-                                <input value={this.state.telefone} onChange={this.txtTelefone_change} className="form-control name-pull-image text-white bg-dark" type="text"></input>
-                            </div>
+
+}
+*/
+
+    renderExibirCliente = () => {
+        return (            
+            <Container>
+                <h1>Identificação - EXIBIR CLIENTE</h1>
+                <div>
+                    <h3>Dados Pessoais</h3>
+                    <form className="box">
+                        <input name="nome" placeholder="Nome Completo" value={this.state.cliente.nomeCliente} disabled type="text"></input>
+                        <input name="CPF" placeholder="CPF" value={this.state.cliente.cpf} disabled  type="text"></input>
+                        <input name="telefone" placeholder="Telefone" value={this.state.cliente.telefone} disabled type="text"></input>
+
+                        <div className="btnSaveEdit">
+                        <button className="btnSave" onClick = {() => this.gravarNovo()} disabled> <MdSave className="save"/> </button>
+                        <button className="btnEdit" onClick = {() => this.editarNovo()} disabled> <MdModeEdit className="edit"/> </button>
                         </div>
                     </form>
                 </div>
-                <div className="row mt-2">
-                    <div className="col-2"></div>
-                    <div className="col-1">
-                        <button className="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" title="Gravar Alteração" onClick = {() => this.gravarAlterar()}><i className="bi bi-cloud-check-fill"></i></button>
-                    </div>
-                    <div className="col-1">
-                        <button className="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" title="Voltar" onClick = {() => this.voltar()}><i className="bi bi-arrow-return-left"></i></button>
-                    </div>
+                <div>
+                    <h3>Endereço</h3>
+                    <form className="box">
+                        <select name="bairro" placeholder="Bairro" id="bairro" value={this.state.cliente.idBairro} disabled type="text">
+                            {this.state.bairros.map((bairro, idx) => (
+                                <option key={bairro.idBairro} value={bairro.idBairro} >{bairro.nomeBairro}</option>
+                            ))}
+                        </select>
+                        <input name="numero" placeholder="Número" value={this.state.endereco.numero} disabled  type="text"></input>
+                        <input name="complemento" placeholder="Complemento" value={this.state.endereco.complemento} disabled type="text"></input>
+                        <input name="referencia" placeholder="Referência" value={this.state.endereco.pontoDeReferencia} disabled type="text"></input>
+                        
+                        <div className="btnSaveEdit">
+                        <button className="btnSave" onClick = {() => this.gravarNovo()} disabled> <MdSave className="save"/> </button>
+                        <button className="btnEdit" onClick = {() => this.iniciarAlterar()}> <MdModeEdit className="edit"/> </button>
+                        </div>
+                        
+                    </form>
                 </div>
-            </div>
-        )
-    }
+                <div>
+                    <h3>Modo de Entrega</h3>   
+                    
+                </div>
+                <div>
+                    <h3>Modo de Pagamento</h3>   
+                    
+                </div>
+                <div>
+                    <h3>Total</h3>   
+                    
+                </div>
+                <button className="finalizar" onClick = {() => this.gravarNovo()}> Finalizar </button>
 
-
-    renderExibirCliente = () => {
-        return(
-            <div className="mt-5 pt-4">
-                <button type="button" className="btn btn-secondary mt-3" onClick={() => this.iniciarNovo()}>Novo</button>
-                <table className="table table-dark table-striped mt-2">
-                    <thead>
-                        <tr>
-                            <th scope="col">CPF</th>
-                            <th scope="col">Nome</th>
-                            <th scope="col">Telefone</th>
-                            <th scope="col">Logrodouro</th>
-                            <th scope="col">Numero</th>
-                            <th scope="col">Bairro</th>
-                            <th scope="col"></th>
-                            <th scope="col"></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {this.state.cliente && this.state.cliente.map(cliente => {
-                            if (cliente.cpf === "132589897-55") { //cpf de comparacao setado hardcoded no lado direito
-                                return <tr key={cliente.cpf}>
-                                    <th scope="row">{cliente.cpf}</th>
-                                    <td>{cliente.nome}</td>
-                                    <td>{cliente.telefone}</td>
-                                    <td>{cliente.logradouro}</td>
-                                    <td>{cliente.numero}</td>
-                                    <td>{cliente.nomeBairro}</td>
-                                    <td><button onClick={() => this.iniciarAlterar(cliente)} type="button" className="btn btn-light" data-bs-toggle="tooltip" data-bs-placement="top" title="Editar cliente"><i className="bi bi-pencil-fill"></i></button></td>
-                                    <td><button onClick={() => this.excluir(cliente)} type="button" className="btn btn-light" data-bs-toggle="tooltip" data-bs-placement="top" title="Excluir cliente"><i className="bi bi-trash-fill"></i></button></td>
-                                </tr>
-                            }
-                            return<tr></tr>
-                        })}
-                    </tbody>
-                </table>
-            </div>
+            </Container>
         );
-    }*/
+    }
 
     render() {
         let pagina = ''
-        
-            pagina = this.renderIncluirNovoCliente()
-    
-        
+            if(this.state.incluindo) {
+                pagina = this.renderIncluirNovoCliente()
+            } else {
+                pagina = this.renderExibirCliente()
+            }
         return pagina
     }
 
