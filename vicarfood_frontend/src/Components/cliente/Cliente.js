@@ -93,20 +93,16 @@ export default class Cliente extends Component {
         this.preencherBairros()
     }
 
-    /*
-    iniciarNovo = () => {
-        this.setState({incluindo: true, nome: '', cpf: '', telefone: '', logradouro: '', numero: '', nomeBairro: ''})
+    iniciarNovo = (event) => {
+        event.preventDefault();
+        this.setState({incluindo: true, nome: '', cpf: '', telefone: '', logradouro: '', numero: '', complemento: '', pontoDeReferencia: '', nomeBairro: ''})
     }
-    */
 
-/*
-    iniciarAlterar = (cliente, endereco) => {
-        this.setState({alterando: true, nome: cliente.nome, cpf: cliente.cpf, telefone: cliente.telefone, logradouro: endereco.logradouro, numero: endereco.numero, nomeBairro: endereco.nomeBairro})
-    }
-*/
-
-    iniciarAlterar = () => {
-        this.setState({incluindo: true, cpf: '', nome: '', telefone: '', logradouro: '', numero: '', complemento: '', pontoDeReferencia: '', nomeBairro: ''})
+    iniciarAlterar = (event) => {
+        event.preventDefault();
+        var cliente = this.state.cliente;
+        var endereco = this.state.endereco;
+        this.setState({alterando: true, cpf: cliente.cpf, nome: cliente.nome, telefone: cliente.telefone, logradouro: endereco.logradouro, numero: endereco.numero, complemento: endereco.complemento, pontoDeReferencia: endereco.pontoDeReferencia, idBairro: endereco.idBairro})
     }
     
     /*
@@ -222,22 +218,26 @@ export default class Cliente extends Component {
                         <input name="telefone" placeholder="Telefone" value={this.state.telefone} onChange={this.txtTelefone_change} type="text"></input>
 
                         <div className="btnSaveEdit">
-                        <button className="btnSave" onClick = {() => this.gravarNovo()}> <MdSave className="save"/> </button>
-                        <button className="btnEdit" onClick = {() => this.editarNovo()}> <MdModeEdit className="edit"/> </button>
+                        <button className="btnSave" onClick = {() => this.gravarNovo()} disabled> <MdSave className="save"/> </button>
+                        <button className="btnEdit" onClick = {() => this.editarNovo()} disabled> <MdModeEdit className="edit"/> </button>
                         </div>
                     </form>
                 </div>
                 <div>
                     <h3>Endereço</h3>
                     <form className="box">
-                        <select name="bairro" placeholder="Bairro" id="bairro" value={this.state.selectedOption} onChange={this.txtNome_change} type="text"></select>
+                        <select name="bairro" placeholder="Bairro" id="bairro" value={this.state.cliente.idBairro} type="text">
+                            {this.state.bairros.map((bairro, idx) => (
+                                <option key={bairro.idBairro} value={bairro.idBairro} >{bairro.nomeBairro}</option>
+                            ))}
+                        </select>
                         <input name="numero" placeholder="Número" value={this.state.numero} onChange={this.txtNumero_change}  type="text"></input>
                         <input name="complemento" placeholder="Complemento" value={this.state.complemento} onChange={this.txtComplemento_change} type="text"></input>
                         <input name="referencia" placeholder="Referência" value={this.state.referencia} onChange={this.txtPontoDeReferencia_change} type="text"></input>
                         
                         <div className="btnSaveEdit">
                         <button className="btnSave" onClick = {() => this.gravarNovo()}> <MdSave className="save"/> </button>
-                        <button className="btnEdit" onClick = {() => this.editarNovo()}> <MdModeEdit className="edit"/> </button>
+                        <button className="btnEdit" onClick = {() => this.editarNovo()} disabled> <MdModeEdit className="edit"/> </button>
                         </div>
                         
                     </form>
@@ -259,10 +259,61 @@ export default class Cliente extends Component {
             </Container>
         );
     }
-/*renderAlterarCliente = () => {
 
+renderAlterarCliente = () => {
+        return (            
+            <Container>
+                <h1>Identificação - ALTERAR CLIENTE</h1>
+                <div>
+                    <h3>Dados Pessoais</h3>
+                    <form className="box">
+                        <input name="nome" placeholder="Nome Completo" value={this.state.nome} onChange={this.txtNome_change} type="text"></input>
+                        <input name="CPF" placeholder="CPF" value={this.state.cpf} onChange={this.txtCpf_change}  type="text"></input>
+                        <input name="telefone" placeholder="Telefone" value={this.state.telefone} onChange={this.txtTelefone_change} type="text"></input>
+
+                        <div className="btnSaveEdit">
+                        <button className="btnSave" onClick = {() => this.gravarNovo()}> <MdSave className="save"/> </button>
+                        <button className="btnEdit" onClick = {this.iniciarAlterar} disabled> <MdModeEdit className="edit"/> </button>
+                        </div>
+                    </form>
+                </div>
+                <div>
+                    <h3>Endereço</h3>
+                    <form className="box">
+                        <select name="bairro" placeholder="Bairro" id="bairro" value={this.state.cliente.idBairro} type="text">
+                            {this.state.bairros.map((bairro, idx) => (
+                                <option key={bairro.idBairro} value={bairro.idBairro} >{bairro.nomeBairro}</option>
+                            ))}
+                        </select>
+                        <input name="numero" placeholder="Número" value={this.state.numero} onChange={this.txtNumero_change}  type="text"></input>
+                        <input name="complemento" placeholder="Complemento" value={this.state.complemento} onChange={this.txtComplemento_change} type="text"></input>
+                        <input name="referencia" placeholder="Referência" value={this.state.referencia} onChange={this.txtPontoDeReferencia_change} type="text"></input>
+                        
+                        <div className="btnSaveEdit">
+                        <button className="btnSave" onClick = {() => this.gravarNovo()}> <MdSave className="save"/> </button>
+                        <button className="btnEdit" onClick = {this.iniciarAlterar} disabled> <MdModeEdit className="edit"/> </button>
+                        </div>
+                        
+                    </form>
+                </div>
+                <div>
+                    <h3>Modo de Entrega</h3>   
+                    
+                </div>
+                <div>
+                    <h3>Modo de Pagamento</h3>   
+                    
+                </div>
+                <div>
+                    <h3>Total</h3>   
+                    
+                </div>
+                <button className="finalizar" onClick = {() => this.gravarNovo()}> Finalizar </button>
+
+            </Container>
+        );
 }
-*/
+
 
     renderExibirCliente = () => {
         return (            
@@ -277,7 +328,7 @@ export default class Cliente extends Component {
 
                         <div className="btnSaveEdit">
                         <button className="btnSave" onClick = {() => this.gravarNovo()} disabled> <MdSave className="save"/> </button>
-                        <button className="btnEdit" onClick = {() => this.editarNovo()} disabled> <MdModeEdit className="edit"/> </button>
+                        <button className="btnEdit" onClick = {this.iniciarAlterar} disabled> <MdModeEdit className="edit"/> </button>
                         </div>
                     </form>
                 </div>
@@ -295,7 +346,7 @@ export default class Cliente extends Component {
                         
                         <div className="btnSaveEdit">
                         <button className="btnSave" onClick = {() => this.gravarNovo()} disabled> <MdSave className="save"/> </button>
-                        <button className="btnEdit" onClick = {() => this.iniciarAlterar()}> <MdModeEdit className="edit"/> </button>
+                        <button className="btnEdit" onClick = {this.iniciarAlterar}> <MdModeEdit className="edit"/> </button>
                         </div>
                         
                     </form>
@@ -320,11 +371,14 @@ export default class Cliente extends Component {
 
     render() {
         let pagina = ''
-            if(this.state.incluindo) {
-                pagina = this.renderIncluirNovoCliente()
+        pagina = this.renderIncluirNovoCliente()
+/*
+        if(this.state.alterando) {
+                pagina = this.renderAlterarCliente()
             } else {
                 pagina = this.renderExibirCliente()
             }
+*/
         return pagina
     }
 
