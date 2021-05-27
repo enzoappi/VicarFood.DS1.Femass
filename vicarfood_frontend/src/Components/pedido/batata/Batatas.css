@@ -1,0 +1,30 @@
+.title{
+    display: flex;
+    flex-direction: row;
+    background-color: #FDC029;
+    width: 80%;
+    margin: 0 auto;
+    justify-content: space-between;
+    border-radius: 5px;
+    padding: 5px;
+}
+span{
+    align-self: flex-start;
+    align-self: center;
+    width: 10%;
+    
+}
+a{
+    font-size: 25px;
+    text-decoration: none;
+    color:#181820;
+}
+h2{
+    color: #181820;
+    width: 56%;
+    margin: 0px;
+}
+a:hover {
+    text-decoration: none;
+    color:#AD2610;
+}

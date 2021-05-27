@@ -1,0 +1,29 @@
+.app-footer {
+    background: #181820;
+    padding: .5rem 2rem;
+    text-align: right;
+    bottom: 0px;    
+    width: 100%;
+    position: fixed;
+}
+
+.app-footer__message {
+    text-decoration: none;
+    color:#E0CCB3; 
+    font-family: sans-serif;
+}
+
+.Instagram{
+    font-size: 25px;
+    text-decoration: none;
+    color:#E0CCB3;
+}
+
+.app-footer__message:hover {
+    text-decoration: none;
+    color:#E0CCB3; 
+}
+a{
+    text-decoration: none;
+}
+
