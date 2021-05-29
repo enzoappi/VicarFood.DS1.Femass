@@ -78,8 +78,10 @@ public class Endereco {
     public int hashCode() {
         final int prime = 31;
         int result = 1;
+        result = prime * result + ((complemento == null) ? 0 : complemento.hashCode());
         result = prime * result + ((idEndereco == null) ? 0 : idEndereco.hashCode());
         result = prime * result + ((logradouro == null) ? 0 : logradouro.hashCode());
+        result = prime * result + ((numero == null) ? 0 : numero.hashCode());
         return result;
     }
 
@@ -92,6 +94,11 @@ public class Endereco {
         if (getClass() != obj.getClass())
             return false;
         Endereco other = (Endereco) obj;
+        if (complemento == null) {
+            if (other.complemento != null)
+                return false;
+        } else if (!complemento.equals(other.complemento))
+            return false;
         if (idEndereco == null) {
             if (other.idEndereco != null)
                 return false;
@@ -102,6 +109,13 @@ public class Endereco {
                 return false;
         } else if (!logradouro.equals(other.logradouro))
             return false;
+        if (numero == null) {
+            if (other.numero != null)
+                return false;
+        } else if (!numero.equals(other.numero))
+            return false;
         return true;
-    } 
+    }
+
+    
 }

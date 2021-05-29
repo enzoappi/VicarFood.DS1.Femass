@@ -2,9 +2,16 @@ package com.br.vicarfood.controller.dto;
 
 public class BairroDto {
 
+    private Long idBairro;
     private String nomeBairro;
     private Double valor;
-    
+
+    public Long getIdBairro() {
+        return idBairro;
+    }
+    public void setIdBairro(Long idBairro) {
+        this.idBairro = idBairro;
+    }
     public String getNomeBairro() {
         return nomeBairro;
     }
