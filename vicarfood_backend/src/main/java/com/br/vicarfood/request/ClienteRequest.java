@@ -9,7 +9,8 @@ public class ClienteRequest {
     private String numero;
     private String complemento;
     private String pontoDeReferencia;
-    private String nomeBairro;
+    private Long idBairro;
+    //private String nomeBairro;
 
 
     public String getCpf() {
@@ -52,6 +53,16 @@ public class ClienteRequest {
         this.numero = numero;
     }
 
+    
+    public Long getIdBairro() {
+        return idBairro;
+    }
+
+    public void setIdBairro(Long idBairro) {
+        this.idBairro = idBairro;
+    }
+
+    /*
     public String getNomeBairro() {
         return nomeBairro;
     }
@@ -59,7 +70,7 @@ public class ClienteRequest {
     public void setNomeBairro(String nomeBairro) {
         this.nomeBairro = nomeBairro;
     }
-
+*/
     public String getComplemento() {
         return complemento;
     }

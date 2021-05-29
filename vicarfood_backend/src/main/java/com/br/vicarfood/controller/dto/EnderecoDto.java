@@ -2,12 +2,19 @@ package com.br.vicarfood.controller.dto;
 
 public class EnderecoDto {
 
+    private Long idEndereco;
     private String logradouro;
     private String numero;
     private String complemento;
     private String pontoDeReferencia;
     private Long idBairro;
 
+    public Long getIdEndereco() {
+        return idEndereco;
+    }
+    public void setIdEndereco(Long idEndereco) {
+        this.idEndereco = idEndereco;
+    }
     public String getLogradouro() {
         return logradouro;
     }

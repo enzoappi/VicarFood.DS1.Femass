@@ -3,8 +3,10 @@ package com.br.vicarfood.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.br.vicarfood.model.Bairro;
 import com.br.vicarfood.model.Cliente;
 import com.br.vicarfood.model.Endereco;
+import com.br.vicarfood.repository.BairroRepository;
 import com.br.vicarfood.repository.ClienteRepository;
 import com.br.vicarfood.repository.EnderecoRepository;
 import com.br.vicarfood.request.ClienteRequest;
@@ -22,10 +24,12 @@ import org.springframework.web.bind.annotation.RestController;
 public class ClienteController {
     private final ClienteRepository clienteRepository;
     private final EnderecoRepository enderecoRepository;
+    private final BairroRepository bairroRepository;
 
-    public ClienteController(ClienteRepository clienteRepository, EnderecoRepository enderecoRepository) {
+    public ClienteController(ClienteRepository clienteRepository, EnderecoRepository enderecoRepository, BairroRepository bairroRepository) {
         this.clienteRepository = clienteRepository;
         this.enderecoRepository = enderecoRepository;
+        this.bairroRepository = bairroRepository;
     }
 
     @CrossOrigin
@@ -43,7 +47,8 @@ public class ClienteController {
             c.setNumero(cliente.getEndereco().getNumero());
             c.setComplemento(cliente.getEndereco().getComplemento());
             c.setPontoDeReferencia(cliente.getEndereco().getPontoDeReferencia());
-            c.setNomeBairro(cliente.getEndereco().getBairro().getNomeBairro());
+            c.setIdBairro(cliente.getEndereco().getBairro().getIdBairro());
+            //c.setNomeBairro(cliente.getEndereco().getBairro().getNomeBairro());
             clirs.add(c);
         }
 
@@ -58,22 +63,39 @@ public class ClienteController {
         cliente.setCpf(clienteRequest.getCpf());
         cliente.setTelefone(clienteRequest.getTelefone());
 
+        Endereco endereco = new Endereco();
+        endereco.setLogradouro(clienteRequest.getLogradouro());
+        endereco.setNumero(clienteRequest.getNumero());
+        endereco.setComplemento(clienteRequest.getComplemento());
+        endereco.setPontoDeReferencia(clienteRequest.getPontoDeReferencia());
+
+        var objeto = bairroRepository.findById(clienteRequest.getIdBairro());
+        if(objeto.isPresent()) {
+            Bairro bairro = objeto.get();
+            endereco.setBairro(bairro);
+            enderecoRepository.save(endereco);
+        } else {
+            throw new Exception("Bairro não encontrado!");
+        }
+
+/*
         List<Endereco> enderecos = enderecoRepository.findAll();
-        
+
         Endereco endereco = null;
+        
         for(Endereco e : enderecos){
-            /*if(e.getLogradouro().equals(clienteRequest.getLogradouro()) && e.getNumero().equals(clienteRequest.getNumero())) {*/
-            if(e.getBairro().getNomeBairro().equals(clienteRequest.getNomeBairro())) {
-                if(e.getLogradouro().equals(clienteRequest.getLogradouro()) && e.getNumero().equals(clienteRequest.getNumero())) {
-                    endereco = e;
+            if(e.getLogradouro().equals(clienteRequest.getLogradouro()) && e.getNumero().equals(clienteRequest.getNumero()) && e.getComplemento().equals(clienteRequest.getComplemento())) {
+                if(e.getBairro().getNomeBairro().equals(clienteRequest.getNomeBairro())) {
+                    if(e.getLogradouro().equals(clienteRequest.getLogradouro()) && e.getNumero().equals(clienteRequest.getNumero())) {
+                        endereco = e;
+                    }
                 }
             }
         }
-
         if(endereco==null){
             throw new Exception("Endereco nao cadastrado"); 
         }
-        
+*/        
         cliente.setEndereco(endereco);
 
         clienteRepository.save(cliente);
