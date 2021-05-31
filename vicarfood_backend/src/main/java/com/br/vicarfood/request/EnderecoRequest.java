@@ -5,8 +5,9 @@ public class EnderecoRequest {
     private String logradouro;
     private String numero;
     private String complemento;
-    private String pontoDeReferencia;    
-    private String nomeBairro;
+    private String pontoDeReferencia;
+    private Long idBairro;    
+    //private String nomeBairro;
 
     public Long getIdEndereco() {
         return idEndereco;
@@ -48,6 +49,15 @@ public class EnderecoRequest {
         this.pontoDeReferencia = pontoDeReferencia;
     }
 
+    public Long getIdBairro() {
+        return idBairro;
+    }
+
+    public void setIdBairro(Long idBairro) {
+        this.idBairro = idBairro;
+    }
+
+/*
     public String getNomeBairro() {
         return nomeBairro;
     }
@@ -55,4 +65,5 @@ public class EnderecoRequest {
     public void setNomeBairro(String nomeBairro) {
         this.nomeBairro = nomeBairro;
     }
+*/
 }
