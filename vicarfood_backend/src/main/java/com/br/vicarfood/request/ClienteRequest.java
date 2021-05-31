@@ -5,11 +5,12 @@ public class ClienteRequest {
     private String cpf;
     private String nomeCliente;
     private String telefone;
-    private String logradouro;
-    private String numero;
-    private String complemento;
-    private String pontoDeReferencia;
-    private Long idBairro;
+    private Long idEndereco;
+    //private String logradouro;
+    //private String numero;
+    //private String complemento;
+    //private String pontoDeReferencia;
+    //private Long idBairro;
     //private String nomeBairro;
 
 
@@ -37,6 +38,14 @@ public class ClienteRequest {
         this.telefone = telefone;
     }
 
+    public Long getIdEndereco() {
+        return idEndereco;
+    }
+
+    public void setIdEndereco(Long idEndereco) {
+        this.idEndereco = idEndereco;
+    }
+/*
     public String getLogradouro() {
         return logradouro;
     }
@@ -62,7 +71,7 @@ public class ClienteRequest {
         this.idBairro = idBairro;
     }
 
-    /*
+
     public String getNomeBairro() {
         return nomeBairro;
     }
@@ -70,7 +79,7 @@ public class ClienteRequest {
     public void setNomeBairro(String nomeBairro) {
         this.nomeBairro = nomeBairro;
     }
-*/
+
     public String getComplemento() {
         return complemento;
     }
@@ -86,4 +95,5 @@ public class ClienteRequest {
     public void setPontoDeReferencia(String pontoDeReferencia) {
         this.pontoDeReferencia = pontoDeReferencia;
     }
+*/
 }
