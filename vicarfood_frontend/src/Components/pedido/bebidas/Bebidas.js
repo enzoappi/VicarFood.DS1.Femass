@@ -21,7 +21,7 @@ const Bebidas = () => (
                 <div className="listaBebida">
                         <label className="refri">Coca-Cola 2L</label>
                         <label className="valor">R$ 12,00</label>
-                        <MdCheckBoxOutlineBlank />
+                        <input className="form-check-input" type="checkbox" ></input>
                 </div>
                 <div className="listaBebida">
                         <label className="refri">Coca-Cola 2L</label>

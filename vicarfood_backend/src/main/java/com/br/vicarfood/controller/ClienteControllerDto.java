@@ -1,16 +1,13 @@
 package com.br.vicarfood.controller;
 
-import java.util.List;
-
-import com.br.vicarfood.controller.dto.BairroDto;
 import com.br.vicarfood.controller.dto.ClienteDto;
-import com.br.vicarfood.controller.dto.EnderecoDto;
 import com.br.vicarfood.model.Bairro;
 import com.br.vicarfood.model.Cliente;
 import com.br.vicarfood.model.Endereco;
 import com.br.vicarfood.repository.BairroRepository;
 import com.br.vicarfood.repository.ClienteRepository;
 import com.br.vicarfood.repository.EnderecoRepository;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -33,149 +30,54 @@ public class ClienteControllerDto {
     @Autowired
     private BairroRepository bairroRepository;
 
-    @CrossOrigin
-    @PostMapping("/incluirBairro")
-    public void incluirBairro(@RequestBody BairroDto bairroDto) {
-        Bairro b = new Bairro();
-        b.setNomeBairro(bairroDto.getNomeBairro());
-        b.setValor(bairroDto.getValor());
-        bairroRepository.save(b);
-    }
 
+    //####################################
+    //REQUISICOES PARA O CLIENTE
+    //####################################
+///*
+    @JsonProperty("incluindo")
     @CrossOrigin
-    @GetMapping("/listarBairros")
-    public List<Bairro> listarBairros() {
-        return bairroRepository.findAll();
-    }
-
-    @CrossOrigin
-    @PostMapping("/incluirEndereco")
-    public void incluirEndereco(@RequestBody EnderecoDto enderecoDto) throws Exception{
-        Endereco e = new Endereco();
+    @GetMapping("/isNovoCliente/{cpf}")
+    public Boolean isNovoCliente(@PathVariable("cpf") String cpf){
         
-        var bairro = bairroRepository.findById(enderecoDto.getIdBairro());
-        
-        if(bairro.isPresent()) {
-            e.setBairro(bairro.get());
+        Boolean resultado = false;
+        //List<Cliente> clientes = clienteRepository.findAll();
+        var objeto = clienteRepository.findById(cpf);
+        if(objeto.isPresent()) {
+            resultado = false;
         } else {
-            throw new Exception("Não foi possível encontrar o Bairro");
+            resultado = true;
         }
 
-        e.setLogradouro(enderecoDto.getLogradouro());
-        e.setNumero(enderecoDto.getNumero());
-        e.setComplemento(enderecoDto.getComplemento());
-        e.setPontoDeReferencia(enderecoDto.getPontoDeReferencia());
-
-        enderecoRepository.save(e);
-    }
-
-    @CrossOrigin
-    @GetMapping("/listarEnderecos")
-    public List<Endereco> listarEnderecos() {
-        return enderecoRepository.findAll();
-    }
-
-/*    
-    @CrossOrigin
-    @GetMapping("/listarEnderecoPeloId/{idEndereco}")
-    public EnderecoDto listarEnderecoPeloId(@PathVariable("idEndereco") Long idEndereco) throws Exception {
-
-        List<Endereco> endereco = enderecoRepository.findAll();
-
-        EnderecoDto eDto = new EnderecoDto();
-        
-        try{
-            for(Endereco e : endereco) {
-                if(e.getId().equals(idEndereco)) {
-                    eDto.setLogradouro(e.getLogradouro());
-                    eDto.setNumero(e.getNumero());
-                    eDto.setComplemento(e.getComplemento());
-                    eDto.setPontoDeReferencia(e.getPontoDeReferencia());
-                    eDto.setIdBairro(e.getBairro().getId());
-                }
-            }
-            return eDto;
-        } catch(Exception exc) {
-            throw new Exception("Cliente não encontrado");
-        }
-
-    }
-*/
-
-@CrossOrigin
-@GetMapping("/listarEnderecoPeloId/{cpf}")
-public EnderecoDto listarEnderecoPeloId(@PathVariable("cpf") String cpf) throws Exception {
-    List<Cliente> clientes = clienteRepository.findAll();
-
-    EnderecoDto eDto = new EnderecoDto();
-
-    try{
-        for(Cliente c : clientes) {
-            if(c.getCpf().equals(cpf)) {
-                eDto.setLogradouro(c.getEndereco().getLogradouro());
-                eDto.setNumero(c.getEndereco().getNumero());
-                eDto.setComplemento(c.getEndereco().getComplemento());
-                eDto.setPontoDeReferencia(c.getEndereco().getPontoDeReferencia());
-                eDto.setIdBairro(c.getEndereco().getBairro().getIdBairro());
-            }
-        }
-            return eDto;
-    } catch (Exception exc) {
-        throw new Exception("Cliente não encontrado");
-    }
+        return resultado;
+    }   
+///*
 
 /*
-    List<Endereco> endereco = enderecoRepository.findAll();
-
-    EnderecoDto eDto = new EnderecoDto();
-    
-    try{
-        for(Endereco e : endereco) {
-            if(e.getId().equals(idEndereco)) {
-                eDto.setLogradouro(e.getLogradouro());
-                eDto.setNumero(e.getNumero());
-                eDto.setComplemento(e.getComplemento());
-                eDto.setPontoDeReferencia(e.getPontoDeReferencia());
-                eDto.setIdBairro(e.getBairro().getId());
+        for(Cliente c : clientes) {
+            if(c.getCpf().equals(cpf)) {
+                resultado = false;
             }
         }
-        return eDto;
-    } catch(Exception exc) {
-        throw new Exception("Cliente não encontrado");
+*/
+
+/*
+        if(!objeto.isPresent()) {
+            resultado = true;
+        }
+        return resultado;
     }
 */
-}
 
-
-
-    @CrossOrigin
-    @PostMapping("/incluirCliente")
-    public void incluirCliente(@RequestBody ClienteDto clienteDto) throws Exception{
-        Cliente c = new Cliente();
-        
-        var endereco = enderecoRepository.findById(clienteDto.getIdEndereco());
-        
-        if(endereco.isPresent()) {
-            c.setEndereco(endereco.get());
-        } else {
-            throw new Exception("Não foi possível encontrar o Endereco");
-        }
-
-        c.setCpf(clienteDto.getCpf());
-        c.setNomeCliente(clienteDto.getNomeCliente());
-        c.setTelefone(clienteDto.getTelefone());
-
-        clienteRepository.save(c);
-    }
-
-//    /*
+/*
     @CrossOrigin
     @GetMapping("/listarClientes")
     public List<Cliente> listarClientes() {
         return clienteRepository.findAll();
     }
-//    */
+*/
 
+/*
     @CrossOrigin
     @GetMapping("/listarClientesPorCpf/{cpf}")
     //@ResponseBody
@@ -198,5 +100,57 @@ public EnderecoDto listarEnderecoPeloId(@PathVariable("cpf") String cpf) throws 
             throw new Exception("Cliente não encontrado");
         }
     }
-    
+*/
+
+///*
+
+    @CrossOrigin
+    @PostMapping("/incluir") 
+    public void incluirClienteDto(@RequestBody ClienteDto clienteDto) throws Exception{
+        Cliente cliente = new Cliente();
+        cliente.setNomeCliente(clienteDto.getNomeCliente());
+        cliente.setCpf(clienteDto.getCpf());
+        cliente.setTelefone(clienteDto.getTelefone());
+
+        Endereco endereco = new Endereco();
+        endereco.setLogradouro(clienteDto.getLogradouro());
+        endereco.setNumero(clienteDto.getNumero());
+        endereco.setComplemento(clienteDto.getComplemento());
+        endereco.setPontoDeReferencia(clienteDto.getPontoDeReferencia());
+
+        var objeto = bairroRepository.findById(clienteDto.getIdBairro());
+        if(objeto.isPresent()) {
+            Bairro bairro = objeto.get();
+            endereco.setBairro(bairro);
+            enderecoRepository.save(endereco);
+        } else {
+            throw new Exception("Endereco não encontrado!");
+        }
+
+        cliente.setEndereco(endereco);
+
+        clienteRepository.save(cliente);
+    }
+
+//*/
+
+/*
+    @CrossOrigin
+    @PostMapping("/alterarCliente")
+    public void alterarEndereco(@RequestBody ClienteDto clienteDto) throws Exception {
+        var objeto = clienteRepository.findById(clienteDto.getCpf());
+        var endereco = enderecoRepository.findById(clienteDto.getIdEndereco());
+
+        if(endereco.isPresent() && objeto.isPresent()) {
+            Cliente c = objeto.get();
+            c.setCpf(clienteDto.getCpf());
+            c.setNomeCliente(clienteDto.getNomeCliente());
+            c.setTelefone(clienteDto.getTelefone());
+            c.setEndereco(endereco.get());
+            clienteRepository.save(c);
+        } else {
+            throw new Exception("Não eh possivel realizar a edicao");
+        }
+    }
+*/    
 }

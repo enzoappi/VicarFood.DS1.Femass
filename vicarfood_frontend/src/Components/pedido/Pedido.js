@@ -5,7 +5,6 @@ import './Pedido.css'
 
 const Pedido = () => (
     
-       
         <Container>
         <h1>Pedido</h1>
         <ul className="app-menu_list">
@@ -20,8 +19,6 @@ const Pedido = () => (
             </li>
         </ul>
         </Container>
-       
-    
 )
 
 
