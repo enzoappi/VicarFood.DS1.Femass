@@ -19,6 +19,16 @@
             "mainClass": "com.br.vicarfood.VicarfoodApplication",
             "projectName": "vicarfood",
             "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-VicarfoodApplication<vicarfood (2)>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.br.vicarfood.VicarfoodApplication",
+            "projectName": "vicarfood (2)",
+            "args": ""
         }
     ]
 }
