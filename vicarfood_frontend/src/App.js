@@ -18,39 +18,3 @@ const App = () => (
 
 export default App
 
-
-
-
-
-
-
-/*import React, { Component } from 'react'
-import { BrowserRouter, Route, Switch } from 'react-router-dom'
-
-import Cabecalho from "./Components/Cabecalho";
-import Rodape from "./Components/rodape/Rodape";
-import { GlobalStyle } from "./Components/GlobalStyle";
-import Cliente from './Components/cliente/Cliente';
-
-/*import Menu from "./Components/menu/Menu"
-import Home from "./Components/home/Home"
-import Rodape from './Components/rodape/Rodape'
-import Pedido from './Components/pedido/Pedido'
-import Cardapio from './Components/cardapio/Cardapio'
-
-
-
-export default class App extends Component {
-  render() {
-    return (
-      <BrowserRouter>
-        <GlobalStyle /> 
-        <Cabecalho />
-    
-        <Rodape />
-      </BrowserRouter>
-      
-    )
-  }
-}*/
-

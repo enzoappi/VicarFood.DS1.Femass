@@ -1,0 +1,26 @@
+.contentCadastro{
+    background-image: url('../../assets/images/costelaSuina.jpg');
+    background-repeat: no-repeat;
+    background-size:cover;
+    display: flex;
+    right: 0%;
+    height: 800px;
+    width:100%;
+    justify-content: center;
+  }
+#cadastro{
+    width: 48%;
+    height: 60%;
+    padding: 2% 1%;
+    margin: 1%;
+    border-radius: 5px;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    background-color: rgba(0,0,0,0.8) !important
+}
+.cadastro{
+    text-align: center;
+    font-size: 30px;
+}

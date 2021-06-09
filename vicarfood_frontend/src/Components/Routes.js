@@ -9,6 +9,8 @@ import Costela from './pedido/costela/Costela'
 import Batatas from './pedido/batata/Batatas'
 import Bebidas from './pedido/bebidas/Bebidas'
 import Carrinho from './carrinho/Carrinho'
+import Login from './Login/Login'
+import Cadastro from './cadastro/Cadastro'
 
 
 const Routes = () => (
@@ -22,6 +24,8 @@ const Routes = () => (
         <Route exact path="/batatas" component={Batatas} />
         <Route exact path="/bebidas" component={Bebidas} />
         <Route exact path="/carrinho" component={Carrinho} />
+        <Route exact path="/login" component={Login} />
+        <Route exact path="/cadastro" component={Cadastro}/>
         </>
 
   
