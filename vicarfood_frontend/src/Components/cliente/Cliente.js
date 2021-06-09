@@ -5,8 +5,8 @@ import './Cliente.css'
 import { MdSave, MdModeEdit } from "react-icons/md";
 
 /////////////////////ARMENGADA PRA TESTAR A FUNCIONALIDADE - ISSO DEVE SAIR DAQUI/////////////////////
-//var cpfProvisorio = '158467984-03'
-var cpfProvisorio = '136457895-00'
+var cpfProvisorio = '123654789-00'
+//var cpfProvisorio = ''
 if (cpfProvisorio === ''){
     cpfProvisorio = null
 }
@@ -17,17 +17,15 @@ export default class Cliente extends Component {
         cpf: "",
         nomeCliente: "",
         telefone: "",
-        cliente: {},
         idEndereco: "",
         logradouro: "",
         numero: "",
         complemento: "",
         pontoDeReferencia: "",
-        endereco: {},
         idBairro: "",
         bairros: [],
         incluindo: false,
-        alterando: false
+        alterando: false,
     }
 
     
@@ -67,71 +65,51 @@ export default class Cliente extends Component {
         this.setState({idBairro: event.target.value})
     }
 
-    //TESTANDO A EXISTENCIA DO CLIENTE NO BANCO
-    isNovoCliente = () => {
-        const url = window.servidor + '/clienteDto/isNovoCliente/' + cpfProvisorio
-        fetch(url)
-            .then(response => response.json())
-            .then(data => this.setState({incluindo: data}));
-    }
-
+///*
     //PREENCHIMENTO DOS DADOS DO CLIENTE NO STATE
-    preencherCliente = () => {
-        const url = window.servidor + '/clienteDto/listarClientesPorCpf/' + cpfProvisorio
-        fetch(url)
-            .then(response => response.json())
-            .then(data => this.setState({cliente: data}));
+    preencherCliente = async () => {
+        const url = window.servidor + '/cliente/listar/' + cpfProvisorio
+        const response = await fetch(url);
+        const data = await response.json();
+        if(data.idBairro === null) {
+            this.setState({cpf: data.cpf, nomeCliente: data.nomeCliente, telefone: data.telefone, idEndereco: data.idEndereco, logradouro: data.logradouro, numero: data.numero, complemento: data.complemento, pontoDeReferencia: data.pontoDeReferencia, idBairro: '', incluindo: data.incluindo});
+        } else {
+            this.setState({cpf: data.cpf, nomeCliente: data.nomeCliente, telefone: data.telefone, idEndereco: data.idEndereco, logradouro: data.logradouro, numero: data.numero, complemento: data.complemento, pontoDeReferencia: data.pontoDeReferencia, idBairro: data.idBairro, incluindo: data.incluindo});
+        };
+    };
+
+    //PREENCHIMENTO DA LISTA DE BAIRROS NO STATE (PARA A COMBO)
+    carregarBairros = async () => {
+        const url = window.servidor + '/bairro/listar'
+        const response = await fetch(url);
+        const data = await response.json();
+        this.setState({bairros: data});
     }
 
-    //PREENCHIMENTO DOS DADOS DO ENDERECO NO STATE
-    preencherEndereco = () => {
-        const url = window.servidor + '/clienteDto/listarEnderecoPeloId/' + cpfProvisorio
-        fetch(url)
-            .then(response => response.json())
-            .then(data => this.setState({endereco: data}));
-    }
-
-    //PREENCHIMENTO DA LISTA DE BAIRROS NO STATE
+/*
+    //PREENCHIMENTO DA LISTA DE BAIRROS NO STATE (PARA A COMBO)
     carregarBairros = () => {
-        const url = window.servidor + '/clienteDto/listarBairros'
+        const url = window.servidor + '/bairro/listar'
         fetch(url)
             .then(response => response.json())
             .then(data => this.setState({bairros: data}));
     }
-
-    UNSAFE_componentWillMount() {
-        this.isNovoCliente()
-        this.carregarBairros()
-    }
-
-    componentDidMount() {
-        
-        if(!this.state.incluindo) {
-            this.preencherCliente()
-            this.preencherEndereco()
-        }
-        
-        //this.preencherCliente()
-        //this.preencherEndereco()
-        //this.carregarBairrosBairros()
-    }
-
-/*
-    iniciarNovo = (event) => {
-        event.preventDefault();
-        this.setState({incluindo: true, cpf: '', nomeCliente: '', telefone: '', idEndereco: '',logradouro: '', numero: '', complemento: '', pontoDeReferencia: '', idBairro: ''})
-    }
 */
+
+///*
+    componentDidMount() {
+        this.carregarBairros()
+        this.preencherCliente()
+    }
+//*/
 
     iniciarAlterar = (event) => {
         event.preventDefault();
-        var cliente = this.state.cliente;
-        var endereco = this.state.endereco;
-        this.setState({alterando: true, cpf: cliente.cpf, nomeCliente: cliente.nomeCliente, telefone: cliente.telefone, idEndereco: cliente.idEndereco,logradouro: endereco.logradouro, numero: endereco.numero, complemento: endereco.complemento, pontoDeReferencia: endereco.pontoDeReferencia, idBairro: endereco.idBairro})
+        this.setState({alterando: true})
     }
     
 ///*
-    gravarNovoCliente = () => {
+    gravarNovoCliente = (event) => {
         const dadosCliente = {
             "cpf": this.state.cpf,
             "nomeCliente": this.state.nomeCliente,
@@ -143,7 +121,7 @@ export default class Cliente extends Component {
             "idBairro": this.state.idBairro
         }
 
-        console.log(dadosCliente)
+//        console.log(dadosCliente)
 
         const requestOptions = {
             method: 'POST',
@@ -154,20 +132,20 @@ export default class Cliente extends Component {
             body: JSON.stringify(dadosCliente)
         };
 
-        const url = window.servidor + '/cliente/incluir'
+        const url = window.servidor + '/clienteDto/incluir'
 
         fetch(url, requestOptions)
             .then(fim => {
-                this.setState({incluindo: false})
+                event.preventDefault()
+                cpfProvisorio = this.state.cpf //adicionei
                 this.preencherCliente()
-                this.preencherEndereco()
             })
             .catch(erro => console.log(erro));
 
     }
 //*/
 
-    gravarAlterar = () => {
+    gravarAlterar = (event) => {
 
         const dadosEndereco = {
             "idEndereco": this.state.idEndereco,
@@ -178,7 +156,7 @@ export default class Cliente extends Component {
             "idBairro": this.state.idBairro
         }
 
-        console.log(dadosEndereco)
+//        console.log(dadosEndereco)
 
         let requestOptions = {
             method: 'POST',
@@ -189,7 +167,7 @@ export default class Cliente extends Component {
             body: JSON.stringify(dadosEndereco)
         };
 
-        let url = window.servidor + '/clienteDto/alterarEndereco'
+        let url = window.servidor + '/endereco/alterar'
 
         fetch(url, requestOptions)
 
@@ -200,7 +178,7 @@ export default class Cliente extends Component {
             "idEndereco": this.state.idEndereco
         }
 
-        console.log(dadosCliente)
+//        console.log(dadosCliente)
 
         requestOptions = {
             method: 'POST',
@@ -211,13 +189,13 @@ export default class Cliente extends Component {
             body: JSON.stringify(dadosCliente)
         };
 
-        url = window.servidor + '/clienteDto/alterarCliente'
+        url = window.servidor + '/cliente/alterar'
 
         fetch(url, requestOptions)
             .then(fim => {
+                event.preventDefault()
                 this.setState({alterando: false})
                 this.preencherCliente()
-                this.preencherEndereco()
             })
             .catch(erro => console.log(erro));
 
@@ -263,10 +241,8 @@ export default class Cliente extends Component {
                 <div>
                     <h3>Endereço</h3>
                     <div className="box">
-                        <select placeholder="Bairro" onChange={this.txtIdBairro_change} >
-                            {this.state.bairros.map((bairro) => (
-                                <option key={bairro.idBairro} value={bairro.idBairro}>{bairro.nomeBairro}</option>
-                            ))}
+                        <select placeholder="Bairro" value={this.state.idBairro} onChange={this.txtIdBairro_change}>
+                            {this.state.bairros.map((bairro) => (<option key={bairro.idBairro} value={bairro.idBairro}>{bairro.nomeBairro}</option>))}
                         </select>
                         <input name="logradouro" placeholder="Logradouro" value={this.state.logradouro} onChange={this.txtLogradouro_change}  type="text"></input>
                         <input name="numero" placeholder="Número" value={this.state.numero} onChange={this.txtNumero_change}  type="text"></input>
@@ -274,7 +250,7 @@ export default class Cliente extends Component {
                         <input name="referencia" placeholder="Referência" value={this.state.referencia} onChange={this.txtPontoDeReferencia_change} type="text"></input>
                         
                         <div className="btnSaveEdit">
-                        <button className="btnSave" onClick = {() => this.gravarNovoCliente()}> <MdSave className="save"/> </button>
+                        <button className="btnSave" onClick = {this.gravarNovoCliente}> <MdSave className="save"/> </button>
                         <button className="btnEdit" onClick = {() => this.editarNovo()} disabled> <MdModeEdit className="edit"/> </button>
                         </div>
                         
@@ -325,7 +301,7 @@ export default class Cliente extends Component {
                         <input name="referencia" placeholder="Referência" value={this.state.pontoDeReferencia} onChange={this.txtPontoDeReferencia_change} type="text"></input>
                         
                         <div className="btnSaveEdit">
-                        <button className="btnSave" data-bs-toggle="tooltip" data-bs-placement="right" title="salvar alterações" onClick = {() => this.gravarAlterar()}> <MdSave className="save"/> </button>
+                        <button className="btnSave" data-bs-toggle="tooltip" data-bs-placement="right" title="salvar alterações" onClick = {this.gravarAlterar}> <MdSave className="save"/> </button>
                         <button className="btnEdit" onClick = {() => this.iniciarAlterar(this.state.cliente, this.state.endereco)} disabled> <MdModeEdit className="edit"/> </button>
                         </div>
                         
@@ -356,23 +332,21 @@ export default class Cliente extends Component {
                 <div>
                     <h3>Dados Pessoais</h3>
                     <div className="box">
-                        <input name="nome" placeholder="Nome Completo" value={this.state.cliente.nomeCliente} disabled type="text"></input>
-                        <input name="CPF" placeholder="CPF" value={this.state.cliente.cpf} disabled  type="text"></input>
-                        <input name="telefone" placeholder="Telefone" value={this.state.cliente.telefone} disabled type="text"></input>
+                        <input name="nome" placeholder="Nome Completo" value={this.state.nomeCliente} disabled type="text"></input>
+                        <input name="CPF" placeholder="CPF" value={this.state.cpf} disabled  type="text"></input>
+                        <input name="telefone" placeholder="Telefone" value={this.state.telefone} disabled type="text"></input>
                     </div>
                 </div>
                 <div>
                     <h3>Endereço</h3>
                     <div className="box">
-                        <select name="bairro" placeholder="Bairro" id="bairro" value={this.state.endereco.idBairro} disabled type="text">
-                            {this.state.bairros.map((bairro) => (
-                                <option key={bairro.idBairro} value={bairro.idBairro} >{bairro.nomeBairro}</option>
-                            ))}
+                        <select name="bairro" placeholder="Bairro" id="bairro" value={this.state.idBairro} disabled type="text">
+                            {this.state.bairros.map((bairro) => (<option key={bairro.idBairro} value={bairro.idBairro} >{bairro.nomeBairro}</option>))}
                         </select>
-                        <input name="logradouro" placeholder="Logradouro" value={this.state.endereco.logradouro} disabled  type="text"></input>
-                        <input name="numero" placeholder="Número" value={this.state.endereco.numero} disabled  type="text"></input>
-                        <input name="complemento" placeholder="Complemento" value={this.state.endereco.complemento} disabled type="text"></input>
-                        <input name="referencia" placeholder="Referência" value={this.state.endereco.pontoDeReferencia} disabled type="text"></input>
+                        <input name="logradouro" placeholder="Logradouro" value={this.state.logradouro} disabled  type="text"></input>
+                        <input name="numero" placeholder="Número" value={this.state.numero} disabled  type="text"></input>
+                        <input name="complemento" placeholder="Complemento" value={this.state.complemento} disabled type="text"></input>
+                        <input name="referencia" placeholder="Referência" value={this.state.pontoDeReferencia} disabled type="text"></input>
                         
                         <div className="btnSaveEdit">
                         <button className="btnSave" onClick = {() => this.gravarNovo()} disabled> <MdSave className="save"/> </button>
@@ -412,5 +386,4 @@ export default class Cliente extends Component {
         }
         return pagina
     }
-
 } 

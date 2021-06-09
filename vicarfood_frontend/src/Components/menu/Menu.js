@@ -40,6 +40,16 @@ const Menu = () => (
                 </Link>
             </li>
             <li className="app-menu__item">
+                <Link className="app-menu__link" to="/login">
+                    Login
+                </Link>
+            </li>
+            <li className="app-menu__item">
+                <Link className="app-menu__link" to="/cadastro">
+                    Cadastro
+                </Link>
+            </li>
+            <li className="app-menu__item">
                 <Link className="app-menu__link" to="/carrinho">
                     <MdAddShoppingCart />
                 </Link>
