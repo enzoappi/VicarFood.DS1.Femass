@@ -18,19 +18,36 @@ const Costela = () => (
                         <h2>Costela</h2>
                 </div>
                 <div className="listaCostela">
-                        <label className="costela">Coca-Cola 2L</label>
-                        <div>
-                        <label className="descricao">Coca-Cola 2L</label>
-                        <label className="valor">R$ 12,00</label>
-                        <MdCheckBoxOutlineBlank />
+                        <label className="costela">Combo da Costela Bovina</label>
+                        <div className="costela2">
+                                <p className="descricao">
+                                        <label>Costela Bovina no bafo, acompanhada com 
+                                        molho de mostarda, feijão tropeiro, batatinha calabresa e arroz.</label>
+                                        <label>(porção serve de 3 a 4 pessoas)</label>
+                                </p>
+                                <p className="valor">
+                                        <label>R$ 99,00</label>
+                                </p>
+                                <p>
+                                        <MdCheckBoxOutlineBlank />
+                                </p>
                         </div>
                 </div>
                 <div className="listaCostela">
-                        <label className="costela">Coca-Cola 2L</label>
-                        <div>
-                        <label className="descricao">Coca-Cola 2L</label>
-                        <label className="valor">R$ 12,00</label>
-                        <MdCheckBoxOutlineBlank />
+                        <label className="costela">Combo da Costela Suina</label>
+                        <div className="costela2">
+                                <p className="descricao">
+                                        <label>Costela suína no bafo com tempero 
+                                        Dry Rub (levemente picante) e barbecue, acompanhada de maça em caldas, 
+                                        batata rosti de requeijão com bacon e arroz.</label>
+                                        <label>(porção serve até 2 pessoas)</label>
+                                </p>
+                                <p className="valor">
+                                        <label>R$ 59,00</label>
+                                </p>
+                                <p>
+                                        <MdCheckBoxOutlineBlank />
+                                </p>
                         </div>
                 </div>
 

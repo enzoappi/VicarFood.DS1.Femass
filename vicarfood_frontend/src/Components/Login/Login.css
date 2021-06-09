@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .content{
     margin:10px;
     background-image: url('../../assets/images/batata_rosti.jpeg');
@@ -96,3 +97,107 @@
     align-self: center;
     background-color: rgba(0,0,0,0.5) !important;
   }
+=======
+.contentLogin{
+    background-image: url('../../assets/images/batata_rosti.jpeg');
+    background-repeat: no-repeat;
+    background-size:cover;
+    display: flex;
+    right: 0%;
+    height: 800px;
+    width:100%;
+    justify-content: center;
+  }  
+  p{
+    margin-bottom:15px;
+  }
+  p:first-child{
+    margin: 0px;
+  }
+  label{
+    color: #e0ccb3;
+    position: relative;
+  }
+  
+  input,
+  textarea{
+    color: #bebcbc;
+    font-style: italic;
+ 
+    outline: none;
+  }
+  input:not([type="checkbox"]){
+    width: 95%;
+    margin-top: 4px;
+    padding: 10px;  
+    border: 1px solid #b2b2b2;
+    border-radius: 3px;
+    box-shadow: 0px 1px 4px 0px rgba(168, 168, 168, 0.6) inset;
+    transition: all 0.2s linear;
+    
+  }
+  
+  /*estilo do botão submit */
+  input[type="submit"]{
+    width: 100%!important;
+    cursor: pointer;  
+    background: #ffc107;
+    padding: 8px 5px;
+    color: #181820;
+    font-size: 20px;  
+    border: 1px solid #fff; 
+    margin-bottom: 10px;  
+    text-shadow: 0 1px 1px #181820;
+    border-radius: 5px;
+    transition: all 0.2s linear;
+  }
+  input[type="submit"]:hover{
+    background: #ffc107;
+  }
+  
+  /*marcando os links para mudar de um formulário para outro */
+  .link{
+    color: #e0ccb3;
+    left: 0px;
+    height: 20px;
+    width: 440px;
+    padding: 17px 30px 20px 30px;
+    font-size: 16px;
+    text-align: right;
+    border-top: 1px solid #dbe5e8;
+    border-radius: 0 0  5px 5px;
+  }
+  .link a {
+    font-weight: bold;
+    background: #e4902b;
+    padding: 6px;
+    color: #181820;
+    margin-left: 10px;
+    border-radius: 4px;  
+    transition: all 0.4s  linear;
+  }
+  .link a:hover {
+    color: #181820;
+    background: #e0ccb3;
+    border: 1px solid #e0ccb3;
+  }
+  
+  /* estilos para para ambos os formulários */
+  #cadastro, 
+  #login{
+    width: 48%;
+    height: 62%;
+    padding: 2% 1%;
+    margin: 1%;
+    border-radius: 5px;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    background-color: rgba(0,0,0,0.8) !important
+  }
+  .login{
+    text-align: center;
+    font-size: 30px;
+}
+>>>>>>> 7aecdf8b2e99b199cb9c3ae2964b45e46b048741

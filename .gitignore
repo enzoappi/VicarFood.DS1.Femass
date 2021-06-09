@@ -30,4 +30,8 @@ hs_err_pid*
 .vscode
 
 
+vicarfood_frontend\node_modules
+\vicarfood\frontend\node_modules
+
 vicarfood_frontend/node_modules
+/vicarfood/frontend/node_modules
