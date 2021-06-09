@@ -27,21 +27,25 @@ input, select{
     flex-direction: column;
     
 }
+
 .save, .edit {
     font-size: 30px;
     text-decoration: none;
     color:#E0CCB3;
 }
+
 button {
    background-color: #2D2D32;
    border: none;
    text-decoration: none;  
 }
+
 div.btnSaveEdit {
     display: inline-block;
     width: 100%;
     text-align: end;
 }
+
 .finalizar{
     text-align: center;
     margin: 5%;

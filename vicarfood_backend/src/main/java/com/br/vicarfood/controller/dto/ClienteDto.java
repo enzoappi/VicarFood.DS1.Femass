@@ -1,18 +1,16 @@
-package com.br.vicarfood.request;
+package com.br.vicarfood.controller.dto;
 
+public class ClienteDto {
 
-public class ClienteRequest {
     private String cpf;
     private String nomeCliente;
     private String telefone;
-    private Long idEndereco;
-    //private String logradouro;
-    //private String numero;
-    //private String complemento;
-    //private String pontoDeReferencia;
-    //private Long idBairro;
-    //private String nomeBairro;
-
+    //private Long idEndereco;
+    private String logradouro;
+    private String numero;
+    private String complemento;
+    private String pontoDeReferencia;
+    private Long idBairro;
 
     public String getCpf() {
         return cpf;
@@ -23,7 +21,7 @@ public class ClienteRequest {
     }
 
     public String getNomeCliente() {
-        return nomeCliente;
+        return this.nomeCliente;
     }
 
     public void setNomeCliente(String nomeCliente) {
@@ -38,14 +36,6 @@ public class ClienteRequest {
         this.telefone = telefone;
     }
 
-    public Long getIdEndereco() {
-        return idEndereco;
-    }
-
-    public void setIdEndereco(Long idEndereco) {
-        this.idEndereco = idEndereco;
-    }
-/*
     public String getLogradouro() {
         return logradouro;
     }
@@ -62,24 +52,6 @@ public class ClienteRequest {
         this.numero = numero;
     }
 
-    
-    public Long getIdBairro() {
-        return idBairro;
-    }
-
-    public void setIdBairro(Long idBairro) {
-        this.idBairro = idBairro;
-    }
-
-
-    public String getNomeBairro() {
-        return nomeBairro;
-    }
-
-    public void setNomeBairro(String nomeBairro) {
-        this.nomeBairro = nomeBairro;
-    }
-
     public String getComplemento() {
         return complemento;
     }
@@ -94,6 +66,24 @@ public class ClienteRequest {
 
     public void setPontoDeReferencia(String pontoDeReferencia) {
         this.pontoDeReferencia = pontoDeReferencia;
+    }
+
+    public Long getIdBairro() {
+        return idBairro;
+    }
+
+    public void setIdBairro(Long idBairro) {
+        this.idBairro = idBairro;
+    }
+
+    
+/*
+    public Long getIdEndereco() {
+        return idEndereco;
+    }
+
+    public void setIdEndereco(Long idEndereco) {
+        this.idEndereco = idEndereco;
     }
 */
 }

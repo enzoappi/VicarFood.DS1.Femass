@@ -11,19 +11,22 @@ public class Endereco {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long idEndereco;
     private String logradouro;
     private String numero;
+    private String complemento;
+    private String pontoDeReferencia;
+
 
     @OneToOne
     private Bairro bairro;
     
-    public Long getId() {
-        return id;
+    public Long getIdEndereco() {
+        return idEndereco;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setIdEndereco(Long idEndereco) {
+        this.idEndereco = idEndereco;
     }
 
     public String getLogradouro() {
@@ -40,6 +43,22 @@ public class Endereco {
 
     public void setNumero(String numero) {
         this.numero = numero;
+    }
+
+    public String getComplemento() {
+        return complemento;
+    }
+
+    public void setComplemento(String complemento) {
+        this.complemento = complemento;
+    }
+
+    public String getPontoDeReferencia() {
+        return pontoDeReferencia;
+    }
+
+    public void setPontoDeReferencia(String pontoDeReferencia) {
+        this.pontoDeReferencia = pontoDeReferencia;
     }
 
     @Override
@@ -59,8 +78,10 @@ public class Endereco {
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = prime * result + ((id == null) ? 0 : id.hashCode());
+        result = prime * result + ((complemento == null) ? 0 : complemento.hashCode());
+        result = prime * result + ((idEndereco == null) ? 0 : idEndereco.hashCode());
         result = prime * result + ((logradouro == null) ? 0 : logradouro.hashCode());
+        result = prime * result + ((numero == null) ? 0 : numero.hashCode());
         return result;
     }
 
@@ -73,16 +94,28 @@ public class Endereco {
         if (getClass() != obj.getClass())
             return false;
         Endereco other = (Endereco) obj;
-        if (id == null) {
-            if (other.id != null)
+        if (complemento == null) {
+            if (other.complemento != null)
                 return false;
-        } else if (!id.equals(other.id))
+        } else if (!complemento.equals(other.complemento))
+            return false;
+        if (idEndereco == null) {
+            if (other.idEndereco != null)
+                return false;
+        } else if (!idEndereco.equals(other.idEndereco))
             return false;
         if (logradouro == null) {
             if (other.logradouro != null)
                 return false;
         } else if (!logradouro.equals(other.logradouro))
             return false;
+        if (numero == null) {
+            if (other.numero != null)
+                return false;
+        } else if (!numero.equals(other.numero))
+            return false;
         return true;
-    }    
+    }
+
+    
 }

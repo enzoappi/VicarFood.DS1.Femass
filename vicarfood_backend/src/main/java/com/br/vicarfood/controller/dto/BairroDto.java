@@ -1,10 +1,11 @@
-package com.br.vicarfood.request;
+package com.br.vicarfood.controller.dto;
 
-public class BairroRequest {
+public class BairroDto {
+
     private Long idBairro;
     private String nomeBairro;
     private Double valor;
-    
+
     public Long getIdBairro() {
         return idBairro;
     }
@@ -23,4 +24,6 @@ public class BairroRequest {
     public void setValor(Double valor) {
         this.valor = valor;
     }
+
+    
 }
