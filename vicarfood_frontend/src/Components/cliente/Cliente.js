@@ -72,11 +72,7 @@ export default class Cliente extends Component {
         const url = window.servidor + '/cliente/listar/' + cpfProvisorio
         const response = await fetch(url);
         const data = await response.json();
-        if(data.idBairro === null) {
-            this.setState({cpf: data.cpf, nomeCliente: data.nomeCliente, telefone: data.telefone, idEndereco: data.idEndereco, logradouro: data.logradouro, numero: data.numero, complemento: data.complemento, pontoDeReferencia: data.pontoDeReferencia, idBairro: '', incluindo: data.incluindo});
-        } else {
-            this.setState({cpf: data.cpf, nomeCliente: data.nomeCliente, telefone: data.telefone, idEndereco: data.idEndereco, logradouro: data.logradouro, numero: data.numero, complemento: data.complemento, pontoDeReferencia: data.pontoDeReferencia, idBairro: data.idBairro, incluindo: data.incluindo});
-        };
+        this.setState({cpf: data.cpf, nomeCliente: data.nomeCliente, telefone: data.telefone, idEndereco: data.idEndereco, logradouro: data.logradouro, numero: data.numero, complemento: data.complemento, pontoDeReferencia: data.pontoDeReferencia, idBairro: data.idBairro, incluindo: data.incluindo});
     };
 
     //PREENCHIMENTO DA LISTA DE BAIRROS NO STATE (PARA A COMBO)

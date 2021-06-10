@@ -79,7 +79,7 @@ public class ClienteController {
             cliReq.setNumero(""); //adicionei
             cliReq.setComplemento(""); //adicionei
             cliReq.setPontoDeReferencia(""); //adicionei
-            cliReq.setIdBairro(null); //adicionei
+            cliReq.setIdBairro(Long.parseLong("1")); //adicionei
         }
         return cliReq;
     }
