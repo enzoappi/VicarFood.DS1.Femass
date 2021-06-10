@@ -15,7 +15,7 @@ span{
     
 }
 a{
-    font-size: 20px;
+    font-size: 25px;
     text-decoration: none;
     color:#181820;
 }
@@ -42,13 +42,4 @@ div.img,svg{
     font-size:30px;
     align-self: center;
 
-}
-.descricao{
-    width: 70%;
-    text-align: justify;
-}
-.costela2{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
 }

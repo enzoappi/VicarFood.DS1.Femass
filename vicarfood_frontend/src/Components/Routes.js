@@ -12,12 +12,9 @@ import Bebidas from './pedido/bebidas/Bebidas'
 import Carrinho from './carrinho/Carrinho'
 import Login from './Login/Login'
 import Cadastro from './cadastro/Cadastro'
-<<<<<<< HEAD
 //import { AuthProvider } from '../providers/authorize'
 import { isAuthenticated } from './utils/Auth'
 //import { UserProvider } from './utils/MyContext'
-=======
->>>>>>> 7aecdf8b2e99b199cb9c3ae2964b45e46b048741
 
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
@@ -54,7 +51,6 @@ export default Routes
 const Routes = () => (
 
         <>
-<<<<<<< HEAD
         <AuthProvider>
                 <Route exact path="/" component={Main} />
                 <Route exact path="/pedido" component={Pedido} />
@@ -66,18 +62,6 @@ const Routes = () => (
                 <Route exact path="/carrinho" component={Carrinho} />
                 <Route exact path="/login" component={Login} />
         </AuthProvider>
-=======
-        <Route exact path="/" component={Main} />
-        <Route exact path="/pedido" component={Pedido} />
-        <Route exact path="/cardapio" component={Cardapio} />
-        <Route exact path="/cliente" component={Cliente} />
-        <Route exact path="/costela" component={Costela} />
-        <Route exact path="/batatas" component={Batatas} />
-        <Route exact path="/bebidas" component={Bebidas} />
-        <Route exact path="/carrinho" component={Carrinho} />
-        <Route exact path="/login" component={Login} />
-        <Route exact path="/cadastro" component={Cadastro}/>
->>>>>>> 7aecdf8b2e99b199cb9c3ae2964b45e46b048741
         </>
 
 );

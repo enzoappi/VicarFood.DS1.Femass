@@ -35,7 +35,4 @@ const App = () => (
 
 export default App
 
-<<<<<<< HEAD
 //FINAL DO CODIGO ORIGINAL */
-=======
->>>>>>> 7aecdf8b2e99b199cb9c3ae2964b45e46b048741
