@@ -10,6 +10,7 @@ var cpfProvisorio = '123654789-00'
 if (cpfProvisorio === ''){
     cpfProvisorio = null
 }
+//TESTE
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 export default class Cliente extends Component {
