@@ -5,12 +5,11 @@ import './Cliente.css'
 import { MdSave, MdModeEdit } from "react-icons/md";
 
 /////////////////////ARMENGADA PRA TESTAR A FUNCIONALIDADE - ISSO DEVE SAIR DAQUI/////////////////////
-var cpfProvisorio = '123654789-00'
-//var cpfProvisorio = ''
+//var cpfProvisorio = '123654789-00'
+var cpfProvisorio = ''
 if (cpfProvisorio === ''){
     cpfProvisorio = null
 }
-//TESTE
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 export default class Cliente extends Component {
@@ -84,7 +83,7 @@ export default class Cliente extends Component {
     }
 
 /*
-    //PREENCHIMENTO DA LISTA DE BAIRROS NO STATE (PARA A COMBO)
+    PREENCHIMENTO DA LISTA DE BAIRROS NO STATE (PARA A COMBO)
     carregarBairros = () => {
         const url = window.servidor + '/bairro/listar'
         fetch(url)
@@ -93,19 +92,16 @@ export default class Cliente extends Component {
     }
 */
 
-///*
     componentDidMount() {
         this.carregarBairros()
         this.preencherCliente()
     }
-//*/
 
     iniciarAlterar = (event) => {
         event.preventDefault();
         this.setState({alterando: true})
     }
     
-///*
     gravarNovoCliente = (event) => {
         const dadosCliente = {
             "cpf": this.state.cpf,
@@ -140,7 +136,6 @@ export default class Cliente extends Component {
             .catch(erro => console.log(erro));
 
     }
-//*/
 
     gravarAlterar = (event) => {
 
@@ -222,7 +217,7 @@ export default class Cliente extends Component {
     }
 */
 
-///*    
+
     renderIncluirNovoCliente = () => {
         return (            
             <Container>
@@ -270,7 +265,7 @@ export default class Cliente extends Component {
             </Container>
         );
     }
-//*/
+
 
     renderAlterarCliente = () => {
         return (            
