@@ -15,6 +15,7 @@ var cpfProvisorio = ''
 if (cpfProvisorio === ''){
     cpfProvisorio = null
 }
+//TESTE
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 export default class Cliente extends Component {
