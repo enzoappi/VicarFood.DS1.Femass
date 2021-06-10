@@ -6,22 +6,12 @@ public class ClienteRequest {
     private String nomeCliente;
     private String telefone;
     private Long idEndereco;
-<<<<<<< HEAD
     private Boolean incluindo; //adicionei
     private String logradouro; //adicionei
     private String numero; //adicionei
     private String complemento; //adicionei
     private String pontoDeReferencia; //adicionei
     private Long idBairro; //adicionei
-=======
-    //private String logradouro;
-    //private String numero;
-    //private String complemento;
-    //private String pontoDeReferencia;
-    //private Long idBairro;
-    //private String nomeBairro;
-
->>>>>>> 7aecdf8b2e99b199cb9c3ae2964b45e46b048741
 
     public String getCpf() {
         return cpf;
@@ -54,7 +44,6 @@ public class ClienteRequest {
     public void setIdEndereco(Long idEndereco) {
         this.idEndereco = idEndereco;
     }
-<<<<<<< HEAD
 
 
 //  INICIO DAS ADICOES
@@ -66,9 +55,6 @@ public class ClienteRequest {
         this.incluindo = incluindo;
     }
 
-=======
-/*
->>>>>>> 7aecdf8b2e99b199cb9c3ae2964b45e46b048741
     public String getLogradouro() {
         return logradouro;
     }
@@ -85,27 +71,6 @@ public class ClienteRequest {
         this.numero = numero;
     }
 
-<<<<<<< HEAD
-=======
-    
-    public Long getIdBairro() {
-        return idBairro;
-    }
-
-    public void setIdBairro(Long idBairro) {
-        this.idBairro = idBairro;
-    }
-
-
-    public String getNomeBairro() {
-        return nomeBairro;
-    }
-
-    public void setNomeBairro(String nomeBairro) {
-        this.nomeBairro = nomeBairro;
-    }
-
->>>>>>> 7aecdf8b2e99b199cb9c3ae2964b45e46b048741
     public String getComplemento() {
         return complemento;
     }
@@ -121,7 +86,6 @@ public class ClienteRequest {
     public void setPontoDeReferencia(String pontoDeReferencia) {
         this.pontoDeReferencia = pontoDeReferencia;
     }
-<<<<<<< HEAD
 
     public Long getIdBairro() {
         return idBairro;
@@ -131,7 +95,4 @@ public class ClienteRequest {
         this.idBairro = idBairro;
     }
 //  FIM DAS ADICOES
-=======
-*/
->>>>>>> 7aecdf8b2e99b199cb9c3ae2964b45e46b048741
 }

@@ -5,13 +5,8 @@ import './Cliente.css'
 import { MdSave, MdModeEdit } from "react-icons/md";
 
 /////////////////////ARMENGADA PRA TESTAR A FUNCIONALIDADE - ISSO DEVE SAIR DAQUI/////////////////////
-<<<<<<< HEAD
 var cpfProvisorio = '123654789-00'
 //var cpfProvisorio = ''
-=======
-//var cpfProvisorio = '123654789-00'
-var cpfProvisorio = ''
->>>>>>> 7aecdf8b2e99b199cb9c3ae2964b45e46b048741
 if (cpfProvisorio === ''){
     cpfProvisorio = null
 }
@@ -73,7 +68,6 @@ export default class Cliente extends Component {
 
 ///*
     //PREENCHIMENTO DOS DADOS DO CLIENTE NO STATE
-<<<<<<< HEAD
     preencherCliente = async () => {
         const url = window.servidor + '/cliente/listar/' + cpfProvisorio
         const response = await fetch(url);
@@ -91,32 +85,11 @@ export default class Cliente extends Component {
         const response = await fetch(url);
         const data = await response.json();
         this.setState({bairros: data});
-=======
-    preencherCliente = () => {
-        //const url = window.servidor + '/clienteDto/listarClientesPorCpf/' + cpfProvisorio
-        const url = window.servidor + '/cliente/listar/' + cpfProvisorio
-        fetch(url)
-            .then(response => response.json())
-            .then(data => this.setState({cpf: data.cpf, nomeCliente: data.nomeCliente, telefone: data.telefone, idEndereco: data.idEndereco}));
-    }
-
-    //PREENCHIMENTO DOS DADOS DO ENDERECO NO STATE
-    preencherEndereco = () => {
-        //const url = window.servidor + '/clienteDto/listarEnderecoPeloId/' + cpfProvisorio
-        const url = window.servidor + '/endereco/listar/' + cpfProvisorio
-        fetch(url)
-            .then(response => response.json())
-            .then(data => this.setState({logradouro: data.logradouro, numero: data.numero, complemento: data.complemento, pontoDeReferencia: data.pontoDeReferencia, idBairro: data.idBairro}));
->>>>>>> 7aecdf8b2e99b199cb9c3ae2964b45e46b048741
     }
 
 /*
     //PREENCHIMENTO DA LISTA DE BAIRROS NO STATE (PARA A COMBO)
     carregarBairros = () => {
-<<<<<<< HEAD
-=======
-        //const url = window.servidor + '/clienteDto/listarBairros'
->>>>>>> 7aecdf8b2e99b199cb9c3ae2964b45e46b048741
         const url = window.servidor + '/bairro/listar'
         fetch(url)
             .then(response => response.json())
@@ -126,33 +99,13 @@ export default class Cliente extends Component {
 
 ///*
     componentDidMount() {
-<<<<<<< HEAD
         this.carregarBairros()
         this.preencherCliente()
-=======
-        //console.log(this.state.incluindo)
-        if(!this.state.incluindo) {
-            this.preencherCliente()
-            this.preencherEndereco()
-        }
-    }
-
-/*
-    iniciarNovo = (event) => {
-        event.preventDefault();
-        this.setState({incluindo: true, cpf: '', nomeCliente: '', telefone: '', idEndereco: '',logradouro: '', numero: '', complemento: '', pontoDeReferencia: '', idBairro: ''})
->>>>>>> 7aecdf8b2e99b199cb9c3ae2964b45e46b048741
     }
 //*/
 
     iniciarAlterar = (event) => {
         event.preventDefault();
-<<<<<<< HEAD
-=======
-        //var cliente = this.state.cliente;
-        //var endereco = this.state.endereco;
-        //this.setState({alterando: true, cpf: cliente.cpf, nomeCliente: cliente.nomeCliente, telefone: cliente.telefone, idEndereco: cliente.idEndereco,logradouro: endereco.logradouro, numero: endereco.numero, complemento: endereco.complemento, pontoDeReferencia: endereco.pontoDeReferencia, idBairro: endereco.idBairro})
->>>>>>> 7aecdf8b2e99b199cb9c3ae2964b45e46b048741
         this.setState({alterando: true})
     }
     
