@@ -5,12 +5,11 @@ import './Cliente.css'
 import { MdSave, MdModeEdit } from "react-icons/md";
 
 /////////////////////ARMENGADA PRA TESTAR A FUNCIONALIDADE - ISSO DEVE SAIR DAQUI/////////////////////
-var cpfProvisorio = '123654789-00'
-//var cpfProvisorio = ''
+//var cpfProvisorio = '123654789-00'
+var cpfProvisorio = ''
 if (cpfProvisorio === ''){
     cpfProvisorio = null
 }
-//TESTE
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 export default class Cliente extends Component {
@@ -72,11 +71,7 @@ export default class Cliente extends Component {
         const url = window.servidor + '/cliente/listar/' + cpfProvisorio
         const response = await fetch(url);
         const data = await response.json();
-        if(data.idBairro === null) {
-            this.setState({cpf: data.cpf, nomeCliente: data.nomeCliente, telefone: data.telefone, idEndereco: data.idEndereco, logradouro: data.logradouro, numero: data.numero, complemento: data.complemento, pontoDeReferencia: data.pontoDeReferencia, idBairro: '', incluindo: data.incluindo});
-        } else {
-            this.setState({cpf: data.cpf, nomeCliente: data.nomeCliente, telefone: data.telefone, idEndereco: data.idEndereco, logradouro: data.logradouro, numero: data.numero, complemento: data.complemento, pontoDeReferencia: data.pontoDeReferencia, idBairro: data.idBairro, incluindo: data.incluindo});
-        };
+        this.setState({cpf: data.cpf, nomeCliente: data.nomeCliente, telefone: data.telefone, idEndereco: data.idEndereco, logradouro: data.logradouro, numero: data.numero, complemento: data.complemento, pontoDeReferencia: data.pontoDeReferencia, idBairro: data.idBairro, incluindo: data.incluindo});
     };
 
     //PREENCHIMENTO DA LISTA DE BAIRROS NO STATE (PARA A COMBO)
@@ -88,7 +83,7 @@ export default class Cliente extends Component {
     }
 
 /*
-    //PREENCHIMENTO DA LISTA DE BAIRROS NO STATE (PARA A COMBO)
+    PREENCHIMENTO DA LISTA DE BAIRROS NO STATE (PARA A COMBO)
     carregarBairros = () => {
         const url = window.servidor + '/bairro/listar'
         fetch(url)
@@ -97,19 +92,16 @@ export default class Cliente extends Component {
     }
 */
 
-///*
     componentDidMount() {
         this.carregarBairros()
         this.preencherCliente()
     }
-//*/
 
     iniciarAlterar = (event) => {
         event.preventDefault();
         this.setState({alterando: true})
     }
     
-///*
     gravarNovoCliente = (event) => {
         const dadosCliente = {
             "cpf": this.state.cpf,
@@ -144,7 +136,6 @@ export default class Cliente extends Component {
             .catch(erro => console.log(erro));
 
     }
-//*/
 
     gravarAlterar = (event) => {
 
@@ -226,7 +217,7 @@ export default class Cliente extends Component {
     }
 */
 
-///*    
+
     renderIncluirNovoCliente = () => {
         return (            
             <Container>
@@ -274,7 +265,7 @@ export default class Cliente extends Component {
             </Container>
         );
     }
-//*/
+
 
     renderAlterarCliente = () => {
         return (            
