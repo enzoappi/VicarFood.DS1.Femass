@@ -37,7 +37,8 @@ const Routes = () => (
                 <Route exact path="/costela" component={Costela} />
                 <Route exact path="/batatas" component={Batatas} />
                 <Route exact path="/bebidas" component={Bebidas} />
-                <PrivateRoute exact path="/carrinho" component={Carrinho} />
+                
+                <Route exact path="/carrinho" component={Carrinho} />
                 <Route exact path="/login" component={Login} />
                 <Route exact path="/cadastro" component={Cadastro}/>
         </>
@@ -60,6 +61,7 @@ const Routes = () => (
                 <Route exact path="/batatas" component={Batatas} />
                 <Route exact path="/bebidas" component={Bebidas} />
                 <Route exact path="/carrinho" component={Carrinho} />
+                <PrivateRoute exact path="/carrinho" component={Carrinho} />
                 <Route exact path="/login" component={Login} />
         </AuthProvider>
         </>

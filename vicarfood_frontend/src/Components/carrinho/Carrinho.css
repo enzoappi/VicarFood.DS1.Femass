@@ -10,6 +10,69 @@
     padding: 5px;
     font-size: 30px;
 }
-.ContinuarCompra{
+.btnCompra{
+    display: flex;
+    justify-content: space-around;
+    margin: 2%;
     
+}
+.finalizarCompra{    
+    font-size: 20px;
+    color: #181820 ;
+    background-color: #ffc107;    
+    border-radius: 5px;
+    
+}
+.ContinuarCompra{    
+    font-size: 20px ;
+    color: #e0ccb3 ;
+    background-color: #AD2610;    
+    border-radius: 5px;
+}
+.titleDescription{
+    display: flex;
+    justify-content: space-around;
+    padding: 0.5em;
+    width: 80%;
+    margin: 0.5% 10%;
+    padding-right: 10%;
+}
+div.listaitens{
+    display: flex;
+    justify-content: space-around;
+    background-color: #2D2D32;
+    padding: 1em;
+    width: 80%;
+    margin: 0.5% 10%;
+    border-radius: 1em;
+    font-size: 20px;    
+    align-items: center;
+  
+}
+input[type="quantidade" ]{
+    width: 4%!important;
+    height: 4%;
+    cursor: pointer;
+    outline: none;
+    display: flex;
+    margin-right: 0px!important;
+}
+div.btnDelete {
+    display: inline-block;
+    width: 100%;
+    text-align: end;
+}
+.delete {
+    font-size: 30px;
+    text-decoration: none;
+    color:#E0CCB3;
+}
+.total{    
+    display: flex;
+    justify-content: flex-end;
+    font-size: 25px;
+    padding-right: 25%;
+}
+.coluna1{
+    width: 40%;
 }
