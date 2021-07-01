@@ -32,11 +32,13 @@ const Routes = () => (
         <>
                 <Route exact path="/" component={Main} />
                 <Route exact path="/pedido" component={Pedido} />
+                {/*<Route exact path="/cliente" component={Cliente} /> */}
                 <Route exact path="/cliente" component={Cliente} />
                 <Route exact path="/costela" component={Costela} />
                 <Route exact path="/batatas" component={Batatas} />
                 <Route exact path="/bebidas" component={Bebidas} />
                 <Route exact path="/buscaCPF" component={BuscaCPF}/>
+                {/*<Route exact path="/buscaCPF" component={BuscaCPF}/>*/}                
                                 
                 <Route exact path="/carrinho" component={Carrinho} />
                 <Route exact path="/login" component={Login} />
