@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import Container from '../Container'
 import './Carrinho.css'
 
@@ -42,8 +43,12 @@ const Carrinho = () => (
                 <label >Total R$ 104,00</label>
                 </div>
                 <div className="btnCompra">
-                <button className="ContinuarCompra" onClick> <MdKeyboardArrowLeft/> Continuar Comprando </button>
-                <button className="finalizarCompra" onClick > Finalizar Compra <MdKeyboardArrowRight/> </button>
+                <Link to="/pedido">
+                        <button className="ContinuarCompra" onClick> <MdKeyboardArrowLeft/> Continuar Comprando </button>
+                </Link>
+                <Link to="/buscaCpf">
+                        <button className="finalizarCompra" onClick > Finalizar Compra <MdKeyboardArrowRight/> </button>
+                </Link>
                 </div>    
 
         
