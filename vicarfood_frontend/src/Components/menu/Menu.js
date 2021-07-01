@@ -26,12 +26,7 @@ const Menu = () => (
             </li>
             <li className="app-menu__item">
                 <Link className="app-menu__link" to="/pedido">
-                    Pedido
-                </Link>
-            </li>
-            <li className="app-menu__item">
-                <Link className="app-menu__link" to="/cardapio">
-                    Cardapio
+                    Cardápio
                 </Link>
             </li>
             <li className="app-menu__item">
@@ -40,15 +35,11 @@ const Menu = () => (
                 </Link>
             </li>
             <li className="app-menu__item">
-                <Link className="app-menu__link" to="/login">
-                    Login
+                <Link className="app-menu__link" to="/buscaCPF">
+                    CPF
                 </Link>
             </li>
-            <li className="app-menu__item">
-                <Link className="app-menu__link" to="/cadastro">
-                    Cadastro
-                </Link>
-            </li>
+
             <li className="app-menu__item">
                 <Link className="app-menu__link" to="/carrinho">
                     <MdAddShoppingCart />

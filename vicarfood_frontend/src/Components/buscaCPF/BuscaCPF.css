@@ -1,0 +1,21 @@
+.boxCPF{
+    background-color: #2D2D32;
+    padding: 1em;
+    width: 80%;
+    margin: 10% auto;
+    border-radius: 1em;
+    display:flex;
+    flex-direction: column;
+}
+.btnContinuar{
+    display: flex;
+    justify-content: flex-end;
+    margin: 2% 10% 2% 2%;
+    
+}
+.continuar{    
+    font-size: 20px ;
+    color: #e0ccb3 ;
+    background-color: #AD2610;    
+    border-radius: 5px;
+}

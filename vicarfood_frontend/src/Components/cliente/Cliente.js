@@ -260,7 +260,6 @@ export default class Cliente extends Component {
                     <h3>Total</h3>   
                     
                 </div>
-                <button className="finalizar" onClick = {() => this.gravarNovo()}> Finalizar </button>
 
             </Container>
         );
@@ -311,7 +310,6 @@ export default class Cliente extends Component {
                     <h3>Total</h3>   
                     
                 </div>
-                <button className="finalizar" onClick = {() => this.gravarNovo()}> Finalizar </button>
 
             </Container>
         );
@@ -359,7 +357,6 @@ export default class Cliente extends Component {
                     <h3>Total</h3>   
                     
                 </div>
-                <button className="finalizar" onClick = {() => this.gravarNovo()}> Finalizar </button>
 
             </Container>
         );

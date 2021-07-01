@@ -29,7 +29,7 @@ const Costela = () => (
                                         <label>R$ 99,00</label>
                                 </p>
                                 <p>
-                                        <MdCheckBoxOutlineBlank />
+                                <input type="quantidade" />
                                 </p>
                         </div>
                 </div>
@@ -46,7 +46,7 @@ const Costela = () => (
                                         <label>R$ 59,00</label>
                                 </p>
                                 <p>
-                                        <MdCheckBoxOutlineBlank />
+                                <input type="quantidade" />
                                 </p>
                         </div>
                 </div>

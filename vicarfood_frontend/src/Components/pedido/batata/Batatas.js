@@ -11,33 +11,31 @@ const Batatas = () => (
        
         <Container>
         <div className="title">
-                        <span>
-                                <Link className="arrow" to="/pedido">
+                <span>
+                        <Link className="arrow" to="/pedido">
                                         <MdArrowBack />
                                 </Link>
-                        </span>
-                        <h2>Batata Rosti</h2>
+                </span>
+                <h2>Batata Rosti</h2>
+        </div>
+        <div className="listaBatata">
+        <label className="batata">Batata Rosti Calabresa</label>
+                <div className="cardbatata">
+                        <label className="coluna1">(Mussarela, calabresa e cebola)</label>
+                        <div className="coluna2">
+                                <label >Media (800g) R$ 33,00</label>
+                                <label >Pequena (450g) R$ 18,90</label>
+                        </div> 
+                        <div className="coluna3">        
+                                <input  type="quantidade" />
+                                <input type="quantidade" />
+                        </div>                                 
                 </div>
-                <div className="listaBatata">
-                        <label className="batata">Batata Rosti Calabresa</label>
-                        <div className="batata2">
-                                <p className="descricaoBatata">
-                                        <label>(Mussarela, calabresa e cebola)</label>
-                                </p>
-                                <p className="valor">
-                                        <label>Media (800g) R$ 33,00</label>
-                                        <label>Pequena (450g) R$ 18,90</label>
-                                </p>
-                                <p className="quantidade">
-                                        <input type="quantidade" />
-                                        <input type="quantidade" />
-                                </p>
-                                
-                        </div>
-                </div>
-                <div className="listaBatata">
-                        <label className="batata">Batata Rosti Frango com Catupiry</label>
-                        <div className="batata2">
+        </div>
+        
+        <div className="listaBatata">
+                <label className="batata">Batata Rosti Frango com Catupiry</label>
+                <div className="coluna1">
                                 <p className="descricaoBatata">
                                         <label>(Mussarela, frango desfiado e catupiry)</label>
                                 </p>
@@ -50,44 +48,43 @@ const Batatas = () => (
                                         <input type="quantidade" />
                                 </p>
                                 
-                        </div>
                 </div>
-                <div className="listaBatata">
-                        <label className="batata">Batata Rosti Vicar</label>
-                        <div className="batata2">
-                                <p className="descricaoBatata">
-                                        <label>(Mussarela, frango desfiado, bacon e cheddar)</label>
-                                </p>
-                                <p className="valor">
-                                        <label>Media (800g) R$ 33,00</label>
-                                        <label>Pequena (450g) R$ 18,90</label>
-                                </p>
-                                <p className="quantidade">
-                                        <input type="quantidade" />
-                                        <input type="quantidade" />
-                                </p>
+        </div>
+        <div className="listaBatata">
+                <label className="batata">Batata Rosti Vicar</label>
+                <div className="batata2">
+                        <p className="descricaoBatata">
+                                <label>(Mussarela, frango desfiado, bacon e cheddar)</label>
+                        </p>
+                        <p className="valor">
+                                <label>Media (800g) R$ 33,00</label>
+                                <label>Pequena (450g) R$ 18,90</label>
+                        </p>
+                        <p className="quantidade">
+                                <input type="quantidade" />
+                                <input type="quantidade" />
+                        </p>
                                 
-                        </div>
                 </div>
-                <div className="listaBatata">
-                        <label className="batata">Batata Rosti Agreste</label>
-                        <div className="batata2">
-                                <p className="descricaoBatata">
-                                        <label>(Mussarela, carne seca desfiada, catupiry e cebola)</label>
-                                </p>
-                                <p className="valor">
-                                        <label>Media (800g) R$ 33,00</label>
-                                        <label>Pequena (450g) R$ 18,90</label>
-                                </p>
-                                <p className="quantidade">
-                                        <input type="quantidade" />
-                                        <input type="quantidade" />
-                                </p>
-                                
-                        </div>
+        </div>
+        <div className="listaBatata">
+                <label className="batata">Batata Rosti Agreste</label>
+                <div className="batata2">
+                        <p className="descricaoBatata">
+                                <label>(Mussarela, carne seca desfiada, catupiry e cebola)</label>
+                        </p>
+                        <p className="valor">
+                                <label>Media (800g) R$ 33,00</label>
+                                <label>Pequena (450g) R$ 18,90</label>
+                        </p>
+                        <p className="quantidade">
+                                <input type="quantidade" />
+                                <input type="quantidade" />
+                        </p>
+                        
                 </div>
-        
-        
+        </div>
+         
         </Container>
        
     

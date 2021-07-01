@@ -4,7 +4,7 @@
     background-color: #FDC029;
     width: 80%;
     margin: 0 auto;
-    justify-content: space-between;
+    justify-content: center;
     border-radius: 5px;
     padding: 5px;
 }
@@ -55,11 +55,26 @@ div.img,svg{
     align-items: center;
 }
 input[type="quantidade" ]{
-    font-size: 20px !important;
-    padding: 1px!important;
-    width: 50%!important;
+    padding: 1px;
+    border: 1px solid #b2b2b2;
+    border-radius: 3px;
+    box-shadow: 0px 1px 4px 0px rgb(168 168 168 / 60%) inset;
+    transition: all 0.2s linear; 
+    
+}
+.coluna1{ 
+    display: flex;
+}
+.coluna2{
+    display: flow-root;
+}
+.coluna3{
+    display: flow-root;
     cursor: pointer;
     outline: none;
-    display: flex;
     margin-right: 0px!important;
+    margin: 0 0 3px;
+}
+.cardbatata{
+    display: flex;
 }

@@ -6,7 +6,7 @@ import './Pedido.css'
 const Pedido = () => (
     
         <Container>
-        <h1>Pedido</h1>
+        <h1>Cardápio</h1>
         <ul className="app-menu_list">
             <li className="app-menu_item">
                 <Link className="app-menu_link" to="/batatas">Batata Rosti</Link>
