@@ -57,3 +57,16 @@ div.btnSaveEdit {
     width: 90%;
 
 }
+.boxCheckbox{
+    display: flex;
+    flex-direction: column;
+}
+.checkbox{
+   
+    margin: 10px;
+    color: rgba(0, 0, 0, 0.1);
+    font-size: 20px;
+    height: 13px;
+
+    
+}

@@ -221,7 +221,7 @@ export default class Cliente extends Component {
     renderIncluirNovoCliente = () => {
         return (            
             <Container>
-                <h1>Identificação - NOVO CLIENTE</h1>
+                <h2>Identificação - NOVO CLIENTE</h2>
                 <div>
                     <h3>Dados Pessoais</h3>
                     <div className="box">
@@ -249,11 +249,21 @@ export default class Cliente extends Component {
                     </div>
                 </div>
                 <div>
-                    <h3>Modo de Entrega</h3>   
+                    <h3>Modo de Entrega</h3> 
+                    <div className="box">
+                        <input name="nome" placeholder="Nome Completo" value={this.state.nome} onChange={this.txtNome_change} type="text"></input>
+                        <input name="CPF" placeholder="CPF" value={this.state.cpf} onChange={this.txtCpf_change}  type="text"></input>
+                        <input name="telefone" placeholder="Telefone" value={this.state.telefone} onChange={this.txtTelefone_change} type="text"></input>
+                    </div>  
                     
                 </div>
                 <div>
-                    <h3>Modo de Pagamento</h3>   
+                    <h3>Modo de Pagamento</h3>
+                    <div className="box">
+                        <input name="nome" placeholder="Nome Completo" value={this.state.nome} onChange={this.txtNome_change} type="text"></input>
+                        <input name="CPF" placeholder="CPF" value={this.state.cpf} onChange={this.txtCpf_change}  type="text"></input>
+                        <input name="telefone" placeholder="Telefone" value={this.state.telefone} onChange={this.txtTelefone_change} type="text"></input>
+                    </div>   
                     
                 </div>
                 <div>
@@ -299,11 +309,21 @@ export default class Cliente extends Component {
                     </div>
                 </div>
                 <div>
-                    <h3>Modo de Entrega</h3>   
+                    <h3>Modo de Entrega</h3>
+                    <div className="box">
+                        <input name="nome" placeholder="Nome Completo" value={this.state.nome} onChange={this.txtNome_change} type="text"></input>
+                        <input name="CPF" placeholder="CPF" value={this.state.cpf} onChange={this.txtCpf_change}  type="text"></input>
+                        <input name="telefone" placeholder="Telefone" value={this.state.telefone} onChange={this.txtTelefone_change} type="text"></input>
+                    </div>  
                     
                 </div>
                 <div>
-                    <h3>Modo de Pagamento</h3>   
+                    <h3>Modo de Pagamento</h3>
+                    <div className="box">
+                        <input name="nome" placeholder="Nome Completo" value={this.state.nome} onChange={this.txtNome_change} type="text"></input>
+                        <input name="CPF" placeholder="CPF" value={this.state.cpf} onChange={this.txtCpf_change}  type="text"></input>
+                        <input name="telefone" placeholder="Telefone" value={this.state.telefone} onChange={this.txtTelefone_change} type="text"></input>
+                    </div>   
                     
                 </div>
                 <div>
@@ -346,11 +366,24 @@ export default class Cliente extends Component {
                     </div>
                 </div>
                 <div>
-                    <h3>Modo de Entrega</h3>   
+                    <h3>Modo de Entrega</h3>
+                    <div className="box">
+                        <div className="boxCheckbox"> 
+                        <input type="checkbox" className="checkbox" id="exampleCheck1"/>
+                        <label for="exampleCheck1">Retirada no local</label>
+                        <input type="checkbox" className="checkbox" id="exampleCheck1"/>
+                        <label for="exampleCheck1">Retirada no local</label>
+                        </div>
+                    </div>   
                     
                 </div>
                 <div>
-                    <h3>Modo de Pagamento</h3>   
+                    <h3>Modo de Pagamento</h3>
+                    <div className="box">
+                        <input name="nome" placeholder="Nome Completo" value={this.state.nome} onChange={this.txtNome_change} type="text"></input>
+                        <input name="CPF" placeholder="CPF" value={this.state.cpf} onChange={this.txtCpf_change}  type="text"></input>
+                        <input name="telefone" placeholder="Telefone" value={this.state.telefone} onChange={this.txtTelefone_change} type="text"></input>
+                    </div>   
                     
                 </div>
                 <div>

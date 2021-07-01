@@ -2,7 +2,7 @@ import React from 'react'
 
 import Container from '../Container'
 import './BuscaCPF.css'
-import { MdKeyboardArrowRight } from "react-icons/md";
+import {  MdSearch} from "react-icons/md";
 
 
 const BuscaCPF = () => (
@@ -12,10 +12,9 @@ const BuscaCPF = () => (
         <div className="boxCPF">
             <h4>Digite seu CPF para validação</h4>
             <input name="CPF" placeholder="CPF" type="text"></input>
+            <button className="search" onClick > <MdSearch/> </button>
         </div>
-        <div className="btnContinuar">
-        <button className="continuar" onClick > Continuar <MdKeyboardArrowRight/> </button>
-        </div>       
+            
         </Container>
        
     
