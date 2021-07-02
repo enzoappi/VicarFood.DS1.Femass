@@ -24,8 +24,23 @@ public class Produto {
     private Double preco;
     private String descricao;
 
+    public TipoProduto getTipoProduto() {
+        return tipoProduto;
+    }
+
+    public void setTipoProduto(TipoProduto tipoProduto) {
+        this.tipoProduto = tipoProduto;
+    }
+
+    public void setProdutosEstoque(List<Estoque> produtosEstoque) {
+        this.produtosEstoque = produtosEstoque;
+    }
+
     @Enumerated(EnumType.STRING)
     private Situacao situacao;
+
+    @Enumerated(EnumType.STRING)
+    private TipoProduto tipoProduto;
 
     @ManyToOne
     private Imagem imagem;
