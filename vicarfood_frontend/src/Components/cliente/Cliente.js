@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 
 import Container from '../Container'
 import './Cliente.css'
-import { MdSave, MdModeEdit } from "react-icons/md";
+import { MdSave, MdModeEdit ,MdKeyboardArrowRight  } from "react-icons/md";
 
 /////////////////////ARMENGADA PRA TESTAR A FUNCIONALIDADE - ISSO DEVE SAIR DAQUI/////////////////////
 var cpfProvisorio = '123654789-00'
@@ -249,26 +250,44 @@ export default class Cliente extends Component {
                     </div>
                 </div>
                 <div>
-                    <h3>Modo de Entrega</h3> 
+                    <h3>Modo de Entrega</h3>
                     <div className="box">
-                        <input name="nome" placeholder="Nome Completo" value={this.state.nome} onChange={this.txtNome_change} type="text"></input>
-                        <input name="CPF" placeholder="CPF" value={this.state.cpf} onChange={this.txtCpf_change}  type="text"></input>
-                        <input name="telefone" placeholder="Telefone" value={this.state.telefone} onChange={this.txtTelefone_change} type="text"></input>
-                    </div>  
+                        <div className="boxCheckbox"> 
+                        <input type="checkbox" className="checkbox" id="exampleCheck1"/> 
+                        <label for="exampleCheck1">Retirada no local</label>
+                        </div>
+                        <div className="boxCheckbox">
+                        <input type="checkbox" className="checkbox" id="exampleCheck1"/>
+                        <label for="exampleCheck1">Entrega no endereço cadastrado</label>
+                        </div>
+                    </div>   
                     
                 </div>
                 <div>
                     <h3>Modo de Pagamento</h3>
                     <div className="box">
-                        <input name="nome" placeholder="Nome Completo" value={this.state.nome} onChange={this.txtNome_change} type="text"></input>
-                        <input name="CPF" placeholder="CPF" value={this.state.cpf} onChange={this.txtCpf_change}  type="text"></input>
-                        <input name="telefone" placeholder="Telefone" value={this.state.telefone} onChange={this.txtTelefone_change} type="text"></input>
+                        <div className="boxCheckbox"> 
+                        <input type="checkbox" className="checkbox" id="exampleCheck1"/> 
+                        <label for="exampleCheck1">Cartão de Debito</label>
+                        </div>
+                        <div className="boxCheckbox">
+                        <input type="checkbox" className="checkbox" id="exampleCheck1"/>
+                        <label for="exampleCheck1">Cartão de Credito</label>
+                        </div>
+                        <div className="boxCheckbox">
+                        <input type="checkbox" className="checkbox" id="exampleCheck1"/>
+                        <label for="exampleCheck1">Dinheiro</label>
+                        </div>     
                     </div>   
                     
                 </div>
                 <div>
-                    <h3>Total</h3>   
-                    
+                    <h3>Total</h3> 
+                    <div className="totalbox">
+                        <div className="boxCheckbox"> 
+                        <label for="exampleCheck1">R$ </label>
+                        </div>     
+                    </div>                       
                 </div>
 
             </Container>
@@ -311,24 +330,42 @@ export default class Cliente extends Component {
                 <div>
                     <h3>Modo de Entrega</h3>
                     <div className="box">
-                        <input name="nome" placeholder="Nome Completo" value={this.state.nome} onChange={this.txtNome_change} type="text"></input>
-                        <input name="CPF" placeholder="CPF" value={this.state.cpf} onChange={this.txtCpf_change}  type="text"></input>
-                        <input name="telefone" placeholder="Telefone" value={this.state.telefone} onChange={this.txtTelefone_change} type="text"></input>
-                    </div>  
+                        <div className="boxCheckbox"> 
+                        <input type="checkbox" className="checkbox" id="exampleCheck1"/> 
+                        <label for="exampleCheck1">Retirada no local</label>
+                        </div>
+                        <div className="boxCheckbox">
+                        <input type="checkbox" className="checkbox" id="exampleCheck1"/>
+                        <label for="exampleCheck1">Entrega no endereço cadastrado</label>
+                        </div>
+                    </div>   
                     
                 </div>
                 <div>
                     <h3>Modo de Pagamento</h3>
                     <div className="box">
-                        <input name="nome" placeholder="Nome Completo" value={this.state.nome} onChange={this.txtNome_change} type="text"></input>
-                        <input name="CPF" placeholder="CPF" value={this.state.cpf} onChange={this.txtCpf_change}  type="text"></input>
-                        <input name="telefone" placeholder="Telefone" value={this.state.telefone} onChange={this.txtTelefone_change} type="text"></input>
+                        <div className="boxCheckbox"> 
+                        <input type="checkbox" className="checkbox" id="exampleCheck1"/> 
+                        <label for="exampleCheck1">Cartão de Debito</label>
+                        </div>
+                        <div className="boxCheckbox">
+                        <input type="checkbox" className="checkbox" id="exampleCheck1"/>
+                        <label for="exampleCheck1">Cartão de Credito</label>
+                        </div>
+                        <div className="boxCheckbox">
+                        <input type="checkbox" className="checkbox" id="exampleCheck1"/>
+                        <label for="exampleCheck1">Dinheiro</label>
+                        </div>     
                     </div>   
                     
                 </div>
                 <div>
-                    <h3>Total</h3>   
-                    
+                    <h3>Total</h3> 
+                    <div className="totalbox">
+                        <div className="boxCheckbox"> 
+                        <label for="exampleCheck1">R$ </label>
+                        </div>     
+                    </div>                       
                 </div>
 
             </Container>
@@ -369,10 +406,13 @@ export default class Cliente extends Component {
                     <h3>Modo de Entrega</h3>
                     <div className="box">
                         <div className="boxCheckbox"> 
-                        <input type="checkbox" className="checkbox" id="exampleCheck1"/>
+                        <input type="checkbox" className="checkbox" id="exampleCheck1"/> 
                         <label for="exampleCheck1">Retirada no local</label>
+                        </div>
+                        <div className="boxCheckbox">
                         <input type="checkbox" className="checkbox" id="exampleCheck1"/>
-                        <label for="exampleCheck1">Retirada no local</label>
+                        <label for="exampleCheck1">Entrega no endereço cadastrado </label> 
+                        <p className="textTaxa"> Valor da taxa de entrega R$ <label></label></p>
                         </div>
                     </div>   
                     
@@ -380,17 +420,34 @@ export default class Cliente extends Component {
                 <div>
                     <h3>Modo de Pagamento</h3>
                     <div className="box">
-                        <input name="nome" placeholder="Nome Completo" value={this.state.nome} onChange={this.txtNome_change} type="text"></input>
-                        <input name="CPF" placeholder="CPF" value={this.state.cpf} onChange={this.txtCpf_change}  type="text"></input>
-                        <input name="telefone" placeholder="Telefone" value={this.state.telefone} onChange={this.txtTelefone_change} type="text"></input>
+                        <div className="boxCheckbox"> 
+                        <input type="checkbox" className="checkbox" id="exampleCheck1"/> 
+                        <label for="exampleCheck1">Cartão de Debito</label>
+                        </div>
+                        <div className="boxCheckbox">
+                        <input type="checkbox" className="checkbox" id="exampleCheck1"/>
+                        <label for="exampleCheck1">Cartão de Credito</label>
+                        </div>
+                        <div className="boxCheckbox">
+                        <input type="checkbox" className="checkbox" id="exampleCheck1"/>
+                        <label for="exampleCheck1">Dinheiro</label>
+                        </div>     
                     </div>   
                     
                 </div>
                 <div>
-                    <h3>Total</h3>   
-                    
+                    <h3>Total</h3> 
+                    <div className="box">
+                        <div className="boxCheckbox"> 
+                        <label for="exampleCheck1">R$ </label>
+                        </div>     
+                    </div>                       
                 </div>
-
+                <div className="finalizar">
+                    <Link to="/pedidoFinalizado">
+                            <button className="finalizarCompra" onClick > Finalizar Pedido <MdKeyboardArrowRight/> </button>
+                    </Link>
+                </div>
             </Container>
         );
     }    

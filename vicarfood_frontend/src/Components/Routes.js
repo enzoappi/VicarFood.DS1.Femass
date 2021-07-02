@@ -15,6 +15,7 @@ import Cadastro from './cadastro/Cadastro'
 import { isAuthenticated } from './utils/Auth'
 import BuscaCPF from './buscaCPF/BuscaCPF'
 //import { UserProvider } from './utils/MyContext'
+import PedidoFinalizado from './pedidoFinalizado/PedidoFinalizado'
 
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
@@ -43,6 +44,7 @@ const Routes = () => (
                 <Route exact path="/carrinho" component={Carrinho} />
                 <Route exact path="/login" component={Login} />
                 <Route exact path="/cadastro" component={Cadastro}/>
+                <Route exact path="/pedidoFinalizado" component={PedidoFinalizado}/>
         </>
 );
 

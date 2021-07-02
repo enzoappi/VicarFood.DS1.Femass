@@ -46,11 +46,20 @@ div.img,svg{
 .descricaoBatata{
     width: 70%;
     text-align: justify;
-    width: -webkit-fill-available;
+    
     
 }
 .batata2{
     display: flex;
     justify-content: space-around;
     align-items: center;
+}
+
+input[type="quantidade" ]{
+    width: 5%;
+    height: 4%;
+    cursor: pointer;
+    outline: none;
+    display: flex;
+    margin-right: 0px;
 }

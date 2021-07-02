@@ -14,7 +14,7 @@ const App = () => (
         <Container>
           <Routes/>
         </Container>
-        <Footer />
+        
     </BrowserRouter>
   </>
 )

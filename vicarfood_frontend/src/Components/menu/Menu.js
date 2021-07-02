@@ -35,12 +35,6 @@ const Menu = () => (
                 </Link>
             </li>
             <li className="app-menu__item">
-                <Link className="app-menu__link" to="/buscaCPF">
-                    CPF
-                </Link>
-            </li>
-
-            <li className="app-menu__item">
                 <Link className="app-menu__link" to="/carrinho">
                     <MdAddShoppingCart />
                 </Link>

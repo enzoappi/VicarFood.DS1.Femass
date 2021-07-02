@@ -34,7 +34,7 @@ const Carrinho = () => (
                 </div>
                 <div className="listaitens">
                         <label className="coluna1">Combo da Costela Suina</label>
-                        <label className="coluna2">R$ 33,00</label>
+                        <label className="coluna2">R$ 59,00</label>
                         <input type="quantidade" />
                         <label className="coluna4">R$ 59,00</label>
                         <button className="btnDelete" onClick> <MdDelete className="delete"/> </button>

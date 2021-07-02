@@ -46,27 +46,23 @@ div.btnSaveEdit {
     text-align: end;
 }
 
-.finalizar{
-    text-align: center;
-    margin: 5%;
-    background-color: #AD2610;
-    border-radius: 5px;
-    font-size: 30px;
-    padding: 0 50px;
-    color: #E0CCB3;
-    width: 90%;
-
-}
 .boxCheckbox{
-    display: flex;
+    display: inline;
     flex-direction: column;
 }
-.checkbox{
-   
+.checkbox{   
     margin: 10px;
     color: rgba(0, 0, 0, 0.1);
     font-size: 20px;
-    height: 13px;
-
+    height: 13px;  
+}
+.finalizar{
+    display: flex;
+    justify-content: flex-end;
+    margin: 2% 3% 5% 2%;
     
+}
+.textTaxa{
+    margin-left: 1%;
+    margin-bottom: 0px;
 }
