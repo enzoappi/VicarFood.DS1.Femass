@@ -6,13 +6,12 @@ public class ClienteRequest {
     private String nomeCliente;
     private String telefone;
     private Long idEndereco;
-    //private String logradouro;
-    //private String numero;
-    //private String complemento;
-    //private String pontoDeReferencia;
-    //private Long idBairro;
-    //private String nomeBairro;
-
+    private Boolean incluindo; //adicionei
+    private String logradouro; //adicionei
+    private String numero; //adicionei
+    private String complemento; //adicionei
+    private String pontoDeReferencia; //adicionei
+    private Long idBairro; //adicionei
 
     public String getCpf() {
         return cpf;
@@ -45,7 +44,17 @@ public class ClienteRequest {
     public void setIdEndereco(Long idEndereco) {
         this.idEndereco = idEndereco;
     }
-/*
+
+
+//  INICIO DAS ADICOES
+    public Boolean getIncluindo() {
+        return incluindo;
+    }
+
+    public void setIncluindo(Boolean incluindo) {
+        this.incluindo = incluindo;
+    }
+
     public String getLogradouro() {
         return logradouro;
     }
@@ -60,24 +69,6 @@ public class ClienteRequest {
 
     public void setNumero(String numero) {
         this.numero = numero;
-    }
-
-    
-    public Long getIdBairro() {
-        return idBairro;
-    }
-
-    public void setIdBairro(Long idBairro) {
-        this.idBairro = idBairro;
-    }
-
-
-    public String getNomeBairro() {
-        return nomeBairro;
-    }
-
-    public void setNomeBairro(String nomeBairro) {
-        this.nomeBairro = nomeBairro;
     }
 
     public String getComplemento() {
@@ -95,5 +86,13 @@ public class ClienteRequest {
     public void setPontoDeReferencia(String pontoDeReferencia) {
         this.pontoDeReferencia = pontoDeReferencia;
     }
-*/
+
+    public Long getIdBairro() {
+        return idBairro;
+    }
+
+    public void setIdBairro(Long idBairro) {
+        this.idBairro = idBairro;
+    }
+//  FIM DAS ADICOES
 }

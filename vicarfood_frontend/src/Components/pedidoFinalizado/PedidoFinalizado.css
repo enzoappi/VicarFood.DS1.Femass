@@ -1,0 +1,14 @@
+.textarea{
+    background-color: #2D2D32;
+    padding: 1em;
+    width: 95%;
+    margin: 0 auto;
+    border-radius: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.logo{
+    justify-content: flex-start;
+    align-self: end;
+}

@@ -41,7 +41,6 @@ public class ClienteControllerDto {
     public Boolean isNovoCliente(@PathVariable("cpf") String cpf){
         
         Boolean resultado = false;
-        //List<Cliente> clientes = clienteRepository.findAll();
         var objeto = clienteRepository.findById(cpf);
         if(objeto.isPresent()) {
             resultado = false;
@@ -51,56 +50,7 @@ public class ClienteControllerDto {
 
         return resultado;
     }   
-///*
-
-/*
-        for(Cliente c : clientes) {
-            if(c.getCpf().equals(cpf)) {
-                resultado = false;
-            }
-        }
-*/
-
-/*
-        if(!objeto.isPresent()) {
-            resultado = true;
-        }
-        return resultado;
-    }
-*/
-
-/*
-    @CrossOrigin
-    @GetMapping("/listarClientes")
-    public List<Cliente> listarClientes() {
-        return clienteRepository.findAll();
-    }
-*/
-
-/*
-    @CrossOrigin
-    @GetMapping("/listarClientesPorCpf/{cpf}")
-    //@ResponseBody
-    public ClienteDto getClienteEnderecoBairroPorCpf(@PathVariable("cpf") String cpf) throws Exception{
-        List<Cliente> clientes = clienteRepository.findAll();
-        
-        ClienteDto clienteDto = new ClienteDto();
-        
-        try{
-            for(Cliente c : clientes) {
-                if(c.getCpf().equals(cpf)) {
-                    clienteDto.setCpf(c.getCpf());
-                    clienteDto.setNomeCliente(c.getNomeCliente());
-                    clienteDto.setTelefone(c.getTelefone());
-                    clienteDto.setIdEndereco(c.getEndereco().getIdEndereco());
-                }
-            }
-            return clienteDto;
-        } catch(Exception exc) {
-            throw new Exception("Cliente não encontrado");
-        }
-    }
-*/
+//*/
 
 ///*
 
@@ -132,25 +82,5 @@ public class ClienteControllerDto {
         clienteRepository.save(cliente);
     }
 
-//*/
-
-/*
-    @CrossOrigin
-    @PostMapping("/alterarCliente")
-    public void alterarEndereco(@RequestBody ClienteDto clienteDto) throws Exception {
-        var objeto = clienteRepository.findById(clienteDto.getCpf());
-        var endereco = enderecoRepository.findById(clienteDto.getIdEndereco());
-
-        if(endereco.isPresent() && objeto.isPresent()) {
-            Cliente c = objeto.get();
-            c.setCpf(clienteDto.getCpf());
-            c.setNomeCliente(clienteDto.getNomeCliente());
-            c.setTelefone(clienteDto.getTelefone());
-            c.setEndereco(endereco.get());
-            clienteRepository.save(c);
-        } else {
-            throw new Exception("Não eh possivel realizar a edicao");
-        }
-    }
-*/    
+//*/  
 }

@@ -4,7 +4,7 @@
     background-color: #FDC029;
     width: 80%;
     margin: 0 auto;
-    justify-content: space-between;
+    justify-content: center;
     border-radius: 5px;
     padding: 5px;
 }
@@ -15,7 +15,7 @@ span{
     
 }
 a{
-    font-size: 25px;
+    font-size: 20px;
     text-decoration: none;
     color:#181820;
 }
@@ -24,7 +24,42 @@ h2{
     width: 56%;
     margin: 0px;
 }
-a:hover {
-    text-decoration: none;
-    color:#AD2610;
+div.listaBatata{
+    background-color: #2D2D32;
+    padding: 1em;
+    width: 80%;
+    margin: 2% 10%;
+    border-radius: 1em;
+    font-size: 20px;
+    display: flex;
+    justify-content: space-evenly;
+    flex-flow: column;
+}
+div.img,svg{
+    font-size: 25px;
+}
+.batata{
+    font-size:30px;
+    align-self: auto;
+
+}
+.descricaoBatata{
+    width: 70%;
+    text-align: justify;
+    
+    
+}
+.batata2{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+input[type="quantidade" ]{
+    width: 5%;
+    height: 4%;
+    cursor: pointer;
+    outline: none;
+    display: flex;
+    margin-right: 0px;
 }

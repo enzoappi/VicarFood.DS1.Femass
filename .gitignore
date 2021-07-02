@@ -1,8 +1,3 @@
-#Dependencies and files
-/VicarFood.DS1.Femass/RequisicoesVicar.http
-/VicarFood.DS1.Femass/vicarfood_backend/src/main/resources/application.properties
-/VicarFood.DS1.Femass/vicarfood_frontend/node_modules/ 
-
 # Compiled class file
 *.class
 
@@ -29,5 +24,8 @@ hs_err_pid*
 
 .vscode
 
-
-vicarfood_frontend/node_modules
+#Dependencies and files
+/VicarFood.DS1.Femass/RequisicoesVicar.http
+/VicarFood.DS1.Femass/vicarfood_backend/src/main/resources/*.properties
+/VicarFood.DS1.Femass/vicarfood_frontend/node_modules/ 
+/vicarfood_frontend/node_modules/ 
