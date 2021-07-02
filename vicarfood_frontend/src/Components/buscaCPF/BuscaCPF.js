@@ -1,24 +1,35 @@
-import React from 'react'
+import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 
 import Container from '../Container'
 import './BuscaCPF.css'
 import {  MdSearch} from "react-icons/md";
 
-
-const BuscaCPF = () => (
+export default class BuscaCPF extends Component{
+    state = {
+        cpfParaBuscar: ""
+    }
     
-       
-        <Container>
-        <div className="boxCPF">
-            <h4>Digite seu CPF para validação</h4>
-            <input name="CPF" placeholder="CPF" type="text"></input>
-            <button className="search" onClick > <MdSearch/> </button>
-        </div>
-            
-        </Container>
-       
-    
-)
+    txtCpfParaBuscar_change = (event) => {
+        this.setState({cpfParaBuscar: event.target.value})
+    }
 
+    BuscaCPF = () => (
+            <Container>
+            <div className="boxCPF">
+                <h4>Digite seu CPF para validação</h4>
+                <input name="CPF" placeholder="CPF" value={this.state.cpfParaBuscar} onChange={this.txtCpfParaBuscar_change} type="text"></input>
+            </div>
+            <div className="btnContinuar">
+            <Link to="/cliente">
+                <button className="continuar" /*onClick*/ > Continuar <MdKeyboardArrowRight/> </button>
+            </Link>
+            </div>       
+            </Container>
+    )
 
-export default BuscaCPF
+    render() {
+        let pagina = this.BuscaCPF()
+        return pagina
+    }
+}

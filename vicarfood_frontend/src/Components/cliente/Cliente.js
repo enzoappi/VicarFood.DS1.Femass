@@ -5,8 +5,8 @@ import './Cliente.css'
 import { MdSave, MdModeEdit } from "react-icons/md";
 
 /////////////////////ARMENGADA PRA TESTAR A FUNCIONALIDADE - ISSO DEVE SAIR DAQUI/////////////////////
-//var cpfProvisorio = '123654789-00'
-var cpfProvisorio = ''
+var cpfProvisorio = '123654789-00'
+//var cpfProvisorio = ''
 if (cpfProvisorio === ''){
     cpfProvisorio = null
 }
