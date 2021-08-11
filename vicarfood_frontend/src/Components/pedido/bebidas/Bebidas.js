@@ -19,14 +19,11 @@ export default class cadBebidas extends Component{
         }
 
         carregarLista = () =>{
-                const url = "http://localhost:8090/produto/listar"
+                const url = "http://localhost:8090/produto/listar/bebida"
                 fetch(url)
                         .then(response => response.json())
                         .then(data => this.setState({produtos: data}));
         }
-
-
-
 
         Bebidas = () => {
                 return(
