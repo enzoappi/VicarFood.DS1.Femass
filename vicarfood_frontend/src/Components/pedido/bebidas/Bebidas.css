@@ -24,16 +24,17 @@ h2{
     width: 56%;
     margin: 0px;
 }
-div.listaBebida{
+/*div*/.listaBebida{
+    color: #E0CCB3;
     background-color: #2D2D32;
     padding: 1em;
     width: 80%;
     margin: 2% 10%;
     border-radius: 1em;
     font-size: 20px;
-    display: flex;
+/*    display: flex;
     justify-content: space-evenly;
-    padding-left: 0px;
+    padding-left: 0px; */
 }
 div.img,svg{
     font-size: 25px;

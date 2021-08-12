@@ -15,10 +15,11 @@ const PedidoFinalizado = () => (
         <h1>Pedido Finalizado</h1>
         <div className="textarea"> 
         <ul className="logo"><Logo src={vicar_sgv} alt="Logo Vicar"/> </ul>  
-            <ul><p>Seu pedido foi finalizado com sucesso!</p>
-            <p>Esta sendo preparado com toda atenção e cuidado devido.</p>
-            <p>Agradeçemos a preferencia.</p>
-            <p>Não esqueça de compartilhar no Instagram sua experiencia Vicar e nos marque @vicarfood.</p>
+            <ul>
+                <p>Seu pedido foi finalizado com sucesso!</p>
+                <p>Esta sendo preparado com toda atenção e cuidado devido.</p>
+                <p>Agradeçemos à preferência.</p>
+                <p>Não esqueça de compartilhar no Instagram sua experiência Vicar e nos marque @vicarfood.</p>
             </ul>
         </div>
 

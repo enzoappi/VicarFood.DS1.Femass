@@ -12,14 +12,18 @@ export default class cadBebidas extends Component{
         }
 
         state = {
-                item: "",
+                nome: "",
                 descricao: "",
-                valor: "",
+                preco: "",
                 produtos: []
         }
 
         carregarLista = () =>{
+<<<<<<< Updated upstream
                 const url = "http://localhost:8090/produto/listar/bebida"
+=======
+                const url = "http://localhost:8080/produto/listar"
+>>>>>>> Stashed changes
                 fetch(url)
                         .then(response => response.json())
                         .then(data => this.setState({produtos: data}));
@@ -38,7 +42,8 @@ export default class cadBebidas extends Component{
                                 </div>
 
                                 <div>
-                                        <table className="table table-dark table-striped text-white col8">
+                                        <table className="listaBebida">
+
                                                 <thead>
                                                         <tr>
                                                                 <th scope="col">Cód.</th>
@@ -51,9 +56,9 @@ export default class cadBebidas extends Component{
                                                         {this.state.produtos && this.state.produtos.map(produto =>{
                                                                 return <tr key={produto.id}>
                                                                         <th scope="row">{produto.id}</th>
-                                                                        <td>{produto.item}</td>
+                                                                        <td>{produto.nome}</td>
                                                                         <td>{produto.descricao}</td>
-                                                                        <td>{produto.valor}</td>
+                                                                        <td>{produto.preco}</td>
                                                                 </tr>
                                                         })}
                                                 </tbody>

@@ -5,6 +5,7 @@ import java.util.List;
 
 /* import com.br.vicarfood.model.Imagem; */
 import com.br.vicarfood.model.Produto;
+import com.br.vicarfood.model.TipoProduto;
 /* import com.br.vicarfood.repository.ImagemRepository; */
 import com.br.vicarfood.repository.ProdutoRepository;
 import com.br.vicarfood.request.ProdutoRequest;
@@ -32,7 +33,7 @@ public class ProdutoController {
     public ProdutoController(ProdutoRepository produtoRepository){
         this.produtoRepository = produtoRepository;
     }
-  
+
     @CrossOrigin
     @GetMapping("/listar")
     public List<ProdutoRequest> getProdutos(){
@@ -60,12 +61,17 @@ public class ProdutoController {
         return produtoRepository.findByTipoProduto(tipoProduto);
     }
 
-   */ 
+   */
+
     @CrossOrigin
-    @GetMapping("/{tipo}")
-    public List<ProdutoRequest> getProdutosTipo(@PathVariable("tipo") String tipoProduto) throws Exception{
+    @GetMapping("/{tipoProduto}")
+    public List<ProdutoRequest> getProdutosPorTipoProduto(@PathVariable("tipoProduto") TipoProduto tipoProduto) throws Exception{
 
         List<Produto> produtos = produtoRepository.findByTipoProduto(tipoProduto);
+        for(Produto produto : produtos) {
+            System.out.println("TIPO PRODUTO :" + produto.getTipoProduto());
+        }
+
         List<ProdutoRequest> pdrs = new ArrayList<ProdutoRequest>();
         
         for(Produto produto : produtos){
@@ -82,6 +88,7 @@ public class ProdutoController {
 
         return pdrs;
     }
+
 
 
 
@@ -115,7 +122,7 @@ public class ProdutoController {
         produtoRepository.save(produto);
     }
 
-    @CrossOrigin
+    /*@CrossOrigin
     @GetMapping("/{id}")
     public void remover(@PathVariable("id")Long id) throws Exception{
         var p = produtoRepository.findById(id);
@@ -134,6 +141,6 @@ public class ProdutoController {
     @PostMapping("/alterar")
     public void alterar(@RequestBody ProdutoRequest produtoRequest){
 
-    }
+    }*/
 
 }
