@@ -32,7 +32,7 @@ public class ProdutoController {
     public ProdutoController(ProdutoRepository produtoRepository){
         this.produtoRepository = produtoRepository;
     }
-
+  
     @CrossOrigin
     @GetMapping("/listar")
     public List<ProdutoRequest> getProdutos(){
@@ -54,6 +54,36 @@ public class ProdutoController {
 
         return pdrs;
     }
+/*
+    @GetMapping("/{tipo}")
+    public List<Produto> getProdutosTipo(@PathVariable("tipo") String tipoProduto){
+        return produtoRepository.findByTipoProduto(tipoProduto);
+    }
+
+   */ 
+    @CrossOrigin
+    @GetMapping("/{tipo}")
+    public List<ProdutoRequest> getProdutosTipo(@PathVariable("tipo") String tipoProduto) throws Exception{
+
+        List<Produto> produtos = produtoRepository.findByTipoProduto(tipoProduto);
+        List<ProdutoRequest> pdrs = new ArrayList<ProdutoRequest>();
+        
+        for(Produto produto : produtos){
+            ProdutoRequest p1 = new ProdutoRequest();
+            p1.setId(produto.getId());
+            p1.setDescricao(produto.getDescricao());
+            //p1.setImagem(produto.getImagem().getFoto());
+            p1.setNome(produto.getNome());
+            p1.setPreco(produto.getPreco());
+            p1.setSituacao(produto.getSituacao());
+            p1.setTipo(produto.getTipoProduto());
+            pdrs.add(p1);
+        }
+
+        return pdrs;
+    }
+
+
 
     @CrossOrigin
     @PostMapping("/incluir")

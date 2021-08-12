@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import Container from '../../Container'
-import './Bebidas.css'
+import './Costela.css'
 
 import { MdArrowBack, MdCheckBoxOutlineBlank } from "react-icons/md";
 import { Link } from 'react-router-dom';
 
-export default class cadBebidas extends Component{ 
+export default class cadCostela extends Component{ 
 
         componentDidMount (){
                 this.carregarLista()
@@ -19,13 +19,13 @@ export default class cadBebidas extends Component{
         }
 
         carregarLista = () =>{
-                const url = "http://localhost:8090/produto/listar/bebida"
+                const url = "http://localhost:8090/produto/listar/costela"
                 fetch(url)
                         .then(response => response.json())
                         .then(data => this.setState({produtos: data}));
         }
 
-        Bebidas = () => {
+        Costelas = () => {
                 return(
                         <Container>
                                 <div className="title">
@@ -34,7 +34,7 @@ export default class cadBebidas extends Component{
                                                         <MdArrowBack />
                                                 </Link>
                                         </span>
-                                        <h2>Bebidas</h2>
+                                        <h2>Costelas</h2>
                                 </div>
 
                                 <div>
@@ -59,17 +59,15 @@ export default class cadBebidas extends Component{
                                                 </tbody>
                                         </table>
                                 </div>
-
                         </Container>
                 )
 
         }
 
         render() {
-                let pagina = this.Bebidas()
+                let pagina = this.Costelas()
                 return pagina
         }
-
 }
 
 
