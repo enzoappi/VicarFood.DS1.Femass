@@ -6,6 +6,8 @@ import Footer from './Components/footer'
 import Header from './Components/header'
 import Routes from './Components/Routes'
 
+//import AppProvider from './AppContext/Provider'
+
 
 const App = () => (
   <>
@@ -13,8 +15,7 @@ const App = () => (
         <Header />
         <Container>
           <Routes/>
-        </Container>
-        
+        </Container>  
     </BrowserRouter>
   </>
 )
