@@ -54,8 +54,15 @@ public class ProdutoController {
 
         return pdrs;
     }
+/*
+    @GetMapping("/{tipo}")
+    public List<Produto> getProdutosTipo(@PathVariable("tipo") String tipoProduto){
+        return produtoRepository.findByTipoProduto(tipoProduto);
+    }
+
+   */ 
     @CrossOrigin
-    @GetMapping("/listar/{tipo}")
+    @GetMapping("/{tipo}")
     public List<ProdutoRequest> getProdutosTipo(@PathVariable("tipo") String tipoProduto) throws Exception{
 
         List<Produto> produtos = produtoRepository.findByTipoProduto(tipoProduto);
@@ -75,6 +82,8 @@ public class ProdutoController {
 
         return pdrs;
     }
+
+
 
     @CrossOrigin
     @PostMapping("/incluir")
