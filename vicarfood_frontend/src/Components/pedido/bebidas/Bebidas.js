@@ -19,11 +19,7 @@ export default class cadBebidas extends Component{
         }
 
         carregarLista = () =>{
-<<<<<<< Updated upstream
-                const url = "http://localhost:8090/produto/listar/bebida"
-=======
-                const url = "http://localhost:8080/produto/listar"
->>>>>>> Stashed changes
+                const url = window.servidor + "produto/bebida"
                 fetch(url)
                         .then(response => response.json())
                         .then(data => this.setState({produtos: data}));
@@ -76,6 +72,3 @@ export default class cadBebidas extends Component{
         }
 
 }
-
-
-//export default Bebidas;

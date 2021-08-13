@@ -19,7 +19,7 @@ export default class cadCostela extends Component{
         }
 
         carregarLista = () =>{
-                const url = "http://localhost:8090/produto/listar/costela"
+                const url = window.servidor + "produto/costela"
                 fetch(url)
                         .then(response => response.json())
                         .then(data => this.setState({produtos: data}));
@@ -69,6 +69,3 @@ export default class cadCostela extends Component{
                 return pagina
         }
 }
-
-
-//export default Bebidas;

@@ -19,7 +19,7 @@ export default class cadBatatas extends Component{
         }
 
         carregarLista = () =>{
-                const url = "http://localhost:8090/produto/listar/batata"
+                const url = window.servidor + "produto/batata"
                 fetch(url)
                         .then(response => response.json())
                         .then(data => this.setState({produtos: data}));
@@ -59,7 +59,6 @@ export default class cadBatatas extends Component{
                                                 </tbody>
                                         </table>
                                 </div>
-
                         </Container>
                 )
 
@@ -71,5 +70,3 @@ export default class cadBatatas extends Component{
         }
 }
 
-
-//export default Bebidas;
