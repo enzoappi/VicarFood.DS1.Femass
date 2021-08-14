@@ -1,6 +1,7 @@
 package com.br.vicarfood.controller;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /* import com.br.vicarfood.model.Imagem; */
@@ -86,7 +87,20 @@ public class ProdutoController {
             pdrs.add(p1);
         }
 
-        return pdrs;
+        if(tipoProduto.toString().equals("batata")) {
+            List<ProdutoRequest> pdrsOrdenado = new ArrayList<ProdutoRequest>();
+            String saboresDeBatataRostie[] = {"Agreste", "Calabresa", "Frango com Catupiry", "Lombo", "Palmito", "Portuguesa", "Presunto", "Presunto Especial", "Vegetariana", "Vicar"};
+            for(int i=0; i<=9; i++){
+                for(ProdutoRequest pr : pdrs) {
+                        if(pr.getNome().equals(saboresDeBatataRostie[i])){
+                            pdrsOrdenado.add(pr);
+                        }
+                }
+            }
+            return pdrsOrdenado;
+        } else {
+            return pdrs;
+        }
     }
 
 

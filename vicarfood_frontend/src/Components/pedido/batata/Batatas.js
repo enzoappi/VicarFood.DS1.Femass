@@ -12,9 +12,9 @@ export default class cadBatatas extends Component{
         }
 
         state = {
-                item: "",
+                nome: "",
                 descricao: "",
-                valor: "",
+                preco: "",
                 produtos: []
         }
 
@@ -42,18 +42,18 @@ export default class cadBatatas extends Component{
                                                 <thead>
                                                         <tr>
                                                                 <th scope="col">Cód.</th>
-                                                                <th scope="col">Item</th>
+                                                                <th scope="col">Nome</th>
                                                                 <th scope="col">Descrição</th>
-                                                                <th scope="col">Valor</th>
+                                                                <th scope="col">Preço</th>
                                                         </tr>
                                                 </thead>
                                                 <tbody>
                                                         {this.state.produtos && this.state.produtos.map(produto =>{
                                                                 return <tr key={produto.id}>
                                                                         <th scope="row">{produto.id}</th>
-                                                                        <td>{produto.item}</td>
+                                                                        <td>{produto.nome}</td>
                                                                         <td>{produto.descricao}</td>
-                                                                        <td>{produto.valor}</td>
+                                                                        <td>{produto.preco}</td>
                                                                 </tr>
                                                         })}
                                                 </tbody>
