@@ -9,7 +9,7 @@ const Pedido = () => (
         <h1>Cardápio</h1>
         <ul className="app-menu_list">
             <li className="app-menu_item">
-                <Link className="app-menu_link" to="/batatas">Batata Rosti</Link>
+                <Link className="app-menu_link" to="/batata">Batata Rosti</Link>
             </li>            
             <li className="app-menu_item">
                 <Link className="app-menu_link" to="/costela">Costela</Link>

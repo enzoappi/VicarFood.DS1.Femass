@@ -6,7 +6,7 @@ import Cliente from './cliente/Cliente'
 import Pedido from './pedido/Pedido'
 import Main from './main/Main'
 import Costelas from './pedido/costela/Costelas'
-import Batatas from './pedido/batata/Batatas'
+import BatatasOld from './pedido/batata/BatatasOld'
 import Bebidas from './pedido/bebidas/Bebidas'
 import Carrinho from './carrinho/Carrinho'
 import Login from './Login/Login'
@@ -36,7 +36,7 @@ const Routes = () => (
                 {/*<Route exact path="/cliente" component={Cliente} /> */}
                 <Route exact path="/cliente" component={Cliente} />
                 <Route exact path="/costela" component={Costelas} />
-                <Route exact path="/batatas" component={Batatas} />
+                <Route exact path="/batata" component={BatatasOld} />
                 <Route exact path="/bebidas" component={Bebidas} />
                 <Route exact path="/buscaCPF" component={BuscaCPF}/>
                 {/*<Route exact path="/buscaCPF" component={BuscaCPF}/>*/}                

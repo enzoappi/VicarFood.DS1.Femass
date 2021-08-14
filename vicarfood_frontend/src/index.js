@@ -5,8 +5,8 @@ import App from './App';
 //import { UserProvider } from './Components/utils/MyContext';
 import AppProvider from './AppContext/Provider';
 
-//window.servidor = 'http://localhost:8080/'
-window.servidor = 'http://localhost:8090/'
+window.servidor = 'http://localhost:8080/'
+//window.servidor = 'http://localhost:8090/'
 
 ReactDOM.render(
     <AppProvider>
