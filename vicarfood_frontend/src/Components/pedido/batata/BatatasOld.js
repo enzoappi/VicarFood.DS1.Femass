@@ -1,63 +1,67 @@
-import React from 'react'
+import React, { Component } from 'react'
 import Container from '../../Container'
 import './Batatas.css'
 
-import { MdArrowBack } from "react-icons/md";
+import { MdArrowBack, MdCheckBoxOutlineBlank } from "react-icons/md";
 import { Link } from 'react-router-dom';
 
+export default class cadBatatas extends Component{ 
 
-const Batatas = () => (
-    
-       
-        <Container>
-        <div className="title">
-                <span>
-                        <Link className="arrow" to="/pedido">
-                                        <MdArrowBack />
-                                </Link>
-                </span>
-                <h2>Batata Rosti</h2>
-        </div>
-        
-        <div className="listaBatata">
-                <label className="batata">Batata Rosti Vicar</label>
-                <div className="batata2">
-                        <p className="descricaoBatata">
-                                <label>(Mussarela, frango desfiado, bacon e cheddar)</label>
-                        </p>
-                        <p className="valor">
-                                <label>Media (800g) R$ 33,00</label>
-                                <label>Pequena (450g) R$ 18,90</label>
-                        </p>
-                        <p className="quantidade">
-                                <input type="quantidade" />
-                                <input type="quantidade" />
-                        </p>
-                                
-                </div>
-        </div>
-        <div className="listaBatata">
-                <label className="batata">Batata Rosti Agreste</label>
-                <div className="batata2">
-                        <p className="descricaoBatata">
-                                <label>(Mussarela, carne seca desfiada, catupiry e cebola)</label>
-                        </p>
-                        <p className="valor">
-                                <label>Media (800g) R$ 33,00</label>
-                                <label>Pequena (450g) R$ 18,90</label>
-                        </p>
-                        <p className="quantidade">
-                                <input type="quantidade" />
-                                <input type="quantidade" />
-                        </p>
+        componentDidMount (){
+                this.carregarLista()
+        }
+
+        state = {
+                nome: "",
+                descricao: "",
+                preco: "",
+                produtos: []
+        }
+
+        carregarLista = () =>{
+                const url = window.servidor + "produto/batata"
+                fetch(url)
+                        .then(response => response.json())
+                        .then(data => this.setState({produtos: data}));
+        }
+
+        Batatas = () => {
+                return(
+                        <Container>
+                                <div className="title">
+                                        <span>
+                                                <Link className="arrow" to="/pedido">
+                                                                <MdArrowBack />
+                                                        </Link>
+                                        </span>
+                                        <h2>Batata Rosti</h2>
+                                </div>
                         
-                </div>
-        </div>
-         
-        </Container>
-       
-    
-)
+                                <div className="listaBatata">                                                         
+                                        {this.state.produtos && this.state.produtos.map(produto =>{
+                                                return <div key={produto.id}>
+                                                        <label className="batata">{produto.nome}</label>
+                                                        <div className="batata2">
+                                                                <p className="descricaoBatata">
+                                                                        <label>{produto.descricao}</label>
+                                                                </p>
+                                                                <p className="valor">
+                                                                        <label>{produto.preco}</label>
+                                                                </p>
+                                                                <p className="quantidade">
+                                                                        <input type="quantidade" />
+                                                                </p>
+                                                                        
+                                                        </div>
+                                                </div>
+                                        })}
+                                </div>
+                        </Container>
+                )
+        }
 
-
-export default Batatas
+        render() {
+                let pagina = this.Batatas()
+                return pagina
+        }
+}
