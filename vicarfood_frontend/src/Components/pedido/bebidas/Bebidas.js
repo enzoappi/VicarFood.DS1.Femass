@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Container from '../../Container'
 import './Bebidas.css'
 
-import { MdArrowBack, MdCheckBoxOutlineBlank } from "react-icons/md";
+import { MdArrowBack} from "react-icons/md";
 import { Link } from 'react-router-dom';
 
 export default class cadBebidas extends Component{ 
@@ -28,14 +28,15 @@ export default class cadBebidas extends Component{
         Bebidas = () => {
                 return(
                         <Container>
-                                <div className="title">
-                                        <span>
-                                                <Link className="arrow" to="/pedido">
-                                                        <MdArrowBack />
-                                                </Link>
-                                        </span>
-                                        <h2>Bebidas</h2>
-                                </div>
+                                <section>
+                                        <div className="imagem--bebida">
+                                                <h1>
+                                                        Bebidas
+                                                </h1>
+
+                                        </div>
+                                </section>
+                                <section>
 
                                 <div>
                                         <table className="listaBebida">
@@ -60,6 +61,7 @@ export default class cadBebidas extends Component{
                                                 </tbody>
                                         </table>
                                 </div>
+                                </section>
 
                         </Container>
                 )

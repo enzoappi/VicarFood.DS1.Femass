@@ -3,7 +3,7 @@ import React from 'react';
 import Container from '../Container';
 import './Login.css';
 
-import { UserContext, usuarioExport } from '../utils/MyContext'
+import { usuarioExport } from '../utils/MyContext'
 
 
 //const Login = () => (

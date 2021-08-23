@@ -1,61 +1,68 @@
-import React from 'react'
+import React, { Component } from 'react'
 import Container from '../../Container'
 import './Costela.css'
 
-import { MdArrowBack, MdCheckBoxOutlineBlank } from "react-icons/md";
-import { Link } from 'react-router-dom';
+export default class cadCostela extends Component {
 
-const Costela = () => (
+        componentDidMount() {
+                this.carregarLista()
+        }
 
+        state = {
+                nome: "",
+                descricao: "",
+                preco: "",
+                produtos: []
+        }
 
-        <Container>
-                <div className="title">
-                        <span>
-                                <Link className="arrow" to="/pedido">
-                                        <MdArrowBack />
-                                </Link>
-                        </span>
-                        <h2>Costela</h2>
-                </div>
-                <div className="listaCostela">
-                        <label className="costela">Combo da Costela Bovina</label>
-                        <div className="costela2">
-                                <p className="descricao">
-                                        <label>Costela Bovina no bafo, acompanhada com 
-                                        molho de mostarda, feijão tropeiro, batatinha calabresa e arroz.</label>
-                                        <label>(porção serve de 3 a 4 pessoas)</label>
-                                </p>
-                                <p className="valor">
-                                        <label>R$ 99,00</label>
-                                </p>
-                                <p>
-                                <input type="quantidade" />
-                                </p>
-                        </div>
-                </div>
-                <div className="listaCostela">
-                        <label className="costela">Combo da Costela Suina</label>
-                        <div className="costela2">
-                                <p className="descricao">
-                                        <label>Costela suína no bafo com tempero 
-                                        Dry Rub (levemente picante) e barbecue, acompanhada de maça em caldas, 
-                                        batata rosti de requeijão com bacon e arroz.</label>
-                                        <label>(porção serve até 2 pessoas)</label>
-                                </p>
-                                <p className="valor">
-                                        <label>R$ 59,00</label>
-                                </p>
-                                <p>
-                                <input type="quantidade" />
-                                </p>
-                        </div>
-                </div>
+        carregarLista = () => {
+                const url = window.servidor + "produto/costela"
+                fetch(url)
+                        .then(response => response.json())
+                        .then(data => this.setState({ produtos: data }));
+        }
 
+        Costelas = () => {
+                return (
+                        <Container>
+                                <section>
+                                        <div className="imagem--costela">
+                                                <h1>
+                                                        Costela
+                                                </h1>
 
-        </Container>
+                                        </div>
+                                </section>
+                                <section>
+                                        {this.state.produtos && this.state.produtos.map(produto => {
+                                                return <div key={produto.id}>
+                                                        <div className="listaCostela">
+                                                                <label className="costela">{produto.nome}</label>
+                                                                <div className="costela2">
+                                                                        <p className="descricao">
+                                                                                <label>{produto.descricao}</label>
+                                                                        </p>
+                                                                        <p className="valor">
+                                                                                <label>{produto.preco}</label>
+                                                                        </p>
+                                                                        <p>
+                                                                                <input type="quantidade" />
+                                                                        </p>
+                                                                </div>
 
-
-)
+                                                        </div>
+                                                </div>
+                                        })}
+                                </section>
 
 
-export default Costela
+                        </Container>
+                )
+
+        }
+
+        render() {
+                let pagina = this.Costelas()
+                return pagina
+        }
+}

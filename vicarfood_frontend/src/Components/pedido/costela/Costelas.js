@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Container from '../../Container'
 import './Costela.css'
 
-import { MdArrowBack, MdCheckBoxOutlineBlank } from "react-icons/md";
+import { MdArrowBack} from "react-icons/md";
 import { Link } from 'react-router-dom';
 
 export default class cadCostela extends Component{ 

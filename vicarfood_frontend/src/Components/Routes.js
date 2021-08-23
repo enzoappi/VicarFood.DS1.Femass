@@ -5,7 +5,7 @@ import {  Route, Redirect } from 'react-router-dom'
 import Cliente from './cliente/Cliente'
 import Pedido from './pedido/Pedido'
 import Main from './main/Main'
-import Costelas from './pedido/costela/Costelas'
+import CostelasOld from './pedido/costela/CostelaOld'
 import BatatasOld from './pedido/batata/BatatasOld'
 import Bebidas from './pedido/bebidas/Bebidas'
 import Carrinho from './carrinho/Carrinho'
@@ -35,7 +35,7 @@ const Routes = () => (
                 <Route exact path="/pedido" component={Pedido} />
                 {/*<Route exact path="/cliente" component={Cliente} /> */}
                 <Route exact path="/cliente" component={Cliente} />
-                <Route exact path="/costela" component={Costelas} />
+                <Route exact path="/costela" component={CostelasOld} />
                 <Route exact path="/batata" component={BatatasOld} />
                 <Route exact path="/bebidas" component={Bebidas} />
                 <Route exact path="/buscaCPF" component={BuscaCPF}/>

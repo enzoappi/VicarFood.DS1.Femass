@@ -52,3 +52,11 @@ div.img,svg{
     justify-content: space-around;
     align-items: center;
 }
+.imagem--costela{
+    background-image: url(../../../assets/images/costela2.jpg);
+    height: 500px;
+    background-repeat: no-repeat;
+    position: relative;
+    width: 100vw;
+    background-size: cover;
+}
