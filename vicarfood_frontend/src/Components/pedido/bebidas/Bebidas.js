@@ -2,12 +2,9 @@ import React, { Component } from 'react'
 import Container from '../../Container'
 import './Bebidas.css'
 
-import { MdArrowBack} from "react-icons/md";
-import { Link } from 'react-router-dom';
+export default class cadBebidas extends Component {
 
-export default class cadBebidas extends Component{ 
-
-        componentDidMount (){
+        componentDidMount() {
                 this.carregarLista()
         }
 
@@ -18,15 +15,15 @@ export default class cadBebidas extends Component{
                 produtos: []
         }
 
-        carregarLista = () =>{
+        carregarLista = () => {
                 const url = window.servidor + "produto/bebida"
                 fetch(url)
                         .then(response => response.json())
-                        .then(data => this.setState({produtos: data}));
+                        .then(data => this.setState({ produtos: data }));
         }
 
         Bebidas = () => {
-                return(
+                return (
                         <Container>
                                 <section>
                                         <div className="imagem--bebida">
@@ -36,33 +33,21 @@ export default class cadBebidas extends Component{
 
                                         </div>
                                 </section>
+
+
                                 <section>
-
-                                <div>
-                                        <table className="listaBebida">
-
-                                                <thead>
-                                                        <tr>
-                                                                <th scope="col">Cód.</th>
-                                                                <th scope="col">Item</th>
-                                                                <th scope="col">Descrição</th>
-                                                                <th scope="col">Valor</th>
-                                                        </tr>
-                                                </thead>
-                                                <tbody>
-                                                        {this.state.produtos && this.state.produtos.map(produto =>{
-                                                                return <tr key={produto.id}>
-                                                                        <th scope="row">{produto.id}</th>
-                                                                        <td>{produto.nome}</td>
-                                                                        <td>{produto.descricao}</td>
-                                                                        <td>{produto.preco}</td>
-                                                                </tr>
-                                                        })}
-                                                </tbody>
-                                        </table>
-                                </div>
+                                        {this.state.produtos && this.state.produtos.map(produto => {
+                                                return <div key={produto.id}>
+                                                        <div className="listaBebida">
+                                                                <label className="bebida">{produto.nome} {produto.descricao}</label>
+                                                                <p className="valor">
+                                                                <label className="bebida2">R$ {produto.preco}</label>
+                                                                <input className="quantidade" type="quantidade" />
+                                                                </p>
+                                                        </div>
+                                                </div>
+                                        })}
                                 </section>
-
                         </Container>
                 )
 

@@ -16,6 +16,7 @@ import { isAuthenticated } from './utils/Auth'
 import BuscaCPF from './buscaCPF/BuscaCPF'
 //import { UserProvider } from './utils/MyContext'
 import PedidoFinalizado from './pedidoFinalizado/PedidoFinalizado'
+import Contato from './contato/Contato'
 
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
@@ -39,6 +40,7 @@ const Routes = () => (
                 <Route exact path="/batata" component={BatatasOld} />
                 <Route exact path="/bebidas" component={Bebidas} />
                 <Route exact path="/buscaCPF" component={BuscaCPF}/>
+                <Route exact path="/contato" component={Contato}/>
                 {/*<Route exact path="/buscaCPF" component={BuscaCPF}/>*/}                
                                 
                 <Route exact path="/carrinho" component={Carrinho} />

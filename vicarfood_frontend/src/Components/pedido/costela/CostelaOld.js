@@ -34,6 +34,7 @@ export default class cadCostela extends Component {
                                         </div>
                                 </section>
                                 <section>
+                                        <div className="main--costela">
                                         {this.state.produtos && this.state.produtos.map(produto => {
                                                 return <div key={produto.id}>
                                                         <div className="listaCostela">
@@ -42,17 +43,18 @@ export default class cadCostela extends Component {
                                                                         <p className="descricao">
                                                                                 <label>{produto.descricao}</label>
                                                                         </p>
+
                                                                         <p className="valor">
-                                                                                <label>{produto.preco}</label>
-                                                                        </p>
-                                                                        <p>
-                                                                                <input type="quantidade" />
+                                                                                <label>R$ {produto.preco}</label>
+                                                                     
+                                                                                <input className="quantidade" type="quantidade" />
                                                                         </p>
                                                                 </div>
 
                                                         </div>
                                                 </div>
                                         })}
+                                        </div>
                                 </section>
 
 

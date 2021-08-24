@@ -3,12 +3,12 @@ import { Link } from 'react-router-dom'
 
 import Container from '../Container'
 import './Cliente.css'
-import { MdSave, MdModeEdit ,MdKeyboardArrowRight  } from "react-icons/md";
+import { MdSave, MdModeEdit, MdKeyboardArrowRight } from "react-icons/md";
 
 /////////////////////ARMENGADA PRA TESTAR A FUNCIONALIDADE - ISSO DEVE SAIR DAQUI/////////////////////
 var cpfProvisorio = '123654789-00'
 //var cpfProvisorio = ''
-if (cpfProvisorio === ''){
+if (cpfProvisorio === '') {
     cpfProvisorio = null
 }
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -29,50 +29,50 @@ export default class Cliente extends Component {
         alterando: false,
     }
 
-    
+
 
     //EDICAO DOS DADOS DE CLIENTE
     txtNome_change = (event) => {
-        this.setState({nomeCliente: event.target.value})
+        this.setState({ nomeCliente: event.target.value })
     }
 
     txtCpf_change = (event) => {
-        this.setState({cpf: event.target.value})
+        this.setState({ cpf: event.target.value })
     }
 
     txtTelefone_change = (event) => {
-        this.setState({telefone: event.target.value})
+        this.setState({ telefone: event.target.value })
     }
-    
+
     //EDICAO DOS DADOS DE ENDERECO
     txtLogradouro_change = (event) => {
-        this.setState({logradouro: event.target.value})
+        this.setState({ logradouro: event.target.value })
     }
 
     txtNumero_change = (event) => {
-        this.setState({numero: event.target.value})
+        this.setState({ numero: event.target.value })
     }
 
     txtComplemento_change = (event) => {
-        this.setState({complemento: event.target.value})
+        this.setState({ complemento: event.target.value })
     }
 
     txtPontoDeReferencia_change = (event) => {
-        this.setState({pontoDeReferencia: event.target.value})
+        this.setState({ pontoDeReferencia: event.target.value })
     }
 
     //EDICAO DOS DADOS DE BAIRRO
     txtIdBairro_change = (event) => {
-        this.setState({idBairro: event.target.value})
+        this.setState({ idBairro: event.target.value })
     }
 
-///*
+    ///*
     //PREENCHIMENTO DOS DADOS DO CLIENTE NO STATE
     preencherCliente = async () => {
         const url = window.servidor + '/cliente/listar/' + cpfProvisorio
         const response = await fetch(url);
         const data = await response.json();
-        this.setState({cpf: data.cpf, nomeCliente: data.nomeCliente, telefone: data.telefone, idEndereco: data.idEndereco, logradouro: data.logradouro, numero: data.numero, complemento: data.complemento, pontoDeReferencia: data.pontoDeReferencia, idBairro: data.idBairro, incluindo: data.incluindo});
+        this.setState({ cpf: data.cpf, nomeCliente: data.nomeCliente, telefone: data.telefone, idEndereco: data.idEndereco, logradouro: data.logradouro, numero: data.numero, complemento: data.complemento, pontoDeReferencia: data.pontoDeReferencia, idBairro: data.idBairro, incluindo: data.incluindo });
     };
 
     //PREENCHIMENTO DA LISTA DE BAIRROS NO STATE (PARA A COMBO)
@@ -80,18 +80,18 @@ export default class Cliente extends Component {
         const url = window.servidor + '/bairro/listar'
         const response = await fetch(url);
         const data = await response.json();
-        this.setState({bairros: data});
+        this.setState({ bairros: data });
     }
 
-/*
-    PREENCHIMENTO DA LISTA DE BAIRROS NO STATE (PARA A COMBO)
-    carregarBairros = () => {
-        const url = window.servidor + '/bairro/listar'
-        fetch(url)
-            .then(response => response.json())
-            .then(data => this.setState({bairros: data}));
-    }
-*/
+    /*
+        PREENCHIMENTO DA LISTA DE BAIRROS NO STATE (PARA A COMBO)
+        carregarBairros = () => {
+            const url = window.servidor + '/bairro/listar'
+            fetch(url)
+                .then(response => response.json())
+                .then(data => this.setState({bairros: data}));
+        }
+    */
 
     componentDidMount() {
         this.carregarBairros()
@@ -100,9 +100,9 @@ export default class Cliente extends Component {
 
     iniciarAlterar = (event) => {
         event.preventDefault();
-        this.setState({alterando: true})
+        this.setState({ alterando: true })
     }
-    
+
     gravarNovoCliente = (event) => {
         const dadosCliente = {
             "cpf": this.state.cpf,
@@ -115,14 +115,14 @@ export default class Cliente extends Component {
             "idBairro": this.state.idBairro
         }
 
-//        console.log(dadosCliente)
+        //        console.log(dadosCliente)
 
         const requestOptions = {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            
+
             body: JSON.stringify(dadosCliente)
         };
 
@@ -149,14 +149,14 @@ export default class Cliente extends Component {
             "idBairro": this.state.idBairro
         }
 
-//        console.log(dadosEndereco)
+        //        console.log(dadosEndereco)
 
         let requestOptions = {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            
+
             body: JSON.stringify(dadosEndereco)
         };
 
@@ -171,14 +171,14 @@ export default class Cliente extends Component {
             "idEndereco": this.state.idEndereco
         }
 
-//        console.log(dadosCliente)
+        //        console.log(dadosCliente)
 
         requestOptions = {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            
+
             body: JSON.stringify(dadosCliente)
         };
 
@@ -187,47 +187,55 @@ export default class Cliente extends Component {
         fetch(url, requestOptions)
             .then(fim => {
                 event.preventDefault()
-                this.setState({alterando: false})
+                this.setState({ alterando: false })
                 this.preencherCliente()
             })
             .catch(erro => console.log(erro));
 
     }
 
-/*
-    excluir = (cliente) => {
-
-        const requestOptions = {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        };
-
-        const url = window.servidor + '/cliente/excluir/' + cliente.cpf
-
-        fetch(url, requestOptions)
-            .then(fim => {
-                this.preencherCliente()
-            })
-            .catch(erro => console.log(erro));
-    }
-
-    voltar = () => {
-        this.setState({incluindo: false, alterando: false})
-    }
-*/
+    /*
+        excluir = (cliente) => {
+    
+            const requestOptions = {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            };
+    
+            const url = window.servidor + '/cliente/excluir/' + cliente.cpf
+    
+            fetch(url, requestOptions)
+                .then(fim => {
+                    this.preencherCliente()
+                })
+                .catch(erro => console.log(erro));
+        }
+    
+        voltar = () => {
+            this.setState({incluindo: false, alterando: false})
+        }
+    */
 
 
     renderIncluirNovoCliente = () => {
-        return (            
+        return (
             <Container>
-                <h2>Identificação - NOVO CLIENTE</h2>
+                <section>
+                    <div className="imagem--cliente">
+                        <h1>
+                            Aréa do Cliente
+                        </h1>
+
+                    </div>
+                </section>
+                
                 <div>
                     <h3>Dados Pessoais</h3>
                     <div className="box">
                         <input name="nome" placeholder="Nome Completo" value={this.state.nome} onChange={this.txtNome_change} type="text"></input>
-                        <input name="CPF" placeholder="CPF" value={this.state.cpf} onChange={this.txtCpf_change}  type="text"></input>
+                        <input name="CPF" placeholder="CPF" value={this.state.cpf} onChange={this.txtCpf_change} type="text"></input>
                         <input name="telefone" placeholder="Telefone" value={this.state.telefone} onChange={this.txtTelefone_change} type="text"></input>
                     </div>
                 </div>
@@ -237,57 +245,57 @@ export default class Cliente extends Component {
                         <select placeholder="Bairro" value={this.state.idBairro} onChange={this.txtIdBairro_change}>
                             {this.state.bairros.map((bairro) => (<option key={bairro.idBairro} value={bairro.idBairro}>{bairro.nomeBairro}</option>))}
                         </select>
-                        <input name="logradouro" placeholder="Logradouro" value={this.state.logradouro} onChange={this.txtLogradouro_change}  type="text"></input>
-                        <input name="numero" placeholder="Número" value={this.state.numero} onChange={this.txtNumero_change}  type="text"></input>
+                        <input name="logradouro" placeholder="Logradouro" value={this.state.logradouro} onChange={this.txtLogradouro_change} type="text"></input>
+                        <input name="numero" placeholder="Número" value={this.state.numero} onChange={this.txtNumero_change} type="text"></input>
                         <input name="complemento" placeholder="Complemento" value={this.state.complemento} onChange={this.txtComplemento_change} type="text"></input>
                         <input name="referencia" placeholder="Referência" value={this.state.referencia} onChange={this.txtPontoDeReferencia_change} type="text"></input>
-                        
+
                         <div className="btnSaveEdit">
-                        <button className="btnSave" onClick = {this.gravarNovoCliente}> <MdSave className="save"/> </button>
-                        <button className="btnEdit" onClick = {() => this.editarNovo()} disabled> <MdModeEdit className="edit"/> </button>
+                            <button className="btnSave" onClick={this.gravarNovoCliente}> <MdSave className="save" /> </button>
+                            <button className="btnEdit" onClick={() => this.editarNovo()} disabled> <MdModeEdit className="edit" /> </button>
                         </div>
-                        
+
                     </div>
                 </div>
                 <div>
                     <h3>Modo de Entrega</h3>
                     <div className="box">
-                        <div className="boxCheckbox"> 
-                        <input type="checkbox" className="checkbox" id="exampleCheck1"/> 
-                        <label for="exampleCheck1">Retirada no local</label>
+                        <div className="boxCheckbox">
+                            <input type="checkbox" className="checkbox" id="exampleCheck1" />
+                            <label for="exampleCheck1">Retirada no local</label>
                         </div>
                         <div className="boxCheckbox">
-                        <input type="checkbox" className="checkbox" id="exampleCheck1"/>
-                        <label for="exampleCheck1">Entrega no endereço cadastrado</label>
+                            <input type="checkbox" className="checkbox" id="exampleCheck1" />
+                            <label for="exampleCheck1">Entrega no endereço cadastrado</label>
                         </div>
-                    </div>   
-                    
+                    </div>
+
                 </div>
                 <div>
                     <h3>Modo de Pagamento</h3>
                     <div className="box">
-                        <div className="boxCheckbox"> 
-                        <input type="checkbox" className="checkbox" id="exampleCheck1"/> 
-                        <label for="exampleCheck1">Cartão de Debito</label>
+                        <div className="boxCheckbox">
+                            <input type="checkbox" className="checkbox" id="exampleCheck1" />
+                            <label for="exampleCheck1">Cartão de Debito</label>
                         </div>
                         <div className="boxCheckbox">
-                        <input type="checkbox" className="checkbox" id="exampleCheck1"/>
-                        <label for="exampleCheck1">Cartão de Credito</label>
+                            <input type="checkbox" className="checkbox" id="exampleCheck1" />
+                            <label for="exampleCheck1">Cartão de Credito</label>
                         </div>
                         <div className="boxCheckbox">
-                        <input type="checkbox" className="checkbox" id="exampleCheck1"/>
-                        <label for="exampleCheck1">Dinheiro</label>
-                        </div>     
-                    </div>   
-                    
+                            <input type="checkbox" className="checkbox" id="exampleCheck1" />
+                            <label for="exampleCheck1">Dinheiro</label>
+                        </div>
+                    </div>
+
                 </div>
                 <div>
-                    <h3>Total</h3> 
+                    <h3>Total</h3>
                     <div className="totalbox">
-                        <div className="boxCheckbox"> 
-                        <label for="exampleCheck1">R$ </label>
-                        </div>     
-                    </div>                       
+                        <div className="boxCheckbox">
+                            <label for="exampleCheck1">R$ </label>
+                        </div>
+                    </div>
                 </div>
 
             </Container>
@@ -296,14 +304,14 @@ export default class Cliente extends Component {
 
 
     renderAlterarCliente = () => {
-        return (            
+        return (
             <Container>
-                <h1>Identificação - ALTERAR CLIENTE</h1>
+                
                 <div>
                     <h3>Dados Pessoais</h3>
                     <div className="box">
                         <input name="nome" placeholder="Nome Completo" value={this.state.nomeCliente} onChange={this.txtNome_change} type="text"></input>
-                        <input name="CPF" placeholder="CPF" value={this.state.cpf} onChange={this.txtCpf_change}  readOnly type="text"></input>
+                        <input name="CPF" placeholder="CPF" value={this.state.cpf} onChange={this.txtCpf_change} readOnly type="text"></input>
                         <input name="telefone" placeholder="Telefone" value={this.state.telefone} onChange={this.txtTelefone_change} type="text"></input>
                     </div>
                 </div>
@@ -315,57 +323,57 @@ export default class Cliente extends Component {
                                 <option key={bairro.idBairro} value={bairro.idBairro}>{bairro.nomeBairro}</option>
                             ))}
                         </select>
-                        <input name="logradouro" placeholder="Logradouro" value={this.state.logradouro} onChange={this.txtLogradouro_change}  type="text"></input>
-                        <input name="numero" placeholder="Número" value={this.state.numero} onChange={this.txtNumero_change}  type="text"></input>
+                        <input name="logradouro" placeholder="Logradouro" value={this.state.logradouro} onChange={this.txtLogradouro_change} type="text"></input>
+                        <input name="numero" placeholder="Número" value={this.state.numero} onChange={this.txtNumero_change} type="text"></input>
                         <input name="complemento" placeholder="Complemento" value={this.state.complemento} onChange={this.txtComplemento_change} type="text"></input>
                         <input name="referencia" placeholder="Referência" value={this.state.pontoDeReferencia} onChange={this.txtPontoDeReferencia_change} type="text"></input>
-                        
+
                         <div className="btnSaveEdit">
-                        <button className="btnSave" data-bs-toggle="tooltip" data-bs-placement="right" title="salvar alterações" onClick = {this.gravarAlterar}> <MdSave className="save"/> </button>
-                        <button className="btnEdit" onClick = {() => this.iniciarAlterar(this.state.cliente, this.state.endereco)} disabled> <MdModeEdit className="edit"/> </button>
+                            <button className="btnSave" data-bs-toggle="tooltip" data-bs-placement="right" title="salvar alterações" onClick={this.gravarAlterar}> <MdSave className="save" /> </button>
+                            <button className="btnEdit" onClick={() => this.iniciarAlterar(this.state.cliente, this.state.endereco)} disabled> <MdModeEdit className="edit" /> </button>
                         </div>
-                        
+
                     </div>
                 </div>
                 <div>
                     <h3>Modo de Entrega</h3>
                     <div className="box">
-                        <div className="boxCheckbox"> 
-                        <input type="checkbox" className="checkbox" id="exampleCheck1"/> 
-                        <label for="exampleCheck1">Retirada no local</label>
+                        <div className="boxCheckbox">
+                            <input type="checkbox" className="checkbox" id="exampleCheck1" />
+                            <label for="exampleCheck1">Retirada no local</label>
                         </div>
                         <div className="boxCheckbox">
-                        <input type="checkbox" className="checkbox" id="exampleCheck1"/>
-                        <label for="exampleCheck1">Entrega no endereço cadastrado</label>
+                            <input type="checkbox" className="checkbox" id="exampleCheck1" />
+                            <label for="exampleCheck1">Entrega no endereço cadastrado</label>
                         </div>
-                    </div>   
-                    
+                    </div>
+
                 </div>
                 <div>
                     <h3>Modo de Pagamento</h3>
                     <div className="box">
-                        <div className="boxCheckbox"> 
-                        <input type="checkbox" className="checkbox" id="exampleCheck1"/> 
-                        <label for="exampleCheck1">Cartão de Debito</label>
+                        <div className="boxCheckbox">
+                            <input type="checkbox" className="checkbox" id="exampleCheck1" />
+                            <label for="exampleCheck1">Cartão de Debito</label>
                         </div>
                         <div className="boxCheckbox">
-                        <input type="checkbox" className="checkbox" id="exampleCheck1"/>
-                        <label for="exampleCheck1">Cartão de Credito</label>
+                            <input type="checkbox" className="checkbox" id="exampleCheck1" />
+                            <label for="exampleCheck1">Cartão de Credito</label>
                         </div>
                         <div className="boxCheckbox">
-                        <input type="checkbox" className="checkbox" id="exampleCheck1"/>
-                        <label for="exampleCheck1">Dinheiro</label>
-                        </div>     
-                    </div>   
-                    
+                            <input type="checkbox" className="checkbox" id="exampleCheck1" />
+                            <label for="exampleCheck1">Dinheiro</label>
+                        </div>
+                    </div>
+
                 </div>
                 <div>
-                    <h3>Total</h3> 
+                    <h3>Total</h3>
                     <div className="totalbox">
-                        <div className="boxCheckbox"> 
-                        <label for="exampleCheck1">R$ </label>
-                        </div>     
-                    </div>                       
+                        <div className="boxCheckbox">
+                            <label for="exampleCheck1">R$ </label>
+                        </div>
+                    </div>
                 </div>
 
             </Container>
@@ -373,14 +381,14 @@ export default class Cliente extends Component {
     }
 
     renderExibirCliente = () => {
-        return (            
+        return (
             <Container>
-                <h1>Identificação - EXIBIR CLIENTE</h1>
+                
                 <div>
                     <h3>Dados Pessoais</h3>
                     <div className="box">
                         <input name="nome" placeholder="Nome Completo" value={this.state.nomeCliente} disabled type="text"></input>
-                        <input name="CPF" placeholder="CPF" value={this.state.cpf} disabled  type="text"></input>
+                        <input name="CPF" placeholder="CPF" value={this.state.cpf} disabled type="text"></input>
                         <input name="telefone" placeholder="Telefone" value={this.state.telefone} disabled type="text"></input>
                     </div>
                 </div>
@@ -390,74 +398,74 @@ export default class Cliente extends Component {
                         <select name="bairro" placeholder="Bairro" id="bairro" value={this.state.idBairro} disabled type="text">
                             {this.state.bairros.map((bairro) => (<option key={bairro.idBairro} value={bairro.idBairro} >{bairro.nomeBairro}</option>))}
                         </select>
-                        <input name="logradouro" placeholder="Logradouro" value={this.state.logradouro} disabled  type="text"></input>
-                        <input name="numero" placeholder="Número" value={this.state.numero} disabled  type="text"></input>
+                        <input name="logradouro" placeholder="Logradouro" value={this.state.logradouro} disabled type="text"></input>
+                        <input name="numero" placeholder="Número" value={this.state.numero} disabled type="text"></input>
                         <input name="complemento" placeholder="Complemento" value={this.state.complemento} disabled type="text"></input>
                         <input name="referencia" placeholder="Referência" value={this.state.pontoDeReferencia} disabled type="text"></input>
-                        
+
                         <div className="btnSaveEdit">
-                        <button className="btnSave" onClick = {() => this.gravarNovo()} disabled> <MdSave className="save"/> </button>
-                        <button className="btnEdit" data-bs-toggle="tooltip" data-bs-placement="right" title="editar" onClick = {this.iniciarAlterar}> <MdModeEdit className="edit"/> </button>
+                            <button className="btnSave" onClick={() => this.gravarNovo()} disabled> <MdSave className="save" /> </button>
+                            <button className="btnEdit" data-bs-toggle="tooltip" data-bs-placement="right" title="editar" onClick={this.iniciarAlterar}> <MdModeEdit className="edit" /> </button>
                         </div>
-                        
+
                     </div>
                 </div>
                 <div>
                     <h3>Modo de Entrega</h3>
                     <div className="box">
-                        <div className="boxCheckbox"> 
-                        <input type="checkbox" className="checkbox" id="exampleCheck1"/> 
-                        <label for="exampleCheck1">Retirada no local</label>
+                        <div className="boxCheckbox">
+                            <input type="checkbox" className="checkbox" id="exampleCheck1" />
+                            <label for="exampleCheck1">Retirada no local</label>
                         </div>
                         <div className="boxCheckbox">
-                        <input type="checkbox" className="checkbox" id="exampleCheck1"/>
-                        <label for="exampleCheck1">Entrega no endereço cadastrado </label> 
-                        <p className="textTaxa"> Valor da taxa de entrega R$ <label></label></p>
+                            <input type="checkbox" className="checkbox" id="exampleCheck1" />
+                            <label for="exampleCheck1">Entrega no endereço cadastrado </label>
+                            <p className="textTaxa"> Valor da taxa de entrega R$ <label></label></p>
                         </div>
-                    </div>   
-                    
+                    </div>
+
                 </div>
                 <div>
                     <h3>Modo de Pagamento</h3>
                     <div className="box">
-                        <div className="boxCheckbox"> 
-                        <input type="checkbox" className="checkbox" id="exampleCheck1"/> 
-                        <label for="exampleCheck1">Cartão de Debito</label>
+                        <div className="boxCheckbox">
+                            <input type="checkbox" className="checkbox" id="exampleCheck1" />
+                            <label for="exampleCheck1">Cartão de Debito</label>
                         </div>
                         <div className="boxCheckbox">
-                        <input type="checkbox" className="checkbox" id="exampleCheck1"/>
-                        <label for="exampleCheck1">Cartão de Credito</label>
+                            <input type="checkbox" className="checkbox" id="exampleCheck1" />
+                            <label for="exampleCheck1">Cartão de Credito</label>
                         </div>
                         <div className="boxCheckbox">
-                        <input type="checkbox" className="checkbox" id="exampleCheck1"/>
-                        <label for="exampleCheck1">Dinheiro</label>
-                        </div>     
-                    </div>   
-                    
+                            <input type="checkbox" className="checkbox" id="exampleCheck1" />
+                            <label for="exampleCheck1">Dinheiro</label>
+                        </div>
+                    </div>
+
                 </div>
                 <div>
-                    <h3>Total</h3> 
+                    <h3>Total</h3>
                     <div className="box">
-                        <div className="boxCheckbox"> 
-                        <label for="exampleCheck1">R$ </label>
-                        </div>     
-                    </div>                       
+                        <div className="boxCheckbox">
+                            <label for="exampleCheck1">R$ </label>
+                        </div>
+                    </div>
                 </div>
                 <div className="finalizar">
                     <Link to="/pedidoFinalizado">
-                            <button className="finalizarCompra" onClick > Finalizar Pedido <MdKeyboardArrowRight/> </button>
+                        <button className="finalizarCompra" onClick > Finalizar Pedido <MdKeyboardArrowRight /> </button>
                     </Link>
                 </div>
             </Container>
         );
-    }    
+    }
 
     render() {
         let pagina = ''
-        if(this.state.incluindo) {
+        if (this.state.incluindo) {
             pagina = this.renderIncluirNovoCliente()
         } else {
-            if(this.state.alterando) {
+            if (this.state.alterando) {
                 pagina = this.renderAlterarCliente()
             } else {
                 pagina = this.renderExibirCliente()
@@ -465,4 +473,4 @@ export default class Cliente extends Component {
         }
         return pagina
     }
-} 
+}

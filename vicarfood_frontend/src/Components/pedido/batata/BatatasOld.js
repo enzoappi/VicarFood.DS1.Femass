@@ -40,14 +40,12 @@ export default class cadBatatas extends Component {
                                                         <div className="listaBatata">
                                                                 <label className="batata">{produto.nome}</label>
                                                                 <div className="batata2">
-                                                                        <p className="descricaoBatata">
+                                                                        <p className="descricao">
                                                                                 <label>{produto.descricao}</label>
                                                                         </p>
                                                                         <p className="valor">
-                                                                                <label>{produto.preco}</label>
-                                                                        </p>
-                                                                        <p className="quantidade">
-                                                                                <input type="quantidade" />
+                                                                                <label>R$ {produto.preco}</label>
+                                                                                <input className="quantidade" type="quantidade" />
                                                                         </p>
 
                                                                 </div>

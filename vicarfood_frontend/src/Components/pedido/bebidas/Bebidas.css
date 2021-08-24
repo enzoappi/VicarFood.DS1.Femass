@@ -1,45 +1,13 @@
-.title{
-    display: flex;
-    flex-direction: row;
-    background-color: #FDC029;
-    width: 80%;
-    margin: 0 auto;
-    justify-content: space-between;
-    border-radius: 5px;
-    padding: 5px;
-}
-span{
-    align-self: flex-start;
-    align-self: center;
-    width: 10%;
-    
-}
-a{
-    font-size: 25px;
-    text-decoration: none;
-    color:#181820;
-}
-h2{
-    color: #181820;
-    width: 56%;
-    margin: 0px;
-}
-/*div*/.listaBebida{
-    color: #E0CCB3;
+div.listaBebida{
     background-color: #2D2D32;
     padding: 1em;
     width: 80%;
     margin: 2% 10%;
     border-radius: 1em;
     font-size: 20px;
-/*    display: flex;
-    justify-content: space-evenly;
-    padding-left: 0px; */
+    display: inline-flex;
+    justify-content: space-between;
 }
-div.img,svg{
-    font-size: 25px;
-}
-
 .imagem--bebida{
     background-image: url(../../../assets/images/drink-4.jpg);
     height: 500px;
@@ -48,4 +16,16 @@ div.img,svg{
     width: 100vw;
     background-size: cover;
     background-position: -0px -400px;
+}
+.quantidade{
+    width:15%;
+    cursor: pointer;
+    outline: none;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    color: #E0CCB3;
+   
+}
+.bebida2{
+    padding-left: 10%;
 }

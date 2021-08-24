@@ -54,7 +54,7 @@ div.img,svg{
     justify-content: space-around;
     align-items: center;
 }
-
+/*
 input[type="quantidade" ]{
     width: 5%;
     height: 4%;
@@ -62,7 +62,7 @@ input[type="quantidade" ]{
     outline: none;
     display: flex;
     margin-right: 0px;
-}
+}*/
 
 .imagem--batata{
     background-image: url(../../../assets/images/batata_rosti.jpeg);

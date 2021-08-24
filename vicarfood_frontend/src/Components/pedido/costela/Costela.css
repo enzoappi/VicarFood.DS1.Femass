@@ -1,28 +1,5 @@
-.title{
-    display: flex;
-    flex-direction: row;
-    background-color: #FDC029;
-    width: 80%;
-    margin: 0 auto;
-    justify-content: space-between;
-    border-radius: 5px;
-    padding: 5px;
-}
-span{
-    align-self: flex-start;
-    align-self: center;
-    width: 10%;
-    
-}
-a{
-    font-size: 20px;
-    text-decoration: none;
-    color:#181820;
-}
-h2{
-    color: #181820;
-    width: 56%;
-    margin: 0px;
+.main--costela{
+    padding-bottom: 50px;
 }
 div.listaCostela{
     background-color: #2D2D32;
@@ -31,12 +8,6 @@ div.listaCostela{
     margin: 2% 10%;
     border-radius: 1em;
     font-size: 20px;
-    display: flex;
-    justify-content: space-evenly;
-    flex-flow: column;
-}
-div.img,svg{
-    font-size: 25px;
 }
 .costela{
     font-size:30px;
@@ -46,11 +17,7 @@ div.img,svg{
 .descricao{
     width: 70%;
     text-align: justify;
-}
-.costela2{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+    font-size: 16px;
 }
 .imagem--costela{
     background-image: url(../../../assets/images/costela2.jpg);
@@ -59,4 +26,13 @@ div.img,svg{
     position: relative;
     width: 100vw;
     background-size: cover;
+}
+.valor{
+    justify-content: space-around;
+    display: flex;
+    align-self: center;
+}
+.costela2{
+    display: flex;
+    
 }
