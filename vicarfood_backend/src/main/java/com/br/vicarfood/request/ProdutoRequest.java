@@ -9,7 +9,7 @@ public class ProdutoRequest {
     private String descricao;
     private Situacao situacao;
     private TipoProduto tipo;
-    //private String imagem;
+    private String imagem;
     
     public TipoProduto getTipo() {
         return tipo;
@@ -41,12 +41,12 @@ public class ProdutoRequest {
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
-   /*  public String getImagem() {
+   public String getImagem() {
         return imagem;
     }
     public void setImagem(String imagem) {
         this.imagem = imagem;
-    } */
+    }
     public Situacao getSituacao() {
         return situacao;
     }

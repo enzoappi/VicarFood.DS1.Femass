@@ -39,10 +39,9 @@ export default class cadBebidas extends Component{
 
                                 <div>
                                         <table className="listaBebida">
-
                                                 <thead>
                                                         <tr>
-                                                                <th scope="col">Cód.</th>
+                                                                <th scope="col">Imagem</th>
                                                                 <th scope="col">Item</th>
                                                                 <th scope="col">Descrição</th>
                                                                 <th scope="col">Valor</th>
@@ -51,10 +50,10 @@ export default class cadBebidas extends Component{
                                                 <tbody>
                                                         {this.state.produtos && this.state.produtos.map(produto =>{
                                                                 return <tr key={produto.id}>
-                                                                        <th scope="row">{produto.id}</th>
-                                                                        <td>{produto.nome}</td>
+                                                                        <th scope="row"><img src={produto.imagem} alt={produto.id} width='20%'/></th>
+                                                                        <td>{produto.item}</td>
                                                                         <td>{produto.descricao}</td>
-                                                                        <td>{produto.preco}</td>
+                                                                        <td>{produto.valor}</td>
                                                                 </tr>
                                                         })}
                                                 </tbody>

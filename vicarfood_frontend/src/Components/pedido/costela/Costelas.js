@@ -41,7 +41,7 @@ export default class cadCostela extends Component{
                                         <table className="table table-dark table-striped text-white col8">
                                                 <thead>
                                                         <tr>
-                                                                <th scope="col">Cód.</th>
+                                                                <th scope="col">Imagem</th>
                                                                 <th scope="col">Item</th>
                                                                 <th scope="col">Descrição</th>
                                                                 <th scope="col">Valor</th>
@@ -50,7 +50,7 @@ export default class cadCostela extends Component{
                                                 <tbody>
                                                         {this.state.produtos && this.state.produtos.map(produto =>{
                                                                 return <tr key={produto.id}>
-                                                                        <th scope="row">{produto.id}</th>
+                                                                        <th scope="row"><img src={produto.imagem} alt={produto.id} width='20%'/></th>
                                                                         <td>{produto.item}</td>
                                                                         <td>{produto.descricao}</td>
                                                                         <td>{produto.valor}</td>
