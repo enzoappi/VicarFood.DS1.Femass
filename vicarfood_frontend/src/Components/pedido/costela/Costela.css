@@ -8,11 +8,12 @@ div.listaCostela{
     margin: 2% 10%;
     border-radius: 1em;
     font-size: 20px;
+    display: flex;
+    align-items: center;
 }
 .costela{
     font-size:30px;
-    align-self: center;
-
+    align-self: auto;
 }
 .descricao{
     width: 70%;
@@ -33,6 +34,21 @@ div.listaCostela{
     align-self: center;
 }
 .costela2{
-    display: flex;
-    
+    display: grid;
+    width: inherit;
+    padding-left: 5%;    
+}
+.add{
+    font-size: 25px;
+    align-self: center;    
+    color: #E0CCB3;
+}
+.add:hover{
+    color: #FDC029;
+}
+.imagem--costela2{
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    object-position: center;
 }

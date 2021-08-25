@@ -75,11 +75,13 @@
     margin-left: 10px;
     border-radius: 4px;  
     transition: all 0.4s  linear;
+    text-decoration: none;
   }
   .link a:hover {
     color: #181820;
     background: #e0ccb3;
     border: 1px solid #e0ccb3;
+    text-decoration: none;
   }
   
   /* estilos para para ambos os formulários */

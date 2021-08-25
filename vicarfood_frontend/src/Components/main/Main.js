@@ -10,7 +10,7 @@ import vicar_sgv from "../../assets/images/vicar_sgv.svg"
 import styled from 'styled-components';
 
 
-import { MdPhone, MdLocationOn, MdAccessTime } from "react-icons/md";
+import { MdPhone, MdLocationOn, MdAccessTime, MdAddBox } from "react-icons/md";
 import { FaInstagram, FaFacebookSquare } from "react-icons/fa";
 
 const Logo = styled.img`

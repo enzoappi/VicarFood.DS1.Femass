@@ -2,6 +2,12 @@ import React, { Component } from 'react'
 import Container from '../../Container'
 import './Bebidas.css'
 
+
+import { MdAddCircle, MdRemoveCircle } from "react-icons/md";
+
+
+import batata_rosti_jpeg from "../../../assets/images/teste2.jpg"
+
 export default class cadBebidas extends Component {
 
         componentDidMount() {
@@ -39,11 +45,20 @@ export default class cadBebidas extends Component {
                                         {this.state.produtos && this.state.produtos.map(produto => {
                                                 return <div key={produto.id}>
                                                         <div className="listaBebida">
-                                                                <label className="bebida">{produto.nome} {produto.descricao}</label>
-                                                                <p className="valor">
-                                                                <label className="bebida2">R$ {produto.preco}</label>
-                                                                <input className="quantidade" type="quantidade" />
-                                                                </p>
+                                                                <div>
+                                                                        <img className="imagem--batata2" src={batata_rosti_jpeg} />
+                                                                </div>
+
+                                                                <div className="bebida2">
+                                                                        <label className="bebida">{produto.nome} {produto.descricao}</label>
+                                                                        <label >R$ {produto.preco}</label>
+                                                                </div>
+
+                                                                <div>
+                                                                        <a className="add"><MdRemoveCircle /></a>
+                                                                        <input className="quantidade" type="quantidade" />
+                                                                        <a className="add"><MdAddCircle /></a>
+                                                                </div>
                                                         </div>
                                                 </div>
                                         })}

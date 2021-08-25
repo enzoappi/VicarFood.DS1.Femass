@@ -1,29 +1,4 @@
-.title{
-    display: flex;
-    flex-direction: row;
-    background-color: #FDC029;
-    width: 80%;
-    margin: 0 auto;
-    justify-content: center;
-    border-radius: 5px;
-    padding: 5px;
-}
-span{
-    align-self: flex-start;
-    align-self: center;
-    width: 10%;
-    
-}
-a{
-    font-size: 20px;
-    text-decoration: none;
-    color:#181820;
-}
-h2{
-    color: #181820;
-    width: 56%;
-    margin: 0px;
-}
+
 div.listaBatata{
     background-color: #2D2D32;
     padding: 1em;
@@ -32,38 +7,20 @@ div.listaBatata{
     border-radius: 1em;
     font-size: 20px;
     display: flex;
-    justify-content: space-evenly;
-    flex-flow: column;
-}
-div.img,svg{
-    font-size: 25px;
 }
 .batata{
     font-size:30px;
     align-self: auto;
-
 }
 .descricaoBatata{
     width: 70%;
-    text-align: justify;
-    
-    
+    text-align: justify;    
 }
 .batata2{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+    display: grid;
+    width: inherit;
+    padding-left: 5%;
 }
-/*
-input[type="quantidade" ]{
-    width: 5%;
-    height: 4%;
-    cursor: pointer;
-    outline: none;
-    display: flex;
-    margin-right: 0px;
-}*/
-
 .imagem--batata{
     background-image: url(../../../assets/images/batata_rosti.jpeg);
     height: 500px;
@@ -71,4 +28,18 @@ input[type="quantidade" ]{
     position: relative;
     width: 100vw;
     background-size: cover;
+}
+.imagem--batata2{
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    object-position: center;
+}
+.add{
+    font-size: 25px;
+    align-self: center;    
+    color: #E0CCB3;
+}
+.add:hover{
+    color: #FDC029;
 }

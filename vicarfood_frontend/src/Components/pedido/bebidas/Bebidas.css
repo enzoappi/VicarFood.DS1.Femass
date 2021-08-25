@@ -5,8 +5,11 @@ div.listaBebida{
     margin: 2% 10%;
     border-radius: 1em;
     font-size: 20px;
-    display: inline-flex;
-    justify-content: space-between;
+    display: flex;
+}
+.bebida{
+    font-size:30px;
+    align-self: auto;
 }
 .imagem--bebida{
     background-image: url(../../../assets/images/drink-4.jpg);
@@ -18,14 +21,24 @@ div.listaBebida{
     background-position: -0px -400px;
 }
 .quantidade{
-    width:15%;
+    width:20%;
     cursor: pointer;
     outline: none;
     background: rgba(0, 0, 0, 0.1);
     border-radius: 4px;
     color: #E0CCB3;
-   
+    margin: 20px;   
 }
 .bebida2{
-    padding-left: 10%;
+    display: grid;
+    width: inherit;
+    padding-left: 5%;
+}
+.add{
+    font-size: 25px;
+    align-self: center;    
+    color: #E0CCB3;
+}
+.add:hover{
+    color: #FDC029;
 }

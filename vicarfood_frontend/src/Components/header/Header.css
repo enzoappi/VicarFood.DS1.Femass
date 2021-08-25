@@ -5,8 +5,7 @@ header{
     height: 70px;
     display: flex;
     align-items: center;
-    justify-content:space-between;
-    
+    justify-content:space-between;    
 }
 .header--logo{
     margin-left:40px;
@@ -15,13 +14,16 @@ header{
     display: contents;
     align-items: center;
     justify-content:space-between;
+    text-decoration: none;
 }
-p{
-  color: #E0CCB3;
-  
+p, a{
+  color: #E0CCB3;  
+  font-size: 20px;
+  text-decoration: none;
 }
 p:hover{
     color: #FDC029;
+    text-decoration: none;
 }
 p.carrinho{
     margin-right: 80px!important;

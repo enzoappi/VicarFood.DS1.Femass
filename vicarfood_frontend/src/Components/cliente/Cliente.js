@@ -242,9 +242,11 @@ export default class Cliente extends Component {
                 <div>
                     <h3>Endereço</h3>
                     <div className="box">
-                        <select placeholder="Bairro" value={this.state.idBairro} onChange={this.txtIdBairro_change}>
+                    <input name="cep" placeholder="CEP" value={this.state.cep} disabled type="text"></input>
+                        {/*<select placeholder="Bairro" value={this.state.idBairro} onChange={this.txtIdBairro_change}>
                             {this.state.bairros.map((bairro) => (<option key={bairro.idBairro} value={bairro.idBairro}>{bairro.nomeBairro}</option>))}
-                        </select>
+        </select>*/}
+                        <input name="bairro" placeholder="Bairro" value={this.state.bairro} disabled type="text"></input>
                         <input name="logradouro" placeholder="Logradouro" value={this.state.logradouro} onChange={this.txtLogradouro_change} type="text"></input>
                         <input name="numero" placeholder="Número" value={this.state.numero} onChange={this.txtNumero_change} type="text"></input>
                         <input name="complemento" placeholder="Complemento" value={this.state.complemento} onChange={this.txtComplemento_change} type="text"></input>
@@ -318,11 +320,14 @@ export default class Cliente extends Component {
                 <div>
                     <h3>Endereço</h3>
                     <div className="box">
-                        <select placeholder="Bairro" onChange={this.txtIdBairro_change}>
+                    <input name="cep" placeholder="CEP" value={this.state.cep} disabled type="text"></input>
+                        
+                        {/*<select placeholder="Bairro" onChange={this.txtIdBairro_change}>
                             {this.state.bairros.map((bairro) => (
                                 <option key={bairro.idBairro} value={bairro.idBairro}>{bairro.nomeBairro}</option>
                             ))}
-                        </select>
+                        </select>*/}
+                        <input name="bairro" placeholder="Bairro" value={this.state.bairro} disabled type="text"></input>
                         <input name="logradouro" placeholder="Logradouro" value={this.state.logradouro} onChange={this.txtLogradouro_change} type="text"></input>
                         <input name="numero" placeholder="Número" value={this.state.numero} onChange={this.txtNumero_change} type="text"></input>
                         <input name="complemento" placeholder="Complemento" value={this.state.complemento} onChange={this.txtComplemento_change} type="text"></input>
@@ -395,9 +400,11 @@ export default class Cliente extends Component {
                 <div>
                     <h3>Endereço</h3>
                     <div className="box">
-                        <select name="bairro" placeholder="Bairro" id="bairro" value={this.state.idBairro} disabled type="text">
+                    <input name="cep" placeholder="CEP" value={this.state.cep} disabled type="text"></input>
+                        {/*<select name="bairro" placeholder="Bairro" id="bairro" value={this.state.idBairro} disabled type="text">
                             {this.state.bairros.map((bairro) => (<option key={bairro.idBairro} value={bairro.idBairro} >{bairro.nomeBairro}</option>))}
-                        </select>
+        </select>*/}
+                        <input name="bairro" placeholder="Bairro" value={this.state.bairro} disabled type="text"></input>
                         <input name="logradouro" placeholder="Logradouro" value={this.state.logradouro} disabled type="text"></input>
                         <input name="numero" placeholder="Número" value={this.state.numero} disabled type="text"></input>
                         <input name="complemento" placeholder="Complemento" value={this.state.complemento} disabled type="text"></input>
