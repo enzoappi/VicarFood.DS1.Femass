@@ -69,7 +69,5 @@ div.btnSaveEdit {
 .imagem--cliente{
     background-image: url(../../assets/images/bg_1.jpg);
     height: 500px;
-    background-repeat: no-repeat;
-    position: relative;
-    width: 100vw;
+
 }

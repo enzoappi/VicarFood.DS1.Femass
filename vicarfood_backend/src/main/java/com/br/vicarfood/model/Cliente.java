@@ -16,28 +16,29 @@ public class Cliente {
     @OneToOne 
     private Endereco endereco;
 
+
     public String getCpf() {
         return cpf;
     }
 
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
+    public String setCpf(String cpf) {
+        return this.cpf = cpf;
     }
 
     public String getTelefone() {
         return telefone;
     }
 
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
+    public String setTelefone(String telefone) {
+        return this.telefone = telefone;
     }
 
     public String getNomeCliente() {
         return this.nomeCliente;
     }
 
-    public void setNomeCliente(String nomeCliente) {
-        this.nomeCliente = nomeCliente;
+    public String setNomeCliente(String nomeCliente) {
+        return this.nomeCliente = nomeCliente;
     }
 
     @Override
@@ -78,6 +79,4 @@ public class Cliente {
         this.endereco = endereco;
     }
 
-    public void setEndereco(String endereco2) {
-    }
 }

@@ -1,7 +1,6 @@
 package com.br.vicarfood.controller;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 /* import com.br.vicarfood.model.Imagem; */

@@ -231,14 +231,17 @@ export default class Cliente extends Component {
                     </div>
                 </section>
                 
-                <div>
+                <form>
+                <section>
                     <h3>Dados Pessoais</h3>
                     <div className="box">
                         <input name="nome" placeholder="Nome Completo" value={this.state.nome} onChange={this.txtNome_change} type="text"></input>
                         <input name="CPF" placeholder="CPF" value={this.state.cpf} onChange={this.txtCpf_change} type="text"></input>
                         <input name="telefone" placeholder="Telefone" value={this.state.telefone} onChange={this.txtTelefone_change} type="text"></input>
                     </div>
-                </div>
+               
+                </section>
+                <section>
                 <div>
                     <h3>Endereço</h3>
                     <div className="box">
@@ -259,6 +262,8 @@ export default class Cliente extends Component {
 
                     </div>
                 </div>
+                </section>
+                <section>
                 <div>
                     <h3>Modo de Entrega</h3>
                     <div className="box">
@@ -273,6 +278,7 @@ export default class Cliente extends Component {
                     </div>
 
                 </div>
+                </section>
                 <div>
                     <h3>Modo de Pagamento</h3>
                     <div className="box">
@@ -299,6 +305,7 @@ export default class Cliente extends Component {
                         </div>
                     </div>
                 </div>
+                </form>
 
             </Container>
         );
