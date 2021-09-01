@@ -25,15 +25,14 @@ public class Produto {
     private Double preco;
     private String descricao;
 
-    @Column(columnDefinition = "TEXT")
-    private String imagem;
-
     @Enumerated(EnumType.STRING)
     private Situacao situacao;
 
     @Enumerated(EnumType.STRING)
     private TipoProduto tipoProduto;
 
+    @Column(columnDefinition = "TEXT")
+    private String imagem;
   
     @OneToMany
     private List<Estoque> produtosEstoque;
@@ -82,14 +81,6 @@ public class Produto {
         this.descricao = descricao;
     }
 
-    public String getImagem() {
-        return imagem;
-    }
-
-    public void setImagem(String imagem) {
-        this.imagem = imagem;
-    }
-
     public Situacao getSituacao() {
         return situacao;
     }
@@ -98,6 +89,14 @@ public class Produto {
         this.situacao = situacao;
     }
 
+    public String getImagem() {
+        return imagem;
+    }
+
+    public void setImagem(String imagem) {
+        this.imagem = imagem;
+    }
+    
     @Override
     public String toString() {
         return nome;

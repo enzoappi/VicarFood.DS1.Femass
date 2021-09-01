@@ -13,7 +13,8 @@ export default class cadCostela extends Component {
                 nome: "",
                 descricao: "",
                 preco: "",
-                produtos: []
+                produtos: [],
+                imagem: ""
         }
         carregarLista = () => {
                 const url = window.servidor + "produto/costela"
@@ -37,7 +38,7 @@ export default class cadCostela extends Component {
                                                         return <div key={produto.id}>
                                                                 <div className="listaCostela">
                                                                         <div>
-                                                                                <img className="imagem--costela2" src={produto.imagem} alt={produto.id} />
+                                                                                <img className="imagem--costela2" src={produto.imagem} />
                                                                         </div>
                                                                         <div className="costela2">
                                                                                 <label className="costela">{produto.nome}</label>

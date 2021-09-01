@@ -13,7 +13,8 @@ export default class cadBatatas extends Component {
                 nome: "",
                 descricao: "",
                 preco: "",
-                produtos: []
+                produtos: [],
+                imagem: ""
         }
 
         carregarLista = () => {
@@ -39,10 +40,10 @@ export default class cadBatatas extends Component {
                                         {this.state.produtos && this.state.produtos.map(produto => {
                                                 return <div key={produto.id}>
                                                         <div className="listaBatata">
-                                                                <div>
+ 
+                                                        <div>
                                                                         <img className="imagem--batata2" src={produto.imagem} alt={produto.id} />
                                                                 </div>
-
                                                                 <div className="batata2">
                                                                         <label className="batata">{produto.nome}</label>
                                                                         <label className="descricao">{produto.descricao}</label>
