@@ -5,8 +5,8 @@ import {  Route, Redirect } from 'react-router-dom'
 import Cliente from './cliente/Cliente'
 import Pedido from './pedido/Pedido'
 import Main from './main/Main'
-import CostelasOld from './pedido/costela/CostelaOld'
-import BatatasOld from './pedido/batata/BatatasOld'
+import Costelas from './pedido/costela/Costelas'
+import Batatas from './pedido/batata/Batatas'
 import Bebidas from './pedido/bebidas/Bebidas'
 import Carrinho from './carrinho/Carrinho'
 import Login from './Login/Login'
@@ -36,8 +36,8 @@ const Routes = () => (
                 <Route exact path="/pedido" component={Pedido} />
                 {/*<Route exact path="/cliente" component={Cliente} /> */}
                 <Route exact path="/cliente" component={Cliente} />
-                <Route exact path="/costela" component={CostelasOld} />
-                <Route exact path="/batata" component={BatatasOld} />
+                <Route exact path="/costela" component={Costelas} />
+                <Route exact path="/batata" component={Batatas} />
                 <Route exact path="/bebidas" component={Bebidas} />
                 <Route exact path="/buscaCPF" component={BuscaCPF}/>
                 <Route exact path="/contato" component={Contato}/>
@@ -51,28 +51,3 @@ const Routes = () => (
 );
 
 export default Routes
-
-//FINAL DO CODIGO ORIGINAL
-
-/*
-const Routes = () => (
-
-        <>
-        <AuthProvider>
-                <Route exact path="/" component={Main} />
-                <Route exact path="/pedido" component={Pedido} />
-                <Route exact path="/cardapio" component={Cardapio} />
-                <Route exact path="/cliente" component={Cliente} />
-                <Route exact path="/costela" component={Costela} />
-                <Route exact path="/batatas" component={Batatas} />
-                <Route exact path="/bebidas" component={Bebidas} />
-                <Route exact path="/carrinho" component={Carrinho} />
-                <PrivateRoute exact path="/carrinho" component={Carrinho} />
-                <Route exact path="/login" component={Login} />
-        </AuthProvider>
-        </>
-
-);
-
-export default Routes
-*/

@@ -2,6 +2,7 @@ package com.br.vicarfood.model;
 
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -24,15 +25,16 @@ public class Produto {
     private Double preco;
     private String descricao;
 
+    @Column(columnDefinition = "TEXT")
+    private String imagem;
+
     @Enumerated(EnumType.STRING)
     private Situacao situacao;
 
     @Enumerated(EnumType.STRING)
     private TipoProduto tipoProduto;
 
-    @ManyToOne
-    private Imagem imagem;
-
+  
     @OneToMany
     private List<Estoque> produtosEstoque;
 
@@ -80,6 +82,14 @@ public class Produto {
         this.descricao = descricao;
     }
 
+    public String getImagem() {
+        return imagem;
+    }
+
+    public void setImagem(String imagem) {
+        this.imagem = imagem;
+    }
+
     public Situacao getSituacao() {
         return situacao;
     }
@@ -117,14 +127,6 @@ public class Produto {
             return false;
         return true;
     }
-
-    public Imagem getImagem() {
-        return imagem;
-    }
-
-    public void setImagem(Imagem imagem) {
-        this.imagem = imagem;
-    } 
 
     public List<Estoque> getProdutosEstoque() { //Arrumar esse metodo depois, para pegar so a quantidade existente no estoque
         return produtosEstoque;

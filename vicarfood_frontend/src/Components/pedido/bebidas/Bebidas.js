@@ -46,7 +46,7 @@ export default class cadBebidas extends Component {
                                                 return <div key={produto.id}>
                                                         <div className="listaBebida">
                                                                 <div>
-                                                                        <img className="imagem--batata2" src={batata_rosti_jpeg} />
+                                                                        <img className="imagem--batata2" src={produto.imagem} alt={produto.id} />
                                                                 </div>
 
                                                                 <div className="bebida2">
