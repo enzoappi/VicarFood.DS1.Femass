@@ -37,11 +37,11 @@ public class ProdutoController {
             ProdutoRequest p1 = new ProdutoRequest();
             p1.setIdProduto(produto.getIdProduto());
             p1.setDescricao(produto.getDescricao());
-            p1.setImagem(produto.getImagem());
             p1.setNome(produto.getNome());
             p1.setPreco(produto.getPreco());
             p1.setSituacao(produto.getSituacao());
             p1.setTipo(produto.getTipoProduto());
+            p1.setImagem(produto.getImagem());
             pdrs.add(p1);
         }
 
@@ -61,30 +61,11 @@ public class ProdutoController {
         
         for(Produto produto : produtos){
             ProdutoRequest p1 = new ProdutoRequest();
-            p1.setIdProduto(produto.getIdProduto());
-            p1.setDescricao(produto.getDescricao());
-            p1.setImagem(produto.getImagem());
-            p1.setNome(produto.getNome());
-            p1.setPreco(produto.getPreco());
-            p1.setSituacao(produto.getSituacao());
             p1.setTipo(produto.getTipoProduto());
-            pdrs.add(p1);
+            p1.setImagem(produto.getImagem());
         }
-
-        if(tipoProduto.toString().equals("batata")) {
-            List<ProdutoRequest> pdrsOrdenado = new ArrayList<ProdutoRequest>();
-            String saboresDeBatataRostie[] = {"Agreste", "Calabresa", "Frango com Catupiry", "Lombo", "Palmito", "Portuguesa", "Presunto", "Presunto Especial", "Vegetariana", "Vicar"};
-            for(int i=0; i<=9; i++){
-                for(ProdutoRequest pr : pdrs) {
-                        if(pr.getNome().equals(saboresDeBatataRostie[i])){
-                            pdrsOrdenado.add(pr);
-                        }
-                }
-            }
-            return pdrsOrdenado;
-        } else {
-            return pdrs;
-        }
+        return pdrs;
+        
     }
 
     @CrossOrigin

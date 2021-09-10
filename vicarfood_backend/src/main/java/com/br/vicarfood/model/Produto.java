@@ -1,5 +1,7 @@
 package com.br.vicarfood.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -7,6 +9,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Produto {
@@ -26,6 +29,9 @@ public class Produto {
     
     @Enumerated(EnumType.STRING)
     private TipoProduto tipoProduto;
+
+    @OneToMany
+    private List<Estoque> produtosEstoque;
 
     public TipoProduto getTipoProduto() {
         return tipoProduto;
@@ -75,17 +81,17 @@ public class Produto {
         this.situacao = situacao;
     }
 
-    @Override
-    public String toString() {
-        return nome;
-    }
-
     public String getImagem() {
         return imagem;
     }
 
     public void setImagem(String imagem) {
         this.imagem = imagem;
+    }
+    
+    @Override
+    public String toString() {
+        return nome;
     }
 /*
     public List<ItemCompra> getItensCompras() {
@@ -132,4 +138,8 @@ public class Produto {
             return false;
         return true;
     }
+
+    public List<Estoque> getProdutosEstoque() { //Arrumar esse metodo depois, para pegar so a quantidade existente no estoque
+        return produtosEstoque;
+    }    
 }

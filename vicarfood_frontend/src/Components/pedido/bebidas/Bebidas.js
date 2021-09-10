@@ -18,8 +18,9 @@ export default class cadBebidas extends Component {
                 nome: "",
                 descricao: "",
                 preco: "",
-                produtos: []
-        };
+                produtos: [],
+                imagem: ""
+        }
 
         carregarLista = () => {
                 const url = window.servidor + "produto/bebida"
@@ -43,7 +44,7 @@ export default class cadBebidas extends Component {
                                                 return <div key={produto.idProduto}>
                                                         <div className="listaBebida">
                                                                 <div>
-                                                                        <img className="imagem--batata2" src={batata_rosti_jpeg} />
+                                                                        <img className="imagem--batata2" src={produto.imagem} />
                                                                 </div>
                                                                 <div className="bebida2">
                                                                         <label className="bebida">{produto.nome} {produto.descricao}</label>
