@@ -39,7 +39,7 @@ export default class cadBatatas extends Component {
                                 <section>
 
                                         {this.state.produtos && this.state.produtos.map(produto => {
-                                                return <div key={produto.id}>
+                                                return <div key={produto.idProduto}>
                                                         <div className="listaBatata">
                                                                 <div>
                                                                         <img className="imagem--batata2" src={batata_rosti_jpeg} />

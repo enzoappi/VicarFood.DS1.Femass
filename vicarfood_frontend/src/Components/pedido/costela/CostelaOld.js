@@ -36,7 +36,7 @@ export default class cadCostela extends Component {
                                 <section>
                                         <div className="main--costela">
                                                 {this.state.produtos && this.state.produtos.map(produto => {
-                                                        return <div key={produto.id}>
+                                                        return <div key={produto.idProduto}>
                                                                 <div className="listaCostela">
                                                                         <div>
                                                                                 <img className="imagem--costela2" src={batata_rosti_jpeg} />

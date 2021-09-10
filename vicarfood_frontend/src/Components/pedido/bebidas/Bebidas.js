@@ -12,21 +12,21 @@ export default class cadBebidas extends Component {
 
         componentDidMount() {
                 this.carregarLista()
-        }
+        };
 
         state = {
                 nome: "",
                 descricao: "",
                 preco: "",
                 produtos: []
-        }
+        };
 
         carregarLista = () => {
                 const url = window.servidor + "produto/bebida"
                 fetch(url)
                         .then(response => response.json())
                         .then(data => this.setState({ produtos: data }));
-        }
+        };
 
         Bebidas = () => {
                 return (
@@ -36,24 +36,19 @@ export default class cadBebidas extends Component {
                                                 <h1>
                                                         Bebidas
                                                 </h1>
-
                                         </div>
                                 </section>
-
-
                                 <section>
                                         {this.state.produtos && this.state.produtos.map(produto => {
-                                                return <div key={produto.id}>
+                                                return <div key={produto.idProduto}>
                                                         <div className="listaBebida">
                                                                 <div>
                                                                         <img className="imagem--batata2" src={batata_rosti_jpeg} />
                                                                 </div>
-
                                                                 <div className="bebida2">
                                                                         <label className="bebida">{produto.nome} {produto.descricao}</label>
                                                                         <label >R$ {produto.preco}</label>
                                                                 </div>
-
                                                                 <div>
                                                                         <a className="add"><MdRemoveCircle /></a>
                                                                         <input className="quantidade" type="quantidade" />
@@ -65,12 +60,11 @@ export default class cadBebidas extends Component {
                                 </section>
                         </Container>
                 )
-
-        }
+        };
 
         render() {
                 let pagina = this.Bebidas()
                 return pagina
-        }
+        };
 
 }

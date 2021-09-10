@@ -49,8 +49,8 @@ export default class cadCostela extends Component{
                                                 </thead>
                                                 <tbody>
                                                         {this.state.produtos && this.state.produtos.map(produto =>{
-                                                                return <tr key={produto.id}>
-                                                                        <th scope="row">{produto.id}</th>
+                                                                return <tr key={produto.idProduto}>
+                                                                        <th scope="row">{produto.idProduto}</th>
                                                                         <td>{produto.item}</td>
                                                                         <td>{produto.descricao}</td>
                                                                         <td>{produto.valor}</td>
