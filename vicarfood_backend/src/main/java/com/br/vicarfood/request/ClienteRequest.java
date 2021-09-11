@@ -6,12 +6,12 @@ public class ClienteRequest {
     private String nomeCliente;
     private String telefone;
     private Long idEndereco;
-    private Boolean incluindo; //adicionei
-    private String logradouro; //adicionei
-    private String numero; //adicionei
-    private String complemento; //adicionei
-    private String pontoDeReferencia; //adicionei
-    private Long idBairro; //adicionei
+    private Boolean incluindo;
+    private String logradouro;
+    private String numero;
+    private String complemento;
+    private String pontoDeReferencia;
+    private Long idBairro;
 
     public String getCpf() {
         return cpf;
@@ -45,8 +45,6 @@ public class ClienteRequest {
         this.idEndereco = idEndereco;
     }
 
-
-//  INICIO DAS ADICOES
     public Boolean getIncluindo() {
         return incluindo;
     }
@@ -94,5 +92,4 @@ public class ClienteRequest {
     public void setIdBairro(Long idBairro) {
         this.idBairro = idBairro;
     }
-//  FIM DAS ADICOES
 }

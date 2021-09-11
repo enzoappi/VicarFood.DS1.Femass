@@ -1,71 +1,74 @@
 import React, { Component } from 'react'
 import Container from '../../Container'
-import './Bebidas.css'
-
-
+import './Batatas.css'
 import { MdAddCircle, MdRemoveCircle } from "react-icons/md";
-
 
 import batata_rosti_jpeg from "../../../assets/images/teste2.jpg"
 
-export default class cadBebidas extends Component {
+export default class cadBatatas extends Component {
 
         componentDidMount() {
                 this.carregarLista()
-        };
+        }
 
         state = {
                 nome: "",
                 descricao: "",
                 preco: "",
-                produtos: [],
-                imagem: ""
+                produtos: []
         }
 
         carregarLista = () => {
-                const url = window.servidor + "produto/bebida"
+                const url = window.servidor + "produto/batata"
                 fetch(url)
                         .then(response => response.json())
                         .then(data => this.setState({ produtos: data }));
-        };
+        }
 
-        Bebidas = () => {
+        Batatas = () => {
                 return (
                         <Container>
                                 <section>
-                                        <div className="imagem--bebida">
+                                        <div className="imagem--batata">
                                                 <h1>
-                                                        Bebidas
+                                                        Batatas Rosti
                                                 </h1>
+
                                         </div>
                                 </section>
                                 <section>
+
                                         {this.state.produtos && this.state.produtos.map(produto => {
                                                 return <div key={produto.idProduto}>
-                                                        <div className="listaBebida">
+                                                        <div className="listaBatata">
                                                                 <div>
-                                                                        <img className="imagem--batata2" src={produto.imagem} />
+                                                                        <img className="imagem--batata2" src={batata_rosti_jpeg} />
                                                                 </div>
-                                                                <div className="bebida2">
-                                                                        <label className="bebida">{produto.nome} {produto.descricao}</label>
-                                                                        <label >R$ {produto.preco}</label>
+
+                                                                <div className="batata2">
+                                                                        <label className="batata">{produto.nome}</label>
+                                                                        <label className="descricao">{produto.descricao}</label>
+                                                                        <label>R$ {produto.preco}</label>
                                                                 </div>
                                                                 <div>
-                                                                        <a className="add"><MdRemoveCircle /></a>
+                                                                        <a className="add">< MdRemoveCircle/></a>
                                                                         <input className="quantidade" type="quantidade" />
-                                                                        <a className="add"><MdAddCircle /></a>
+                                                                        <a className="add"><MdAddCircle  /></a>
                                                                 </div>
                                                         </div>
                                                 </div>
                                         })}
+
+
                                 </section>
+
+
                         </Container>
                 )
-        };
+        }
 
         render() {
-                let pagina = this.Bebidas()
+                let pagina = this.Batatas()
                 return pagina
-        };
-
+        }
 }

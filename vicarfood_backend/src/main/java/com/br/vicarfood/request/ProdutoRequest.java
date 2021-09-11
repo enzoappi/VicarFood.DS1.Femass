@@ -3,7 +3,7 @@ import com.br.vicarfood.model.Situacao;
 import com.br.vicarfood.model.TipoProduto;
 
 public class ProdutoRequest {
-    private Long id;
+    private Long idProduto;
     private String nome;
     private Double preco;
     private String descricao;
@@ -17,11 +17,11 @@ public class ProdutoRequest {
     public void setTipo(TipoProduto tipo) {
         this.tipo = tipo;
     }
-    public Long getId() {
-        return id;
+    public Long getIdProduto() {
+        return idProduto;
     }
-    public void setId(Long id) {
-        this.id = id;
+    public void setIdProduto(Long idProduto) {
+        this.idProduto = idProduto;
     }
     public String getNome() {
         return nome;

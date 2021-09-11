@@ -1,4 +1,4 @@
-package com.br.vicarfood.request;
+/*package com.br.vicarfood.request;
 
 import java.time.LocalDate;
 
@@ -69,4 +69,4 @@ public class CompraRequest {
     public void setSituacaoCompra(SituacaoCompra situacaoCompra) {
         this.situacaoCompra = situacaoCompra;
     }
-}
+}*/

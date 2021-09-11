@@ -1,4 +1,4 @@
-package com.br.vicarfood.controller;
+/*package com.br.vicarfood.controller;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -90,4 +90,4 @@ public class CompraController {
             throw new Exception("Compra não encontrada!");
         }
     }
-}
+}*/

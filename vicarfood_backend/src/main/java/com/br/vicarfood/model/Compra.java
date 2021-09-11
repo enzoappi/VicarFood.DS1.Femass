@@ -1,7 +1,7 @@
-package com.br.vicarfood.model;
+/*package com.br.vicarfood.model;
 
 import java.time.LocalDate;
-import java.util.List;
+//import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -9,8 +9,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+//import javax.persistence.OneToMany;
+import javax.persistence.OneToOne; */
 
+/*
 @Entity
 public class Compra {
 
@@ -27,9 +29,16 @@ public class Compra {
     @Enumerated(EnumType.STRING)
     private FormaPagamento formaPagamento;
 
+    @OneToOne
+    private CarrinhoCompra carrinhoCompra;
+*/
+
+/*
     @OneToMany
     private List<ItemCompra> itensCompra;
+*/
 
+/*
     @ManyToOne
     private Cliente cliente;
 
@@ -65,6 +74,14 @@ public class Compra {
         this.quantidadeProdutos = quantidadeProdutos;
     }
     
+    public CarrinhoCompra getCarrinhoCompra() {
+        return carrinhoCompra;
+    }
+
+    public void setCarrinhoCompra(CarrinhoCompra carrinhoCompra) {
+        this.carrinhoCompra = carrinhoCompra;
+    }
+
     @Override
     public int hashCode() {
         final int prime = 31;
@@ -96,7 +113,9 @@ public class Compra {
     public void setFormaPagamento(FormaPagamento formaPagamento) {
         this.formaPagamento = formaPagamento;
     }
+*/
 
+/*
     public List<ItemCompra> getItensCompra() {
         return itensCompra;
     }
@@ -104,7 +123,9 @@ public class Compra {
     public void setItensCompra(List<ItemCompra> itensCompra) {
         this.itensCompra = itensCompra;
     }
+*/
 
+/*
     public Cliente getCliente() {
         return cliente;
     }
@@ -120,4 +141,4 @@ public class Compra {
     public void setSituacaoCompra(SituacaoCompra situacaoCompra) {
         this.situacaoCompra = situacaoCompra;
     }
-}
+}*/
