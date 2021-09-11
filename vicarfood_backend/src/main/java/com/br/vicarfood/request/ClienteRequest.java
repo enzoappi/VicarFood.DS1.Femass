@@ -6,12 +6,13 @@ public class ClienteRequest {
     private String nomeCliente;
     private String telefone;
     private Long idEndereco;
-    private Boolean incluindo;
-    private String logradouro;
-    private String numero;
-    private String complemento;
-    private String pontoDeReferencia;
-    private Long idBairro;
+    private Boolean incluindo; //adicionei
+    private String logradouro; //adicionei
+    private String numero; //adicionei
+    private String complemento; //adicionei
+    private String pontoDeReferencia; //adicionei
+    private String Bairro; //adicionei
+
 
     public String getCpf() {
         return cpf;
@@ -85,11 +86,11 @@ public class ClienteRequest {
         this.pontoDeReferencia = pontoDeReferencia;
     }
 
-    public Long getIdBairro() {
-        return idBairro;
+    public String getBairro() {
+        return Bairro;
     }
 
-    public void setIdBairro(Long idBairro) {
-        this.idBairro = idBairro;
+    public void setBairro(String Bairro) {
+        this.Bairro = Bairro;
     }
 }

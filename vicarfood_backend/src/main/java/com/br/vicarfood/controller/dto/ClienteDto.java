@@ -5,12 +5,15 @@ public class ClienteDto {
     private String cpf;
     private String nomeCliente;
     private String telefone;
+    private String cidade;
     //private Long idEndereco;
     private String logradouro;
+    private String bairro;
+    private Double cep;
     private String numero;
     private String complemento;
     private String pontoDeReferencia;
-    private Long idBairro;
+    //private Long idBairro;
 
     public String getCpf() {
         return cpf;
@@ -68,7 +71,33 @@ public class ClienteDto {
         this.pontoDeReferencia = pontoDeReferencia;
     }
 
-    public Long getIdBairro() {
+    public String getBairro() {
+        return bairro;
+    }
+
+    public void setBairro(String bairro) {
+        this.bairro = bairro;
+    }
+
+    public Double getCep() {
+        return cep;
+    }
+
+    public void setCep(Double cep) {
+        this.cep = cep;
+    }
+
+    public String getCidade() {
+        return cidade;
+    }
+
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
+    }
+
+    
+
+ /*   public Long getIdBairro() {
         return idBairro;
     }
 
@@ -77,7 +106,7 @@ public class ClienteDto {
     }
 
     
-/*
+
     public Long getIdEndereco() {
         return idEndereco;
     }

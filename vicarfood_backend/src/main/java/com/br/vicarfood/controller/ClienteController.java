@@ -67,7 +67,7 @@ public class ClienteController {
             cliReq.setNumero(end.getNumero()); //adicionei
             cliReq.setComplemento(end.getComplemento()); //adicionei
             cliReq.setPontoDeReferencia(end.getPontoDeReferencia()); //adicionei
-            cliReq.setIdBairro(end.getBairro().getIdBairro()); //adicionei
+            cliReq.setBairro(end.getBairro()); //adicionei
         } else {
             //throw new Exception("Cliente não encontrado!");
             cliReq.setCpf(""); //adicionei
@@ -79,7 +79,7 @@ public class ClienteController {
             cliReq.setNumero(""); //adicionei
             cliReq.setComplemento(""); //adicionei
             cliReq.setPontoDeReferencia(""); //adicionei
-            cliReq.setIdBairro(Long.parseLong("1")); //adicionei
+            cliReq.setBairro(""); //adicionei
         }
         return cliReq;
     }

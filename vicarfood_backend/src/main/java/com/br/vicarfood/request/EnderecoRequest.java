@@ -2,15 +2,24 @@ package com.br.vicarfood.request;
 
 public class EnderecoRequest {
     private Long idEndereco;
+    private Double cep;
     private String logradouro;
     private String numero;
     private String complemento;
     private String pontoDeReferencia;
-    private Long idBairro;    
-    //private String nomeBairro;
+    private String Bairro;    
+   
 
     public Long getIdEndereco() {
         return idEndereco;
+    }
+
+    public Double getCep() {
+        return cep;
+    }
+
+    public void setCep(Double cep) {
+        this.cep = cep;
     }
 
     public void setIdEndereco(Long idEndereco) {
@@ -49,21 +58,13 @@ public class EnderecoRequest {
         this.pontoDeReferencia = pontoDeReferencia;
     }
 
-    public Long getIdBairro() {
-        return idBairro;
+    public String getBairro() {
+        return Bairro;
     }
 
-    public void setIdBairro(Long idBairro) {
-        this.idBairro = idBairro;
+    public void setBairro(String Bairro) {
+        this.Bairro = Bairro;
     }
 
-/*
-    public String getNomeBairro() {
-        return nomeBairro;
-    }
 
-    public void setNomeBairro(String nomeBairro) {
-        this.nomeBairro = nomeBairro;
-    }
-*/
 }
