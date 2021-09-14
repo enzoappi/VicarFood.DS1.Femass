@@ -18,6 +18,7 @@ public class Endereco {
     private String complemento;
     private String pontoDeReferencia;
 
+    private String leogay;
     
     public Long getIdEndereco() {
         return idEndereco;
