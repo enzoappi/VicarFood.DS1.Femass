@@ -21,7 +21,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/produto")
 public class ProdutoController {
     private final ProdutoRepository produtoRepository;
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> c5a63a8488904930f48f6046c48608db827fa023
     public ProdutoController(ProdutoRepository produtoRepository){
         this.produtoRepository = produtoRepository;
     }
@@ -37,6 +41,10 @@ public class ProdutoController {
             ProdutoRequest p1 = new ProdutoRequest();
             p1.setIdProduto(produto.getIdProduto());
             p1.setDescricao(produto.getDescricao());
+<<<<<<< HEAD
+=======
+            p1.setImagem(produto.getImagem());
+>>>>>>> c5a63a8488904930f48f6046c48608db827fa023
             p1.setNome(produto.getNome());
             p1.setPreco(produto.getPreco());
             p1.setSituacao(produto.getSituacao());
@@ -61,6 +69,15 @@ public class ProdutoController {
         
         for(Produto produto : produtos){
             ProdutoRequest p1 = new ProdutoRequest();
+<<<<<<< HEAD
+=======
+            p1.setId(produto.getId());
+            p1.setDescricao(produto.getDescricao());
+            p1.setImagem(produto.getImagem());
+            p1.setNome(produto.getNome());
+            p1.setPreco(produto.getPreco());
+            p1.setSituacao(produto.getSituacao());
+>>>>>>> c5a63a8488904930f48f6046c48608db827fa023
             p1.setTipo(produto.getTipoProduto());
             p1.setImagem(produto.getImagem());
         }
@@ -78,7 +95,13 @@ public class ProdutoController {
         produto.setSituacao(produtoRequest.getSituacao());
         produto.setTipoProduto(produtoRequest.getTipo());
 
+<<<<<<< HEAD
         produtoRepository.save(produto);
     }
 
+=======
+
+        produtoRepository.save(produto);
+    }
+>>>>>>> c5a63a8488904930f48f6046c48608db827fa023
 }

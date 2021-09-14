@@ -25,6 +25,7 @@ export default class cadCostela extends Component {
         Costelas = () => {
                 return (
                         <Container>
+<<<<<<< HEAD
                                 <section>
                                         <div className="imagem--costela">
                                                 <h1>
@@ -56,6 +57,40 @@ export default class cadCostela extends Component {
                                         </div>
                                 </section>
                         </Container >
+=======
+                                <div className="title">
+                                        <span>
+                                                <Link className="arrow" to="/pedido">
+                                                        <MdArrowBack />
+                                                </Link>
+                                        </span>
+                                        <h2>Costelas</h2>
+                                </div>
+
+                                <div>
+                                        <table className="table table-dark table-striped text-white col8">
+                                                <thead>
+                                                        <tr>
+                                                                <th scope="col">Imagem</th>
+                                                                <th scope="col">Item</th>
+                                                                <th scope="col">Descrição</th>
+                                                                <th scope="col">Valor</th>
+                                                        </tr>
+                                                </thead>
+                                                <tbody>
+                                                        {this.state.produtos && this.state.produtos.map(produto =>{
+                                                                return <tr key={produto.id}>
+                                                                        <th scope="row"><img src={produto.imagem} alt={produto.id} width='20%'/></th>
+                                                                        <td>{produto.item}</td>
+                                                                        <td>{produto.descricao}</td>
+                                                                        <td>{produto.valor}</td>
+                                                                </tr>
+                                                        })}
+                                                </tbody>
+                                        </table>
+                                </div>
+                        </Container>
+>>>>>>> c5a63a8488904930f48f6046c48608db827fa023
                 )
         }
         render() {

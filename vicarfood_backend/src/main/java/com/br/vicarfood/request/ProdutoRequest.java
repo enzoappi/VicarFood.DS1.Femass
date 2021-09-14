@@ -41,6 +41,15 @@ public class ProdutoRequest {
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
+<<<<<<< HEAD
+=======
+   public String getImagem() {
+        return imagem;
+    }
+    public void setImagem(String imagem) {
+        this.imagem = imagem;
+    }
+>>>>>>> c5a63a8488904930f48f6046c48608db827fa023
     public Situacao getSituacao() {
         return situacao;
     }

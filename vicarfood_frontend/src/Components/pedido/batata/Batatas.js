@@ -12,7 +12,11 @@ export default class cadBatatas extends Component {
         state = {
                 nome: "",
                 descricao: "",
+<<<<<<< HEAD
                 preco: "",
+=======
+                valor: "",
+>>>>>>> c5a63a8488904930f48f6046c48608db827fa023
                 produtos: [],
                 imagem: ""
         }
@@ -22,6 +26,10 @@ export default class cadBatatas extends Component {
                 fetch(url)
                         .then(response => response.json())
                         .then(data => this.setState({ produtos: data }));
+        }
+
+        uploadImagem = (event) =>{
+
         }
 
         Batatas = () => {
@@ -62,6 +70,31 @@ export default class cadBatatas extends Component {
                                 </section>
 
 
+<<<<<<< HEAD
+=======
+                                <div>
+                                        <table className="table table-dark table-striped text-white col8">
+                                                <thead>
+                                                        <tr>
+                                                                <th scope="col">Imagem</th>
+                                                                <th scope="col">Item</th>
+                                                                <th scope="col">Descrição</th>
+                                                                <th scope="col">Valor</th>
+                                                        </tr>
+                                                </thead>
+                                                <tbody>
+                                                        {this.state.produtos && this.state.produtos.map(produto =>{
+                                                                return <tr key={produto.id}>
+                                                                        <th scope="row"><img src={produto.imagem} alt={produto.id} width='10%'/></th>
+                                                                        <td>{produto.item}</td>
+                                                                        <td>{produto.descricao}</td>
+                                                                        <td>{produto.valor}</td>
+                                                                </tr>
+                                                        })}
+                                                </tbody>
+                                        </table>
+                                </div>
+>>>>>>> c5a63a8488904930f48f6046c48608db827fa023
                         </Container>
                 )
         }

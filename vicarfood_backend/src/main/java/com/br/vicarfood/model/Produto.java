@@ -9,6 +9,11 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+<<<<<<< HEAD
+=======
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+>>>>>>> c5a63a8488904930f48f6046c48608db827fa023
 import javax.persistence.OneToMany;
 
 @Entity
@@ -21,6 +26,9 @@ public class Produto {
     private Double preco;
     private String descricao;
 
+    @Column(columnDefinition = "TEXT")
+    private String imagem;
+
     @Enumerated(EnumType.STRING)
     private Situacao situacao;
 
@@ -30,6 +38,13 @@ public class Produto {
     @Enumerated(EnumType.STRING)
     private TipoProduto tipoProduto;
 
+<<<<<<< HEAD
+=======
+/*     @Column(columnDefinition = "TEXT")
+    @ManyToOne
+    private Imagem imagem; */
+
+>>>>>>> c5a63a8488904930f48f6046c48608db827fa023
     @OneToMany
     private List<Estoque> produtosEstoque;
 
@@ -71,6 +86,14 @@ public class Produto {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
+    }
+
+    public String getImagem() {
+        return imagem;
+    }
+
+    public void setImagem(String imagem) {
+        this.imagem = imagem;
     }
 
     public Situacao getSituacao() {
