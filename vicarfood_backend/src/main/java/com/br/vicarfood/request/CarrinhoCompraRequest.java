@@ -1,14 +1,17 @@
 package com.br.vicarfood.request;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import com.br.vicarfood.model.Produto;
+
 //import com.br.vicarfood.model.Produto;
 
 public class CarrinhoCompraRequest {
-    //private Long idCarrinhoCompra;
-    //private Produto produto;
+    private List<Produto> produtos = new ArrayList<>();
+    private List<Integer> qtdesProdutos = new ArrayList<>();
+    private List<Double> precosIndividuaisProdutos = new ArrayList<>();
     private Long idProduto;
-    //private String nome;
-    //private Double preco;
-    //private String descricao;
     private Integer quantidadeProduto;
     //private Double valorParcialItens;
     //private Double valorParcialTotalCompra;
@@ -20,15 +23,15 @@ public class CarrinhoCompraRequest {
     public void setIdCarrinhoCompra(Long idCarrinhoCompra) {
         this.idCarrinhoCompra = idCarrinhoCompra;
     }
-
-    public Produto getProduto() {
-        return produto;
+*/
+    public List<Produto> getProdutos() {
+        return this.produtos;
     }
 
     public void setProduto(Produto produto) {
-        this.produto = produto;
+        this.produtos.add(produto);
     }
-*/
+
     public Long getIdProduto() {
         return idProduto;
     }
@@ -36,31 +39,7 @@ public class CarrinhoCompraRequest {
     public void setIdProduto(Long idProduto) {
         this.idProduto = idProduto;
     }
-/*
-    public String getNome() {
-        return nome;
-    }
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public Double getPreco() {
-        return preco;
-    }
-
-    public void setPreco(Double preco) {
-        this.preco = preco;
-    }
-
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
-*/
     public Integer getQuantidadeProduto() {
         return quantidadeProduto;
     }
@@ -76,7 +55,24 @@ public class CarrinhoCompraRequest {
     public void setValorParcialItens(Double valorParcialItens) {
         this.valorParcialItens = valorParcialItens;
     }
+*/
+    public List<Integer> getQtdesProdutos() {
+        return this.qtdesProdutos;
+    }
 
+    public void setQtdesProdutos(Integer qtdeProduto) {
+        this.qtdesProdutos.add(qtdeProduto);
+    }
+
+    public List<Double> getPrecosIndividuaisProdutos() {
+        return this.precosIndividuaisProdutos;
+    }
+
+    public void setPrecosIndividuaisProdutos(Double precosIndividuaisProdutos) {
+        this.precosIndividuaisProdutos.add(precosIndividuaisProdutos);
+    }
+
+/*
     public Double getValorParcialTotalCompra() {
         return valorParcialTotalCompra;
     }

@@ -4,11 +4,11 @@ import com.br.vicarfood.model.CarrinhoCompra;
 import com.br.vicarfood.model.ItemCompra;
 import com.br.vicarfood.model.Produto;
 import com.br.vicarfood.repository.CarrinhoCompraRepository;
-import com.br.vicarfood.repository.ItemCompraRepository;
 import com.br.vicarfood.repository.ProdutoRepository;
 import com.br.vicarfood.request.CarrinhoCompraRequest;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,21 +29,26 @@ public class CarrinhoCompraController {
         this.carrinhoCompraRepository = carrinhoCompraRepository;
     }
 
-/*    
+    
     @CrossOrigin
-    @GetMapping("/")
-    public List<CarrinhoCompra> getCarrinhoCompra(){
-        List<CarrinhoCompra> carrComp = carrinhoCompraRepository.findAll();
-
-        List<CarrinhoCompraRequest> comprs = new ArrayList<CarrinhoCompraRequest>();
-        for(CarrinhoCompra cC : carrComp) {
-            CarrinhoCompraRequest cR = new CarrinhoCompraRequest();
-            //cR.setNome(cC.getItensCompra());
+    @GetMapping("/listarCarrinho")
+    public CarrinhoCompraRequest getCarrinhoCompra() throws Exception {
+        var car = carrinhoCompraRepository.findByFinalizado(false);
+        CarrinhoCompraRequest comprs = new CarrinhoCompraRequest();
+        if(car.isPresent()){
+            CarrinhoCompra carComp = new CarrinhoCompra();
+            carComp = car.get();
+            for(ItemCompra item : carComp.getItensCompra()) {
+                comprs.setProduto(item.getProduto());
+                comprs.setQtdesProdutos(item.getQuantidadeProduto());
+                comprs.setPrecosIndividuaisProdutos(item.getValorParcialItem());
+            }
+        } else {
+            throw new Exception("Carrinho não encontrado!");
         }
-
-        return null;
+        return comprs;
     }
-*/
+
 
     @CrossOrigin
     @PostMapping("/incluir")

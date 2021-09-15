@@ -12,7 +12,7 @@ export default class cadBebidas extends Component {
 
         componentDidMount() {
                 this.carregarLista()
-        };
+        }
 
         state = {
                 nome: "",
@@ -27,7 +27,7 @@ export default class cadBebidas extends Component {
                 fetch(url)
                         .then(response => response.json())
                         .then(data => this.setState({ produtos: data }));
-        };
+        }
 
         Bebidas = () => {
                 return (
@@ -41,7 +41,7 @@ export default class cadBebidas extends Component {
                                 </section>
                                 <section>
                                         {this.state.produtos && this.state.produtos.map(produto => {
-                                                return <div key={produto.idProduto}>
+                                                return <div key={produto.id}>
                                                         <div className="listaBebida">
                                                                 <div>
                                                                         <img className="imagem--batata2" src={produto.imagem} />
@@ -61,11 +61,11 @@ export default class cadBebidas extends Component {
                                 </section>
                         </Container>
                 )
-        };
+        }
 
         render() {
                 let pagina = this.Bebidas()
                 return pagina
-        };
+        }
 
 }
