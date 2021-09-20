@@ -64,3 +64,6 @@ export default class cadBatatas extends Component {
                 return pagina
         }
 }
+
+/*
+*/

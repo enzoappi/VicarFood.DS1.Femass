@@ -230,81 +230,83 @@ export default class Cliente extends Component {
 
                     </div>
                 </section>
-                
+
                 <form>
-                <section>
-                    <h3>Dados Pessoais</h3>
-                    <div className="box">
-                        <input name="nome" placeholder="Nome Completo" value={this.state.nome} onChange={this.txtNome_change} type="text"></input>
-                        <input name="CPF" placeholder="CPF" value={this.state.cpf} onChange={this.txtCpf_change} type="text"></input>
-                        <input name="telefone" placeholder="Telefone" value={this.state.telefone} onChange={this.txtTelefone_change} type="text"></input>
-                    </div>
-               
-                </section>
-                <section>
-                <div>
-                    <h3>Endereço</h3>
-                    <div className="box">
-                    <input name="cep" placeholder="CEP" value={this.state.cep} disabled type="text"></input>
-                        {/*<select placeholder="Bairro" value={this.state.idBairro} onChange={this.txtIdBairro_change}>
+                    <section>
+                        <h3>Dados Pessoais</h3>
+                        <div className="box">
+                            <input name="nome" placeholder="Nome Completo" value={this.state.nome} onChange={this.txtNome_change} type="text"></input>
+                            <input name="CPF" placeholder="CPF" value={this.state.cpf} onChange={this.txtCpf_change} type="text"></input>
+                            <input name="telefone" placeholder="Telefone" value={this.state.telefone} onChange={this.txtTelefone_change} type="text"></input>
+                        </div>
+
+                    </section>
+                    <section>
+                        <div>
+                            <h3>Endereço</h3>
+                            <div className="box">
+                                <input name="cep" placeholder="CEP" value={this.state.cep} disabled type="text"></input>
+                                {/*<select placeholder="Bairro" value={this.state.idBairro} onChange={this.txtIdBairro_change}>
                             {this.state.bairros.map((bairro) => (<option key={bairro.idBairro} value={bairro.idBairro}>{bairro.nomeBairro}</option>))}
         </select>*/}
-                        <input name="bairro" placeholder="Bairro" value={this.state.bairro} disabled type="text"></input>
-                        <input name="logradouro" placeholder="Logradouro" value={this.state.logradouro} onChange={this.txtLogradouro_change} type="text"></input>
-                        <input name="numero" placeholder="Número" value={this.state.numero} onChange={this.txtNumero_change} type="text"></input>
-                        <input name="complemento" placeholder="Complemento" value={this.state.complemento} onChange={this.txtComplemento_change} type="text"></input>
-                        <input name="referencia" placeholder="Referência" value={this.state.referencia} onChange={this.txtPontoDeReferencia_change} type="text"></input>
+                                <input name="bairro" placeholder="Bairro" value={this.state.bairro} disabled type="text"></input>
+                                <input name="logradouro" placeholder="Logradouro" value={this.state.logradouro} onChange={this.txtLogradouro_change} type="text"></input>
+                                <input name="numero" placeholder="Número" value={this.state.numero} onChange={this.txtNumero_change} type="text"></input>
+                                <input name="complemento" placeholder="Complemento" value={this.state.complemento} onChange={this.txtComplemento_change} type="text"></input>
+                                <input name="referencia" placeholder="Referência" value={this.state.referencia} onChange={this.txtPontoDeReferencia_change} type="text"></input>
 
-                        <div className="btnSaveEdit">
-                            <button className="btnSave" onClick={this.gravarNovoCliente}> <MdSave className="save" /> </button>
-                            <button className="btnEdit" onClick={() => this.editarNovo()} disabled> <MdModeEdit className="edit" /> </button>
-                        </div>
+                                <div className="btnSaveEdit">
+                                    <button className="btnSave" onClick={this.gravarNovoCliente}> <MdSave className="save" /> </button>
+                                    <button className="btnEdit" onClick={() => this.editarNovo()} disabled> <MdModeEdit className="edit" /> </button>
+                                </div>
 
-                    </div>
-                </div>
-                </section>
-                <section>
-                <div>
-                    <h3>Modo de Entrega</h3>
-                    <div className="box">
-                        <div className="boxCheckbox">
-                            <input type="checkbox" className="checkbox" id="exampleCheck1" />
-                            <label for="exampleCheck1">Retirada no local</label>
+                            </div>
                         </div>
-                        <div className="boxCheckbox">
-                            <input type="checkbox" className="checkbox" id="exampleCheck1" />
-                            <label for="exampleCheck1">Entrega no endereço cadastrado</label>
-                        </div>
-                    </div>
+                    </section>
+                    <section>
+                        <div>
+                            <h3>Modo de Entrega</h3>
+                            <div className="box">
+                                <div className="boxCheckbox">
+                                    <input type="checkbox" className="checkbox" id="exampleCheck1" />
+                                    <label for="exampleCheck1">Retirada no local</label>
+                                </div>
+                                <div className="boxCheckbox">
+                                    <input type="checkbox" className="checkbox" id="exampleCheck1" />
+                                    <label for="exampleCheck1">Entrega no endereço cadastrado</label>
+                                </div>
+                            </div>
 
-                </div>
-                </section>
-                <div>
-                    <h3>Modo de Pagamento</h3>
-                    <div className="box">
-                        <div className="boxCheckbox">
-                            <input type="checkbox" className="checkbox" id="exampleCheck1" />
-                            <label for="exampleCheck1">Cartão de Debito</label>
                         </div>
-                        <div className="boxCheckbox">
-                            <input type="checkbox" className="checkbox" id="exampleCheck1" />
-                            <label for="exampleCheck1">Cartão de Credito</label>
-                        </div>
-                        <div className="boxCheckbox">
-                            <input type="checkbox" className="checkbox" id="exampleCheck1" />
-                            <label for="exampleCheck1">Dinheiro</label>
-                        </div>
-                    </div>
+                    </section>
+                    <section>
+                        <div>
+                            <h3>Modo de Pagamento</h3>
+                            <div className="box">
+                                <div className="boxCheckbox">
+                                    <input type="checkbox" className="checkbox" id="exampleCheck1" />
+                                    <label for="exampleCheck1">Cartão de Debito</label>
+                                </div>
+                                <div className="boxCheckbox">
+                                    <input type="checkbox" className="checkbox" id="exampleCheck1" />
+                                    <label for="exampleCheck1">Cartão de Credito</label>
+                                </div>
+                                <div className="boxCheckbox">
+                                    <input type="checkbox" className="checkbox" id="exampleCheck1" />
+                                    <label for="exampleCheck1">Dinheiro</label>
+                                </div>
+                            </div>
 
-                </div>
-                <div>
-                    <h3>Total</h3>
-                    <div className="totalbox">
-                        <div className="boxCheckbox">
-                            <label for="exampleCheck1">R$ </label>
+                        </div>
+                    </section>
+                    <div>
+                        <h3>Total</h3>
+                        <div className="totalbox">
+                            <div className="boxCheckbox">
+                                <label for="exampleCheck1">R$ </label>
+                            </div>
                         </div>
                     </div>
-                </div>
                 </form>
 
             </Container>
@@ -315,7 +317,15 @@ export default class Cliente extends Component {
     renderAlterarCliente = () => {
         return (
             <Container>
-                
+                <section>
+                    <div className="imagem--cliente">
+                        <h1>
+                            Aréa do Cliente
+                        </h1>
+
+                    </div>
+                </section>
+
                 <div>
                     <h3>Dados Pessoais</h3>
                     <div className="box">
@@ -327,8 +337,8 @@ export default class Cliente extends Component {
                 <div>
                     <h3>Endereço</h3>
                     <div className="box">
-                    <input name="cep" placeholder="CEP" value={this.state.cep} disabled type="text"></input>
-                        
+                        <input name="cep" placeholder="CEP" value={this.state.cep} disabled type="text"></input>
+
                         {/*<select placeholder="Bairro" onChange={this.txtIdBairro_change}>
                             {this.state.bairros.map((bairro) => (
                                 <option key={bairro.idBairro} value={bairro.idBairro}>{bairro.nomeBairro}</option>
@@ -395,81 +405,56 @@ export default class Cliente extends Component {
     renderExibirCliente = () => {
         return (
             <Container>
-                
-                <div>
-                    <h3>Dados Pessoais</h3>
-                    <div className="box">
-                        <input name="nome" placeholder="Nome Completo" value={this.state.nomeCliente} disabled type="text"></input>
-                        <input name="CPF" placeholder="CPF" value={this.state.cpf} disabled type="text"></input>
-                        <input name="telefone" placeholder="Telefone" value={this.state.telefone} disabled type="text"></input>
+                <section>
+                    <div className="imagem--cliente">
+                        <h1>
+                            Aréa do Cliente
+                        </h1>
+
                     </div>
-                </div>
-                <div>
-                    <h3>Endereço</h3>
-                    <div className="box">
-                    <input name="cep" placeholder="CEP" value={this.state.cep} disabled type="text"></input>
-                        {/*<select name="bairro" placeholder="Bairro" id="bairro" value={this.state.idBairro} disabled type="text">
+                </section>
+                <form>
+                    <section>
+
+                        <div>
+                            <h3>Dados Pessoais</h3>
+                            <div className="box">
+                                <input name="nome" placeholder="Nome Completo" value={this.state.nomeCliente} disabled type="text"></input>
+                                <input name="CPF" placeholder="CPF" value={this.state.cpf} disabled type="text"></input>
+                                <input name="telefone" placeholder="Telefone" value={this.state.telefone} disabled type="text"></input>
+                            </div>
+                        </div>
+                    </section>
+                    <section>
+                        <div>
+                            <h3>Endereço</h3>
+                            <div className="box">
+                                <input name="cep" placeholder="CEP" value={this.state.cep} disabled type="text"></input>
+                                {/*<select name="bairro" placeholder="Bairro" id="bairro" value={this.state.idBairro} disabled type="text">
                             {this.state.bairros.map((bairro) => (<option key={bairro.idBairro} value={bairro.idBairro} >{bairro.nomeBairro}</option>))}
         </select>*/}
-                        <input name="bairro" placeholder="Bairro" value={this.state.bairro} disabled type="text"></input>
-                        <input name="logradouro" placeholder="Logradouro" value={this.state.logradouro} disabled type="text"></input>
-                        <input name="numero" placeholder="Número" value={this.state.numero} disabled type="text"></input>
-                        <input name="complemento" placeholder="Complemento" value={this.state.complemento} disabled type="text"></input>
-                        <input name="referencia" placeholder="Referência" value={this.state.pontoDeReferencia} disabled type="text"></input>
+                                <input name="bairro" placeholder="Bairro" value={this.state.bairro} disabled type="text"></input>
+                                <input name="logradouro" placeholder="Logradouro" value={this.state.logradouro} disabled type="text"></input>
+                                <input name="numero" placeholder="Número" value={this.state.numero} disabled type="text"></input>
+                                <input name="complemento" placeholder="Complemento" value={this.state.complemento} disabled type="text"></input>
+                                <input name="referencia" placeholder="Referência" value={this.state.pontoDeReferencia} disabled type="text"></input>
 
-                        <div className="btnSaveEdit">
-                            <button className="btnSave" onClick={() => this.gravarNovo()} disabled> <MdSave className="save" /> </button>
-                            <button className="btnEdit" data-bs-toggle="tooltip" data-bs-placement="right" title="editar" onClick={this.iniciarAlterar}> <MdModeEdit className="edit" /> </button>
-                        </div>
+                                <div className="btnSaveEdit">
+                                    <button className="btnSave" onClick={() => this.gravarNovo()} disabled> <MdSave className="save" /> </button>
+                                    <button className="btnEdit" data-bs-toggle="tooltip" data-bs-placement="right" title="editar" onClick={this.iniciarAlterar}> <MdModeEdit className="edit" /> </button>
+                                </div>
 
+                            </div>
+                        </div>
+                    </section>
+                </form>
+                <section>
+                    <div className="finalizar">
+                        <Link to="/pedido">
+                            <button className="finalizarCompra" onClick > Cardápio <MdKeyboardArrowRight /> </button>
+                        </Link>
                     </div>
-                </div>
-                <div>
-                    <h3>Modo de Entrega</h3>
-                    <div className="box">
-                        <div className="boxCheckbox">
-                            <input type="checkbox" className="checkbox" id="exampleCheck1" />
-                            <label for="exampleCheck1">Retirada no local</label>
-                        </div>
-                        <div className="boxCheckbox">
-                            <input type="checkbox" className="checkbox" id="exampleCheck1" />
-                            <label for="exampleCheck1">Entrega no endereço cadastrado </label>
-                            <p className="textTaxa"> Valor da taxa de entrega R$ <label></label></p>
-                        </div>
-                    </div>
-
-                </div>
-                <div>
-                    <h3>Modo de Pagamento</h3>
-                    <div className="box">
-                        <div className="boxCheckbox">
-                            <input type="checkbox" className="checkbox" id="exampleCheck1" />
-                            <label for="exampleCheck1">Cartão de Debito</label>
-                        </div>
-                        <div className="boxCheckbox">
-                            <input type="checkbox" className="checkbox" id="exampleCheck1" />
-                            <label for="exampleCheck1">Cartão de Credito</label>
-                        </div>
-                        <div className="boxCheckbox">
-                            <input type="checkbox" className="checkbox" id="exampleCheck1" />
-                            <label for="exampleCheck1">Dinheiro</label>
-                        </div>
-                    </div>
-
-                </div>
-                <div>
-                    <h3>Total</h3>
-                    <div className="box">
-                        <div className="boxCheckbox">
-                            <label for="exampleCheck1">R$ </label>
-                        </div>
-                    </div>
-                </div>
-                <div className="finalizar">
-                    <Link to="/pedidoFinalizado">
-                        <button className="finalizarCompra" onClick > Finalizar Pedido <MdKeyboardArrowRight /> </button>
-                    </Link>
-                </div>
+                </section>
             </Container>
         );
     }

@@ -1,13 +1,16 @@
 .boxCPF{
     background-color: #2D2D32;
     padding: 1em;
-    width: 80%;
+    width: 55%;
     margin: 10% auto;
     border-radius: 1em;
-    display:flow-root;
-    flex-direction: column;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 .search{
-    color: #e0ccb3 ;
-    
+    align-self: center;
+    display: inline-flex;
+
 }
