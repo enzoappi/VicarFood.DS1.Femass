@@ -17,6 +17,7 @@ public class CarrinhoCompra {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idCarrinhoCompra;
     private Boolean finalizado = false;
+    private Double valorParcialTotalCompra;
 
     @OneToMany(cascade = CascadeType.ALL)
     private List<ItemCompra> itensCompra;
@@ -33,12 +34,16 @@ public class CarrinhoCompra {
         this.idCarrinhoCompra = idCarrinhoCompra;
     }
 
-    public Double getValorParcialTotalCompra() {
+    public void setValorParcialTotalCompra() {
         Double valor = 0.0;
         for(ItemCompra iC : itensCompra) {
             valor += iC.getValorParcialItem();
         }
-        return valor;
+        this.valorParcialTotalCompra = valor;
+    }
+
+    public Double getValorParcialTotalCompra() {
+        return this.valorParcialTotalCompra;
     }
 
     public List<ItemCompra> getItensCompra() {
