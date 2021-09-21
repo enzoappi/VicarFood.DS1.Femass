@@ -239,7 +239,6 @@ export default class Cliente extends Component {
                         <input name="CPF" placeholder="CPF" value={this.state.cpf} onChange={this.txtCpf_change} type="text"></input>
                         <input name="telefone" placeholder="Telefone" value={this.state.telefone} onChange={this.txtTelefone_change} type="text"></input>
                     </div>
-               
                 </section>
                 <section>
                 <div>
