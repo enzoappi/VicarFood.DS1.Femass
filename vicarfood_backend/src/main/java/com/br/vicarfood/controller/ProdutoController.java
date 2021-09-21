@@ -61,8 +61,14 @@ public class ProdutoController {
         
         for(Produto produto : produtos){
             ProdutoRequest p1 = new ProdutoRequest();
+            p1.setIdProduto(produto.getIdProduto());
+            p1.setDescricao(produto.getDescricao());            
+            p1.setNome(produto.getNome());
+            p1.setPreco(produto.getPreco());
+            p1.setSituacao(produto.getSituacao());
             p1.setTipo(produto.getTipoProduto());
             p1.setImagem(produto.getImagem());
+            pdrs.add(p1);
         }
         return pdrs;
         
