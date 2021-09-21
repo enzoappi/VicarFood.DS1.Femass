@@ -33,6 +33,12 @@ public class Produto {
     @OneToMany
     private List<Estoque> produtosEstoque;
 
+
+    public Double calcularPreco(Double n1, Double n2){
+        return n1*n2;
+    }
+
+
     public TipoProduto getTipoProduto() {
         return tipoProduto;
     }

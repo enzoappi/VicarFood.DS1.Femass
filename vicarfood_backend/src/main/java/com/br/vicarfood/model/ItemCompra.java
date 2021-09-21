@@ -18,6 +18,10 @@ public class ItemCompra {
 
     private Integer quantidadeProduto;
 
+    public Double  pegarQuantidadeProduto(Integer qtd, Double valor){
+        return qtd*valor;
+    }
+
     public Integer getQuantidadeProduto() {
         return this.quantidadeProduto;
     }
