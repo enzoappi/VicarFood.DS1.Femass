@@ -1,14 +1,7 @@
 
-.titleCarrinho{
-    display: flex;
-    flex-direction: row;    
-    background-color: #AD2610;
-    width: 80%;
-    margin: 0 auto;
-    justify-content: center;
-    border-radius: 5px;
-    padding: 5px;
-    font-size: 30px;
+.imagem--carrinho{
+    background-image: url(../../assets/images/bg_1.jpg);
+    height: 250px;
 }
 .btnCompra{
     display: flex;
@@ -75,4 +68,11 @@ div.btnDelete {
 }
 .coluna1{
     width: 40%;
+}
+h2{
+    filter: drop-shadow(2px 4px 6px black);
+    padding-top: 140px;
+    display: flex;
+    justify-content: space-around;
+    align-self: center;
 }

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Container from '../../Container'
 import './Costela.css'
 
-import { MdAddCircle, MdRemoveCircle } from "react-icons/md";
+import { MdAddCircle, MdRemoveCircle, MdAddShoppingCart} from "react-icons/md";
 
 export default class cadCostela extends Component {
 
@@ -24,7 +24,7 @@ export default class cadCostela extends Component {
                 this.setState({ quantidadeProduto: this.state.quantidadeProduto + 1 })
         }
 
-        remQuantidadeProduto_change = (event) => {
+        removeQuantidadeProduto_change = (event) => {
                 if(this.state.quantidadeProduto > 0) {
                         this.setState({ quantidadeProduto: this.state.quantidadeProduto - 1 })
                 }
@@ -57,7 +57,6 @@ export default class cadCostela extends Component {
                 let url = window.servidor + 'carrinhoCompra/incluir'
         
                 fetch(url, requestOptions);
-        
         }
 
         Costelas = () => {
@@ -87,7 +86,7 @@ export default class cadCostela extends Component {
                                                                                 <button className="add" onClick={this.remQuantidadeProduto_change} ><MdRemoveCircle /></button>
                                                                                 <input className="quantidade" value={ this.state.quantidadeProduto } disabled type="quantidade" />
                                                                                 <button className="add" onClick={this.addQuantidadeProduto_change} ><MdAddCircle /></button>
-                                                                                <button className="add" onClick={() => this.addItem(produto.idProduto)} ><MdRemoveCircle /></button>
+                                                                                <button className="addCart" onClick={() => this.addItem(produto.idProduto)} ><MdAddShoppingCart /></button>
                                                                         </div>
                                                                 </div>
                                                         </div>

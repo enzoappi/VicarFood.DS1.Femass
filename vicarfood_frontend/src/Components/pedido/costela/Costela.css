@@ -52,3 +52,9 @@ div.listaCostela{
     object-fit: cover;
     object-position: center;
 }
+.addCart{
+    font-size: 25px;
+    align-self: center;    
+    color: #E0CCB3;
+    padding-left: 15px;
+}

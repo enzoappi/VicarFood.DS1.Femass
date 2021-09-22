@@ -246,21 +246,8 @@ export default class Cliente extends Component {
                             <h3>Endereço</h3>
                             <div className="box">
                                 <input name="cep" placeholder="CEP" value={this.state.cep} disabled type="text"></input>
+
                                 {/*<select placeholder="Bairro" value={this.state.idBairro} onChange={this.txtIdBairro_change}>
-                <section>
-                    <h3>Dados Pessoais</h3>
-                    <div className="box">
-                        <input name="nome" placeholder="Nome Completo" value={this.state.nome} onChange={this.txtNome_change} type="text"></input>
-                        <input name="CPF" placeholder="CPF" value={this.state.cpf} onChange={this.txtCpf_change} type="text"></input>
-                        <input name="telefone" placeholder="Telefone" value={this.state.telefone} onChange={this.txtTelefone_change} type="text"></input>
-                    </div>
-                </section>
-                <section>
-                <div>
-                    <h3>Endereço</h3>
-                    <div className="box">
-                    <input name="cep" placeholder="CEP" value={this.state.cep} disabled type="text"></input>
-                        {/*<select placeholder="Bairro" value={this.state.idBairro} onChange={this.txtIdBairro_change}>
                             {this.state.bairros.map((bairro) => (<option key={bairro.idBairro} value={bairro.idBairro}>{bairro.nomeBairro}</option>))}
         </select>*/}
                                 <input name="bairro" placeholder="Bairro" value={this.state.bairro} disabled type="text"></input>
@@ -277,51 +264,10 @@ export default class Cliente extends Component {
                             </div>
                         </div>
                     </section>
-                    <section>
-                        <div>
-                            <h3>Modo de Entrega</h3>
-                            <div className="box">
-                                <div className="boxCheckbox">
-                                    <input type="checkbox" className="checkbox" id="exampleCheck1" />
-                                    <label for="exampleCheck1">Retirada no local</label>
-                                </div>
-                                <div className="boxCheckbox">
-                                    <input type="checkbox" className="checkbox" id="exampleCheck1" />
-                                    <label for="exampleCheck1">Entrega no endereço cadastrado</label>
-                                </div>
-                            </div>
-
-                        </div>
-                    </section>
-                    <section>
-                        <div>
-                            <h3>Modo de Pagamento</h3>
-                            <div className="box">
-                                <div className="boxCheckbox">
-                                    <input type="checkbox" className="checkbox" id="exampleCheck1" />
-                                    <label for="exampleCheck1">Cartão de Debito</label>
-                                </div>
-                                <div className="boxCheckbox">
-                                    <input type="checkbox" className="checkbox" id="exampleCheck1" />
-                                    <label for="exampleCheck1">Cartão de Credito</label>
-                                </div>
-                                <div className="boxCheckbox">
-                                    <input type="checkbox" className="checkbox" id="exampleCheck1" />
-                                    <label for="exampleCheck1">Dinheiro</label>
-                                </div>
-                            </div>
-
-                        </div>
-                    </section>
-                    <div>
-                        <h3>Total</h3>
-                        <div className="totalbox">
-                            <div className="boxCheckbox">
-                                <label for="exampleCheck1">R$ </label>
-                            </div>
-                        </div>
-                    </div>
                 </form>
+                <div className="space">
+
+                </div>
 
             </Container>
         );

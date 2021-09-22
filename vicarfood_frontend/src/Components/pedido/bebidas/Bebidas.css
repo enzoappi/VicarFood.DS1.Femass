@@ -42,3 +42,9 @@ div.listaBebida{
 .add:hover{
     color: #FDC029;
 }
+.addCart{
+    font-size: 25px;
+    align-self: center;    
+    color: #E0CCB3;
+    padding-left: 15px;
+}

@@ -71,3 +71,9 @@ div.btnSaveEdit {
     height: 500px;
 
 }
+.space{
+    height: 90px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}

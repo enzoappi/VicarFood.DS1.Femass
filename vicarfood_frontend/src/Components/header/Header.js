@@ -4,7 +4,7 @@ import './Header.css'
 import vicar_sgv from "../../assets/images/vicar_sgv.svg"
 
 import styled from 'styled-components';
-import { MdAddShoppingCart } from "react-icons/md";
+import { MdShoppingCart } from "react-icons/md";
 
 const Logo = styled.img`
   height: 46px;
@@ -36,7 +36,7 @@ const Header = () => (
                 </a>  
                 <a href="/carrinho">
                     <p className="carrinho">
-                    <MdAddShoppingCart />
+                    <MdShoppingCart />
                     </p>
                 </a>        
             </div>
