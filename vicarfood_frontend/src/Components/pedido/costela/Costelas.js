@@ -9,19 +9,57 @@ export default class cadCostela extends Component {
         componentDidMount() {
                 this.carregarLista()
         }
+
         state = {
+                idProduto: "",
                 nome: "",
                 descricao: "",
                 preco: "",
                 produtos: [],
-                imagem: ""
+                imagem: "",
+                quantidadeProduto: 0
         }
+
+        addQuantidadeProduto_change = (event) => {
+                this.setState({ quantidadeProduto: this.state.quantidadeProduto + 1 })
+        }
+
+        remQuantidadeProduto_change = (event) => {
+                if(this.state.quantidadeProduto > 0) {
+                        this.setState({ quantidadeProduto: this.state.quantidadeProduto - 1 })
+                }
+        }
+
         carregarLista = () => {
                 const url = window.servidor + "produto/costela"
                 fetch(url)
                         .then(response => response.json())
                         .then(data => this.setState({ produtos: data }));
         }
+
+        addItem = (id) => {
+                const dadosProduto = {
+                        "idProduto": id,
+                        "quantidadeProduto": this.state.quantidadeProduto
+                }
+        
+                console.log(dadosProduto)
+        
+                let requestOptions = {
+                        method: 'POST',
+                        headers: {
+                                'Content-Type': 'application/json'
+                        },
+        
+                        body: JSON.stringify(dadosProduto)
+                };
+        
+                let url = window.servidor + 'carrinhoCompra/incluir'
+        
+                fetch(url, requestOptions);
+        
+        }
+
         Costelas = () => {
                 return (
                         <Container>
@@ -35,7 +73,7 @@ export default class cadCostela extends Component {
                                 <section>
                                         <div className="main--costela">
                                                 {this.state.produtos && this.state.produtos.map(produto => {
-                                                        return <div key={produto.id}>
+                                                        return <div key={produto.idProduto}>
                                                                 <div className="listaCostela">
                                                                         <div>
                                                                                 <img className="imagem--costela2" src={produto.imagem} />
@@ -46,9 +84,10 @@ export default class cadCostela extends Component {
                                                                                 <label>R$ {produto.preco}</label>
                                                                         </div>
                                                                         <div>
-                                                                                <a className="add"><MdRemoveCircle /></a>
-                                                                                <input className="quantidade" type="quantidade" />
-                                                                                <a className="add">< MdAddCircle/></a>
+                                                                                <button className="add" onClick={this.remQuantidadeProduto_change} ><MdRemoveCircle /></button>
+                                                                                <input className="quantidade" value={ this.state.quantidadeProduto } disabled type="quantidade" />
+                                                                                <button className="add" onClick={this.addQuantidadeProduto_change} ><MdAddCircle /></button>
+                                                                                <button className="add" onClick={() => this.addItem(produto.idProduto)} ><MdRemoveCircle /></button>
                                                                         </div>
                                                                 </div>
                                                         </div>

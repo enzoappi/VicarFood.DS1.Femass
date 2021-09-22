@@ -247,6 +247,20 @@ export default class Cliente extends Component {
                             <div className="box">
                                 <input name="cep" placeholder="CEP" value={this.state.cep} disabled type="text"></input>
                                 {/*<select placeholder="Bairro" value={this.state.idBairro} onChange={this.txtIdBairro_change}>
+                <section>
+                    <h3>Dados Pessoais</h3>
+                    <div className="box">
+                        <input name="nome" placeholder="Nome Completo" value={this.state.nome} onChange={this.txtNome_change} type="text"></input>
+                        <input name="CPF" placeholder="CPF" value={this.state.cpf} onChange={this.txtCpf_change} type="text"></input>
+                        <input name="telefone" placeholder="Telefone" value={this.state.telefone} onChange={this.txtTelefone_change} type="text"></input>
+                    </div>
+                </section>
+                <section>
+                <div>
+                    <h3>Endereço</h3>
+                    <div className="box">
+                    <input name="cep" placeholder="CEP" value={this.state.cep} disabled type="text"></input>
+                        {/*<select placeholder="Bairro" value={this.state.idBairro} onChange={this.txtIdBairro_change}>
                             {this.state.bairros.map((bairro) => (<option key={bairro.idBairro} value={bairro.idBairro}>{bairro.nomeBairro}</option>))}
         </select>*/}
                                 <input name="bairro" placeholder="Bairro" value={this.state.bairro} disabled type="text"></input>
